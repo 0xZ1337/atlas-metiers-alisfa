@@ -1253,9 +1253,241 @@ a { color: var(--alisfa-navy); }
   fill: #fff;
 }
 #rosaceSvg .label-family {
-  font-family: 'Nunito', sans-serif; font-size: 12px;
+  font-family: 'Nunito', sans-serif; font-size: 13px;
   font-weight: 800; pointer-events: none;
-  fill: #fff; letter-spacing: 0.08em;
+  fill: #fff; letter-spacing: 0.06em;
+}
+
+/* ─── Encart Règles de financement ALISFA ─── */
+.rules-section {
+  max-width: 1200px;
+  margin: 36px auto;
+  padding: 0 24px;
+}
+.rules-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, .04);
+}
+.rules-card__head {
+  background: linear-gradient(135deg, var(--alisfa-navy) 0%, #2d4373 100%);
+  color: #fff;
+  padding: 22px 24px 18px;
+}
+.rules-card__head h2 {
+  margin: 0 0 6px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.rules-card__head .sub {
+  font-size: 13.5px;
+  opacity: .85;
+  line-height: 1.5;
+}
+.rules-card__head .src {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 11.5px;
+  background: rgba(255,255,255,0.14);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.rules-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--paper-2);
+}
+.rules-tab {
+  padding: 12px 18px;
+  border: none;
+  background: transparent;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--alisfa-navy);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: background .15s, border-color .15s;
+}
+.rules-tab:hover { background: rgba(15,23,42,.04); }
+.rules-tab[aria-selected="true"] {
+  background: var(--paper);
+  border-bottom-color: var(--alisfa-orange);
+  color: var(--alisfa-orange);
+}
+.rules-tab .num {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  background: var(--alisfa-navy);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 800;
+  margin-right: 6px;
+}
+.rules-tab[aria-selected="true"] .num { background: var(--alisfa-orange); }
+.rules-panel {
+  display: none;
+  padding: 22px 24px;
+}
+.rules-panel.is-active { display: block; }
+.rules-panel h3 {
+  margin: 0 0 4px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  color: var(--alisfa-navy);
+}
+.rules-panel .lead {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 18px;
+  font-style: italic;
+}
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.rules-block {
+  background: var(--paper-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  border-left: 4px solid var(--alisfa-navy);
+}
+.rules-block.--orange { border-left-color: var(--alisfa-orange); }
+.rules-block.--mauve  { border-left-color: var(--alisfa-mauve); }
+.rules-block.--teal   { border-left-color: var(--alisfa-teal); }
+.rules-block.--green  { border-left-color: #6B8E5C; }
+.rules-block h4 {
+  margin: 0 0 6px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--alisfa-navy);
+}
+.rules-block .public {
+  font-size: 11.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+.rules-block ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--text);
+}
+.rules-block ul li { margin-bottom: 3px; }
+.rules-block strong { color: var(--alisfa-navy); }
+.rules-block .pec {
+  display: inline-block;
+  background: var(--alisfa-navy);
+  color: #fff;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+.rules-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  margin: 12px 0 16px;
+}
+.rules-table th, .rules-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.rules-table thead th {
+  background: var(--alisfa-navy);
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.rules-table tbody tr:nth-child(even) { background: var(--paper-2); }
+.rules-callout {
+  background: #FEF3E2;
+  border: 1px solid #F2C58C;
+  border-left: 4px solid var(--alisfa-orange);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin: 12px 0;
+  font-size: 12.5px;
+  color: #5D3B1B;
+  line-height: 1.55;
+}
+.rules-callout strong { color: var(--alisfa-orange); }
+.rules-section .footnote {
+  margin-top: 16px;
+  font-size: 11.5px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Légende familles (lisible horizontalement) */
+.rosace-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  background: var(--paper-2);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.rosace-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--paper);
+  border: 1.5px solid transparent;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--alisfa-navy);
+  cursor: pointer;
+  transition: all .15s;
+}
+.rosace-legend__item:hover {
+  border-color: currentColor;
+  transform: translateY(-1px);
+}
+.rosace-legend__item.is-active {
+  background: var(--col, #1a2a53);
+  color: #fff;
+  border-color: var(--col, #1a2a53);
+}
+.rosace-legend__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex: none;
+}
+.rosace-legend__count {
+  font-size: 11px;
+  font-weight: 600;
+  opacity: .75;
 }
 #rosaceSvg .center-bg { fill: var(--alisfa-navy); }
 #rosaceSvg .center-t1 { fill: #fff; font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 800; }
@@ -2149,6 +2381,7 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
           </span>
         </div>
         <p class="rosace__hint">Cliquez sur un métier au survol pour le sélectionner. Les autres métiers se colorent alors selon leur taux de transfert pondéré (compétences communes).</p>
+        <div class="rosace-legend" id="rosaceLegend" role="group" aria-label="Familles de métiers"></div>
         <div class="rosace-svg-wrap">
           <svg id="rosaceSvg" viewBox="0 0 600 600" role="img" aria-label="Rosace interactive des métiers ALISFA"></svg>
         </div>
@@ -2795,6 +3028,361 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
           <tr><td class="num">15</td><td><strong>Pas d'API ouverte</strong> (SIRH structures, OPCO Cohésion, France Travail, partenaires CPNEF).</td><td>Silos d'information.</td><td><span class="sev sev-l">faible</span></td></tr>
         </tbody>
       </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RÈGLES DE FINANCEMENT ALISFA 2026 ============================== -->
+<section class="rules-section" aria-label="Règles de financement de la formation ALISFA 2026">
+  <div class="rules-card">
+    <header class="rules-card__head">
+      <h2>Règles de financement ALISFA 2026 — version 13 mars 2026</h2>
+      <p class="sub">
+        Cadre exhaustif de prise en charge par la branche ALISFA et l'OPCO Cohésion (Uniformation).
+        Les dispositifs sont organisés en quatre volets selon leur source de financement (légaux, alternance, conventionnels, exceptionnels CPNEF 0,2 %).
+      </p>
+      <span class="src">Source : tableau-des-regles-de-financement-alisfa-2026 (CPNEF · 13 mars 2026)</span>
+    </header>
+
+    <div class="rules-tabs" role="tablist">
+      <button class="rules-tab" role="tab" aria-selected="true"  data-rt="r1"><span class="num">1</span>Plan de développement (fonds légaux)</button>
+      <button class="rules-tab" role="tab" aria-selected="false" data-rt="r2"><span class="num">2</span>Alternance</button>
+      <button class="rules-tab" role="tab" aria-selected="false" data-rt="r3"><span class="num">3</span>Fonds conventionnels</button>
+      <button class="rules-tab" role="tab" aria-selected="false" data-rt="r4"><span class="num">4</span>CPNEF 0,2 %</button>
+      <button class="rules-tab" role="tab" aria-selected="false" data-rt="r5"><span class="num">⌗</span>Barèmes & frais annexes</button>
+      <button class="rules-tab" role="tab" aria-selected="false" data-rt="r6"><span class="num">📜</span>Niveaux PEC diplômes</button>
+      <button class="rules-tab" role="tab" aria-selected="false" data-rt="r7"><span class="num">📖</span>Glossaire</button>
+    </div>
+
+    <!-- ─── 1. PLAN DE DÉVELOPPEMENT — Fonds légaux ─── -->
+    <div class="rules-panel is-active" id="r1" role="tabpanel">
+      <h3>1. Sur les fonds légaux du plan de développement des compétences</h3>
+      <p class="lead">Bénéficiaires : structures de moins de 50 salariés à jour du versement de leur contribution conventionnelle.</p>
+
+      <div class="rules-grid">
+        <div class="rules-block --orange">
+          <div class="public">Catalogue transversal national / DOM</div>
+          <h4>Formations collectives Uniformation</h4>
+          <ul>
+            <li><strong>Coûts pédagogiques</strong> pris en charge par Uniformation, hors plafond DAF</li>
+            <li><strong>Repas du midi</strong> en collectif pris en charge ; autres frais annexes via DAF dédiée</li>
+            <li><strong>Pas de DAF</strong> à saisir — inscription directe via l'espace adhérent Uniformation</li>
+            <li><strong>Pas de prise en charge</strong> de la rémunération</li>
+            <li>Thématiques : RH, droit social, QVCT, management, finances, AFEST, tutorat, IA, etc.</li>
+          </ul>
+        </div>
+
+        <div class="rules-block --mauve">
+          <div class="public">DAF légale — toute structure &lt; 50 sal.</div>
+          <h4>Demande d'Aide Financière</h4>
+          <ul>
+            <li><strong>Plafond 5 000 €</strong> par DAF (fonds légaux)</li>
+            <li><strong>1 à 4 stagiaires</strong> : 65 € TTC/h si formation ≤ 105 h · 15 € TTC/h si &gt; 105 h</li>
+            <li><strong>5 stagiaires et plus</strong> : 1 800 € TTC / jour</li>
+            <li>Public : salarié·es (DAF &lt; 5) ou salarié·es + bénévoles (DAF ≥ 5)</li>
+            <li>Modalités : présentiel et FOAD</li>
+          </ul>
+        </div>
+
+        <div class="rules-block --teal">
+          <div class="public">Plafonds de DAF par an</div>
+          <h4>Nombre de DAF par SIREN</h4>
+          <ul>
+            <li><strong>&lt; 11 salariés</strong> (EMA) : 7 DAF / an</li>
+            <li><strong>11 à 49 salariés</strong> : 10 DAF / an</li>
+            <li><strong>≥ 50 salariés</strong> : 25 DAF / an (fonds conventionnels)</li>
+            <li>1 seule DAF/an sur fonds légaux par SIREN</li>
+          </ul>
+        </div>
+
+        <div class="rules-block --green">
+          <div class="public">Dispositifs spécifiques</div>
+          <h4>VAE, formations internes, DROM</h4>
+          <ul>
+            <li><strong>VAE simple</strong> : prise en charge au réel, plafond 3 000 €</li>
+            <li><strong>VAE mixte</strong> (avec heures de formation) : 5 000 € total · 3 000 € accompagnement + heures à 65 €/h</li>
+            <li><strong>Formation interne</strong> : salaire formateur 15 € ou 65 €/h selon durée</li>
+            <li><strong>DROM</strong> : surcoûts de trajet pris en charge si formation indisponible localement (billet classe éco)</li>
+            <li><strong>Rémunération &lt; 11 sal.</strong> : 13 €/h forfaitaire (avec remplacement)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rules-callout">
+        <strong>Sans plafond de DAF</strong> (dans la limite des fonds disponibles) sur les thématiques :
+        développement RH des TPE · Illettrisme &amp; CléA · médiation politiques de la ville ·
+        transitions et mutations (écologie, IA) · violences sexistes et sexuelles ·
+        santé mentale · santé/sécurité des CSE et référents.
+      </div>
+    </div>
+
+    <!-- ─── 2. ALTERNANCE ─── -->
+    <div class="rules-panel" id="r2" role="tabpanel">
+      <h3>2. Sur les fonds de l'alternance</h3>
+      <p class="lead">Bénéficiaires : toutes les structures de la branche à jour de leur contribution conventionnelle.</p>
+
+      <div class="rules-grid">
+        <div class="rules-block --orange">
+          <div class="public">Contrat d'apprentissage</div>
+          <h4>Cadre RNCP — coût-contrat</h4>
+          <ul>
+            <li><strong>16 à 29 ans</strong> · jusqu'à 35 ans si suite d'un précédent contrat ou rupture pour inaptitude</li>
+            <li><strong>Sans limite d'âge</strong> : travailleurs handicapés, projet création/reprise, sportifs haut niveau</li>
+            <li>Durée : 6 mois à 3 ans (4 ans si handicap ou sportif HN)</li>
+            <li>Formation théorique : ≥ 25 % du contrat</li>
+            <li>Tutorat (maître d'apprentissage) <strong>obligatoire</strong></li>
+            <li>Niveau de PEC : voir l'onglet « Niveaux PEC diplômes »</li>
+          </ul>
+        </div>
+
+        <div class="rules-block --teal">
+          <div class="public">Contrat de professionnalisation</div>
+          <h4>Forfait horaire — co-financement</h4>
+          <ul>
+            <li>Public : 16-25 ans (formation initiale), 26 ans+ demandeurs d'emploi, RSA / ASS / AAH, ex-CUI</li>
+            <li>Coût pédagogique : <strong>18 € / h</strong> (15 € alternance + 3 € conventionnel)</li>
+            <li>Handicap ou DROM : <strong>21 € / h</strong> (+3 €)</li>
+            <li>Durée : 6 à 24 mois · 15 à 50 % du temps en formation, min. 150 h/an</li>
+            <li>Certifications : RNCP, CCN, CQP/CQPI</li>
+          </ul>
+        </div>
+
+        <div class="rules-block --mauve">
+          <div class="public">Tutorat &amp; maître d'apprentissage</div>
+          <h4>Primes &amp; formation</h4>
+          <ul>
+            <li><strong>Prime tuteur Pro</strong> : 50 € brut/mois/salarié tutoré · max 100 €/mois (depuis le 1er janvier 2022)</li>
+            <li><strong>Aide tutorale réinstaurée 1er janv. 2026</strong> : 230 €/mois pendant 6 mois (1 380 €) · 345 €/mois si tuteur d'un alternant en situation de handicap</li>
+            <li><strong>Formation tuteur/maître</strong> : forfait 15 € HT/h · max 40 h · obligatoire pour 1ʳᵉ mission de tutorat</li>
+          </ul>
+        </div>
+
+        <div class="rules-block --green">
+          <div class="public">PREC — nouveau dispositif 2026</div>
+          <h4>Période de reconversion</h4>
+          <ul>
+            <li><strong>Remplace la Pro-A</strong> au 1er janvier 2026</li>
+            <li>Déploiement opérationnel progressif au cours de 2026</li>
+            <li>Modalités de mise en place et de prise en charge en cours d'élaboration par la CPNEF</li>
+            <li>Solliciter votre conseiller·e Uniformation pour l'avancement</li>
+          </ul>
+        </div>
+
+        <div class="rules-block">
+          <div class="public">Frais annexes apprentis (par CFA)</div>
+          <h4>Plafonds spécifiques</h4>
+          <ul>
+            <li>Restauration : <strong>3 € / repas</strong> (coût réel)</li>
+            <li>Hébergement : <strong>6 € / nuitée</strong> (coût réel)</li>
+            <li>Premier équipement : coût réel limite <strong>500 €</strong></li>
+            <li>Mobilité européenne &amp; internationale : forfait <strong>500 €</strong></li>
+            <li>Engagés par le CFA uniquement (pas par employeur ou apprenti)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── 3. FONDS CONVENTIONNELS ─── -->
+    <div class="rules-panel" id="r3" role="tabpanel">
+      <h3>3. Sur les fonds conventionnels</h3>
+      <p class="lead">
+        Bénéficiaires : toutes les structures de la branche à jour de leur contribution conventionnelle (article 2.1.4 — entreprises de 50 salariés et plus inclus).
+      </p>
+
+      <table class="rules-table">
+        <thead>
+          <tr><th>Dispositif</th><th>Coûts pédagogiques</th><th>Frais annexes</th><th>Rémunération</th><th>Particularité</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>DAF &lt; 11 salariés</strong> (EMA)</td><td>1-4 stag. : 65 €/h (≤105 h) · 15 €/h (&gt;105 h)<br>5+ stag. : 1 800 €/jour</td><td>Barèmes OPCO</td><td>Forfait 13 €/h (-11 sal.) avec obligation de remplacement</td><td>Plafond 5 000 €</td></tr>
+          <tr><td><strong>DAF 11-49 salariés</strong></td><td>idem</td><td>Barèmes OPCO</td><td>—</td><td>Plafond 5 000 €</td></tr>
+          <tr><td><strong>DAF ≥ 50 salariés</strong></td><td>idem</td><td>Barèmes OPCO</td><td>—</td><td>Plafond 5 000 € · dérogations DROM possibles</td></tr>
+          <tr><td><strong>ACT</strong> (Actions Collectives Territoriales)</td><td>1 800 € / jour max</td><td>Barèmes OPCO</td><td>—</td><td>≥ 2 structures · &gt; 20 000 € → CTP CPNEF</td></tr>
+          <tr><td><strong>ACN</strong> (Actions Collectives Nationales)</td><td>1 800 € / jour max</td><td>Barèmes OPCO</td><td>—</td><td>Multi-territoires · nouvelle procédure depuis 1er juillet 2025</td></tr>
+          <tr><td><strong>DAF certifiante</strong></td><td>Coût réel limite 15 €/h</td><td>—</td><td>—</td><td>≥ 70 h · démarrage 1ᵉʳ janv. – 30 juin 2026 (transitoire PREC)</td></tr>
+          <tr><td><strong>DAF prépa concours</strong></td><td>3 000 € maximum / dossier</td><td>—</td><td>—</td><td>Tous concours d'entrée institut</td></tr>
+          <tr><td><strong>DAF jury examen / VAE</strong></td><td>—</td><td>—</td><td>Forfait 15 €/h sur temps de travail</td><td>RNCP &amp; RS</td></tr>
+          <tr><td><strong>DAF VAE</strong></td><td>VAE simple : 3 000 €<br>VAE mixte : 5 000 € total</td><td>Barèmes OPCO</td><td>Réel</td><td>Plateforme France VAE</td></tr>
+          <tr><td><strong>DAF 100 % dirigeants bénévoles</strong></td><td>15 €/h (&gt;105 h) · 65 €/h · 1 800 €/jour</td><td>—</td><td>—</td><td>Article 2.1.5 · CA, bureau, commissions</td></tr>
+          <tr><td><strong>ACT 100 % dirigeants bénévoles</strong></td><td>1 800 € / jour</td><td>—</td><td>—</td><td>Pluri-annuelle possible</td></tr>
+          <tr><td><strong>Complément contrat de pro</strong></td><td>+3 € / h sur fonds conventionnels</td><td>—</td><td>—</td><td>Co-financement avec alternance</td></tr>
+          <tr><td><strong>Prime tuteur Pro</strong></td><td>—</td><td>—</td><td>50 € brut/mois · max 100 €/mois</td><td>Sur durée du contrat de pro</td></tr>
+          <tr><td><strong>PCRH</strong> — Prestation conseil RH</td><td>—</td><td>—</td><td>—</td><td>Diagnostic + accompagnement ≤ 6 jours · co-financement OPCO sans reste à charge</td></tr>
+          <tr><td><strong>Complément PIC IAE</strong></td><td>Dépassements au-delà de 26 €/h</td><td>Barèmes OPCO</td><td>—</td><td>Insertion par activité économique</td></tr>
+          <tr><td><strong>DAF compl. FA Catalogue Uniformation</strong></td><td>—</td><td>Barèmes OPCO</td><td>—</td><td>Frais annexes du catalogue uniquement</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ─── 4. CPNEF 0,2 % ─── -->
+    <div class="rules-panel" id="r4" role="tabpanel">
+      <h3>4. Financements exceptionnels CPNEF 0,2 %</h3>
+      <p class="lead">Pour toutes les structures de la branche. Demande à adresser via <a href="https://www.alisfa.fr" rel="noopener" target="_blank">alisfa.fr</a> ou par mail à <a href="mailto:cpnef@cpnef.com">cpnef@cpnef.com</a>.</p>
+
+      <div class="rules-grid">
+        <div class="rules-block --orange">
+          <div class="public">APP — Analyse des Pratiques Professionnelles</div>
+          <h4>Équipes</h4>
+          <ul>
+            <li>Coût d'encadrement : <strong>280 € / jour / stagiaire</strong> (40 €/h max)</li>
+            <li>Plafond annuel : <strong>1 500 € (-50 sal.)</strong> · <strong>3 000 € (+50 sal.)</strong></li>
+            <li>Multi-établissements : 1 500 €/SIRET · plafond global 15 000 € (10 établissements)</li>
+            <li>Prestataire : Qualiopi obligatoire</li>
+          </ul>
+        </div>
+
+        <div class="rules-block --mauve">
+          <div class="public">APP de Direction</div>
+          <h4>Encadrement supérieur uniquement</h4>
+          <ul>
+            <li>Public : Directeur·rice, DG, DGA, Délégué·e général·e, Responsable technique EAJE</li>
+            <li>Budget : <strong>300 € / an / SIRET</strong> · max 3 000 € global</li>
+            <li>Plafond horaire : 40 €/h</li>
+          </ul>
+        </div>
+
+        <div class="rules-block --teal">
+          <div class="public">Conférences, colloques, séminaires</div>
+          <h4>Remboursement frais d'inscription</h4>
+          <ul>
+            <li>Coûts : <strong>200 € / jour / stagiaire</strong></li>
+            <li>Bénévoles : max <strong>6 journées / an / structure</strong></li>
+            <li>&lt; 2 000 € : demande directe dans les 3 mois post-action (avant 31 janv. 2026)</li>
+            <li><strong>Nouveauté 2026</strong> : &gt; 2 000 € → étude par membres CTP avant accord</li>
+            <li>Les AG d'association/fédération/syndicat ne sont pas éligibles</li>
+          </ul>
+        </div>
+
+        <div class="rules-block --green">
+          <div class="public">Soutien organisation conférence</div>
+          <h4>Co-financement événement structure</h4>
+          <ul>
+            <li>Examen individuel par CTP · demande au moins 1 mois avant</li>
+            <li>Couvre coûts pédagogiques, intervenants, frais annexes, salle, webinaire</li>
+            <li>≥ 1 intervenant externe à la structure obligatoire</li>
+            <li>Thématiques liées à l'activité &amp; aux compétences métiers</li>
+          </ul>
+        </div>
+
+        <div class="rules-block">
+          <div class="public">Projets innovants</div>
+          <h4>Caractère expérimental</h4>
+          <ul>
+            <li>Action présentant un caractère innovant : thématique émergente, innovation territoriale, parcours, pédagogique</li>
+            <li>Toutes thématiques · salarié·es et bénévoles (groupe majoritairement salarié)</li>
+            <li>Couvre coûts pédagogiques + frais annexes</li>
+            <li>Demande au minimum 1 mois avant l'action et 15 jours calendaires avant le CTP</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rules-callout">
+        <strong>Procédure remboursement &gt; 2 000 €</strong> : la structure doit saisir une demande de remboursement étudiée par les membres du CTP qui pourront accorder tout ou partie de l'action. Dates des CTP disponibles sur <a href="https://www.alisfa.fr">alisfa.fr</a>.
+      </div>
+    </div>
+
+    <!-- ─── 5. BARÈMES OPCO ─── -->
+    <div class="rules-panel" id="r5" role="tabpanel">
+      <h3>Barèmes de prise en charge OPCO Cohésion (Uniformation)</h3>
+      <p class="lead">Coûts pédagogiques par modalité pédagogique (présentiel, FOAD, mixte) et frais annexes plafonnés. Justificatifs à conserver en cas de contrôle.</p>
+
+      <table class="rules-table">
+        <thead>
+          <tr><th>Action éligible</th><th>Modalité</th><th>Coût pédagogique pris en charge</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Action ≤ 105 heures</td><td>Toute modalité</td><td>1-4 stagiaires : <strong>65 € TTC / h</strong> · 5+ stagiaires : <strong>1 800 € TTC / jour</strong></td></tr>
+          <tr><td>Action &gt; 105 heures</td><td>Toute modalité</td><td>1-4 stagiaires : <strong>15 € TTC / h</strong> · 5+ stagiaires : <strong>1 800 € TTC / jour</strong></td></tr>
+          <tr><td>Formations internes</td><td>Salaire chargé du formateur</td><td>15 € TTC/h ou 65 € TTC/h selon durée · frais externes (salle, matériel) sur facture</td></tr>
+          <tr><td>CléA</td><td>Socle de connaissances et compétences professionnelles</td><td>Formation : 15 € TTC/h · évaluation préalable : <strong>450 € HT max</strong> · évaluation finale : <strong>250 € HT max</strong></td></tr>
+          <tr><td>VAE</td><td>Simple ou mixte (France VAE)</td><td>Simple : <strong>3 000 €</strong> · Mixte : 5 000 € total (3 000 € + heures à 65 €/h)</td></tr>
+        </tbody>
+      </table>
+
+      <h4 style="font-family:'Nunito',sans-serif;color:var(--alisfa-navy);margin:18px 0 6px">Frais annexes — plafonds OPCO</h4>
+      <table class="rules-table">
+        <thead>
+          <tr><th>Catégorie</th><th>Plafond / Forfait</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Repas</td><td><strong>30 € / stagiaire</strong></td></tr>
+          <tr><td>Hébergement Île-de-France / Paris intra-muros</td><td><strong>200 € / stagiaire</strong></td></tr>
+          <tr><td>Hébergement province / DROM</td><td><strong>150 € / stagiaire</strong></td></tr>
+          <tr><td>Petits déplacements en agglomération (bus, tram, métro, taxi)</td><td>Aux frais réels</td></tr>
+          <tr><td>SNCF</td><td>Frais réels (justificatifs requis)</td></tr>
+          <tr><td>Avion</td><td>Billet classe économique · DROM admis si pas d'offre locale</td></tr>
+          <tr><td>Voiture personnelle</td><td>Exception · barème fiscal 6 chevaux DGFiP · péages &amp; parkings au réel</td></tr>
+          <tr><td>Frais de garde d'enfants ou parents à charge</td><td>Coût supporté par stagiaire si formation hors temps de travail</td></tr>
+          <tr><td>Rémunération stagiaires (-11 salariés)</td><td>Forfait <strong>13 € / h</strong> · obligation de remplacement (hors CUI/PEC/CPRO)</td></tr>
+        </tbody>
+      </table>
+
+      <div class="rules-callout">
+        <strong>Hors temps de travail</strong> : les formations hors TT ne peuvent dépasser <strong>30 h / an / salarié</strong> ou 2 % du forfait jours/heures. Cette disposition s'applique aussi aux formations asynchrones.
+      </div>
+    </div>
+
+    <!-- ─── 6. NIVEAUX PEC DIPLÔMES ─── -->
+    <div class="rules-panel" id="r6" role="tabpanel">
+      <h3>Niveaux de prise en charge des contrats d'apprentissage par diplôme</h3>
+      <p class="lead">Mise à jour au 4 septembre 2025. Coût-contrat annuel proratisé sur la durée du contrat. Référentiel France compétences.</p>
+
+      <table class="rules-table">
+        <thead>
+          <tr><th>Intitulé du diplôme</th><th>Code RNCP</th><th>Niveau de PEC (€)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>CAP Accompagnant éducatif petite enfance</td><td>RNCP28048 / RNCP38565</td><td><span class="pec">6 467 €</span></td></tr>
+          <tr><td>DE Auxiliaire de puériculture</td><td>RNCP35832 / RNCP40743</td><td><span class="pec">8 100 €</span></td></tr>
+          <tr><td>DE Éducateur de jeunes enfants (EJE)</td><td>RNCP29442 / RNCP38608</td><td><span class="pec">7 900 €</span></td></tr>
+          <tr><td>BPJEPS Animateur</td><td>RNCP28557 / RNCP39926</td><td><span class="pec">8 357 €</span></td></tr>
+          <tr><td>BPJEPS Éducateur sportif</td><td>RNCP28573</td><td><span class="pec">8 690 €</span></td></tr>
+          <tr><td>CPJEPS Animation socio-éducative</td><td>RNCP32369 / RNCP39927</td><td><span class="pec">6 898 €</span></td></tr>
+          <tr><td>DEJEPS Animation socio-éducative ou culturelle</td><td>RNCP4900 / RNCP39930</td><td><span class="pec">9 551 €</span></td></tr>
+          <tr><td>DESJEPS Animation</td><td>RNCP4910 / RNCP39931</td><td><span class="pec">8 966 €</span></td></tr>
+          <tr><td>DEME — DE Moniteur Éducateur</td><td>RNCP492 / RNCP39643</td><td><span class="pec">7 225 €</span></td></tr>
+          <tr><td>BTS Économie sociale et familiale</td><td>RNCP7570 / RNCP36938</td><td><span class="pec">7 667 €</span></td></tr>
+          <tr><td>DE Conseiller en économie sociale familiale (CESF)</td><td>RNCP34826 / RNCP37678</td><td><span class="pec">7 290 €</span></td></tr>
+          <tr><td>BTS Communication</td><td>RNCP7481 / RNCP37198</td><td><span class="pec">8 100 €</span></td></tr>
+          <tr><td>DE Éducateur spécialisé</td><td>RNCP34825 / RNCP37676</td><td><span class="pec">7 753 €</span></td></tr>
+        </tbody>
+      </table>
+
+      <p class="footnote">Pour les certifications non listées : se référer au référentiel France compétences (francecompetences.fr/referentiels-et-bases-de-donnees/) ou solliciter Uniformation. Pour les apprentis travailleurs handicapés : majoration selon arrêté du 7 décembre 2020. DROM : forfait additionnel de 150 €/mois pour l'accompagnement social et professionnel des apprentis (CFA).</p>
+    </div>
+
+    <!-- ─── 7. GLOSSAIRE ─── -->
+    <div class="rules-panel" id="r7" role="tabpanel">
+      <h3>Glossaire des sigles ALISFA / formation professionnelle</h3>
+      <table class="rules-table">
+        <thead><tr><th>Sigle</th><th>Signification</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ACT</strong></td><td>Action Collective Territoriale (≥ 2 structures)</td></tr>
+          <tr><td><strong>ACN</strong></td><td>Action Collective Nationale</td></tr>
+          <tr><td><strong>APP</strong></td><td>Analyse des Pratiques Professionnelles</td></tr>
+          <tr><td><strong>CFA</strong></td><td>Centre de Formation d'Apprentis</td></tr>
+          <tr><td><strong>CléA</strong></td><td>Certification interbranche socle de connaissances et compétences professionnelles</td></tr>
+          <tr><td><strong>CPF</strong></td><td>Compte Personnel de Formation</td></tr>
+          <tr><td><strong>CPNEF</strong></td><td>Commission Paritaire Nationale Emploi Formation (ALISFA)</td></tr>
+          <tr><td><strong>CPRO</strong></td><td>Contrat de Professionnalisation</td></tr>
+          <tr><td><strong>CQP / CQPI</strong></td><td>Certificat de Qualification Professionnelle / Interbranches</td></tr>
+          <tr><td><strong>CTP</strong></td><td>Comité Technique Paritaire (CPNEF)</td></tr>
+          <tr><td><strong>DAF</strong></td><td>Demande d'Aide Financière (Uniformation)</td></tr>
+          <tr><td><strong>EMA</strong></td><td>Effectif Moyen Annuel (URSSAF / DSN)</td></tr>
+          <tr><td><strong>FOAD</strong></td><td>Formation Ouverte et À Distance</td></tr>
+          <tr><td><strong>OPCO</strong></td><td>Opérateur de Compétences (ALISFA = OPCO Cohésion / Uniformation)</td></tr>
+          <tr><td><strong>PCRH</strong></td><td>Prestation Conseil en Ressources Humaines</td></tr>
+          <tr><td><strong>PIC IAE</strong></td><td>Plan d'Investissement dans les Compétences — Insertion par l'Activité Économique</td></tr>
+          <tr><td><strong>PREC</strong></td><td>Période de Reconversion (remplace la Pro-A au 1er janvier 2026)</td></tr>
+          <tr><td><strong>Qualiopi</strong></td><td>Certification qualité obligatoire des organismes de formation pour accéder aux fonds publics ou mutualisés</td></tr>
+          <tr><td><strong>RNCP</strong></td><td>Répertoire National des Certifications Professionnelles</td></tr>
+          <tr><td><strong>RS</strong></td><td>Répertoire Spécifique (France compétences)</td></tr>
+          <tr><td><strong>SIREN / SIRET</strong></td><td>Identifiants entreprise (gestionnaire / établissement)</td></tr>
+          <tr><td><strong>VAE</strong></td><td>Validation des Acquis de l'Expérience (plateforme France VAE)</td></tr>
+        </tbody>
+      </table>
+
+      <p class="footnote">Sources complémentaires : alisfa.fr · uniformation.fr · francecompetences.fr · service-public.fr · CPNEF ALISFA (cpnef@cpnef.com).</p>
     </div>
   </div>
 </section>
@@ -3541,6 +4129,45 @@ function compatColor(famHex, compat) {
   return '#' + [nr, ng, nb].map(x => x.toString(16).padStart(2, '0')).join('');
 }
 
+function renderRosaceLegend(famKeys, famJobs, famAngles) {
+  const host = document.getElementById('rosaceLegend');
+  if (!host) return;
+  host.innerHTML = famKeys.map(k => {
+    const f = FAMILIES[k];
+    return `<button type="button" class="rosace-legend__item" data-fam="${k}" style="--col:${f.color};color:${f.color}">
+      <span class="rosace-legend__dot" style="background:${f.color}"></span>
+      <span>${f.name}</span>
+      <span class="rosace-legend__count">${famJobs[k].length}</span>
+    </button>`;
+  }).join('');
+  // Hover : highlight le segment correspondant dans la rosace
+  host.querySelectorAll('.rosace-legend__item').forEach(el => {
+    const k = el.dataset.fam;
+    el.addEventListener('mouseenter', () => {
+      document.querySelectorAll('#rosaceSvg .seg-family').forEach(s => {
+        s.style.opacity = s.dataset.fam === k ? '1' : '0.35';
+      });
+      document.querySelectorAll('#rosaceSvg .seg-job').forEach(s => {
+        s.style.opacity = s.dataset.fam === k ? '1' : '0.35';
+      });
+    });
+    el.addEventListener('mouseleave', () => {
+      document.querySelectorAll('#rosaceSvg .seg-family').forEach(s => { s.style.opacity = ''; });
+      document.querySelectorAll('#rosaceSvg .seg-job').forEach(s => { s.style.opacity = ''; });
+    });
+  });
+}
+
+/** Décrit un arc SVG (centre, rayon, deg conv haut=0 + sens horaire) */
+function rosaceArcDescription(radius, startDeg, endDeg, sweep = 1) {
+  const s = (startDeg - 90) * Math.PI / 180;
+  const e = (endDeg - 90) * Math.PI / 180;
+  const x1 = ROS_CX + radius * Math.cos(s), y1 = ROS_CY + radius * Math.sin(s);
+  const x2 = ROS_CX + radius * Math.cos(e), y2 = ROS_CY + radius * Math.sin(e);
+  const large = Math.abs(endDeg - startDeg) > 180 ? 1 : 0;
+  return `M ${x1} ${y1} A ${radius} ${radius} 0 ${large} ${sweep} ${x2} ${y2}`;
+}
+
 function renderRosace() {
   const svg = document.getElementById('rosaceSvg');
   if (!svg) return;
@@ -3557,7 +4184,15 @@ function renderRosace() {
     cursor += span;
   });
 
+  // Légende horizontale (lisible immédiatement)
+  renderRosaceLegend(famKeys, famJobs, famAngles);
+
+  // <defs> pour les paths textPath des familles
+  const defs = svgEl('defs', {});
+  svg.appendChild(defs);
+
   // ---- Anneau familles ----
+  const famTextRadius = (ROS_R_INNER + ROS_R_FAM_OUT) / 2 + 2;
   famKeys.forEach(k => {
     const fam = FAMILIES[k];
     const { start, end } = famAngles[k];
@@ -3567,15 +4202,23 @@ function renderRosace() {
       'data-fam': k, opacity: 0.95,
     });
     svg.appendChild(seg);
+
+    // Label tangentiel via textPath, avec arc inversé pour la moitié basse
     const mid = (start + end) / 2;
-    const [tx, ty] = rosPoint((ROS_R_INNER + ROS_R_FAM_OUT) / 2, mid);
-    let rotate = mid;
-    if (mid > 90 && mid < 270) rotate += 180;
-    svg.appendChild(svgEl('text', {
-      x: tx, y: ty, 'text-anchor': 'middle', 'dominant-baseline': 'middle',
-      transform: `rotate(${rotate - 90}, ${tx}, ${ty})`,
-      class: 'label-family',
-    }, fam.name.toUpperCase()));
+    const isBottom = mid > 90 && mid < 270;
+    const arcD = isBottom
+      ? rosaceArcDescription(famTextRadius, end - 1, start + 1, 0)   // sens trigo
+      : rosaceArcDescription(famTextRadius, start + 1, end - 1, 1);  // sens horaire
+    const pathId = `famArc-${k}`;
+    defs.appendChild(svgEl('path', { id: pathId, d: arcD, fill: 'none' }));
+    const text = svgEl('text', { class: 'label-family' });
+    const tp = svgEl('textPath', {
+      href: '#' + pathId,
+      startOffset: '50%',
+      'text-anchor': 'middle',
+    }, fam.name.toUpperCase());
+    text.appendChild(tp);
+    svg.appendChild(text);
   });
 
   // ---- Anneau métiers ----
@@ -4380,9 +5023,23 @@ function init() {
   setupCTAs();
   setupEditMode();
   setupRosaceModes();
+  setupRulesTabs();
   renderEdit();
   renderRosace();
 }
+
+function setupRulesTabs() {
+  const tabs = document.querySelectorAll('.rules-tab');
+  const panels = document.querySelectorAll('.rules-panel');
+  tabs.forEach(t => {
+    t.addEventListener('click', () => {
+      const target = t.dataset.rt;
+      tabs.forEach(x => x.setAttribute('aria-selected', x === t ? 'true' : 'false'));
+      panels.forEach(p => p.classList.toggle('is-active', p.id === target));
+    });
+  });
+}
+
 init();
 </script>
 </body>
