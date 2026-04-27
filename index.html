@@ -806,6 +806,90 @@ a { color: var(--alisfa-navy); }
   padding: 4px 0;
   text-align: left;
 }
+
+/* ─── Filtres par catégorie de compétences ─── */
+.matrix__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 8px;
+  padding: 10px;
+  background: var(--paper-2);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.matrix__filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  background: var(--paper);
+  color: var(--alisfa-navy);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  transition: border-color .15s, background .15s, color .15s, transform .1s;
+  white-space: nowrap;
+}
+.matrix__filter:hover {
+  background: #fff;
+  border-color: var(--alisfa-navy);
+}
+.matrix__filter[aria-pressed="true"] {
+  background: var(--alisfa-navy);
+  color: #fff;
+  border-color: var(--alisfa-navy);
+}
+.matrix__filter .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+}
+.matrix__filter .count {
+  font-size: 10.5px;
+  opacity: .75;
+  font-weight: 600;
+}
+.matrix__wrap {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* ─── Mode horizontal pour les en-têtes (filtre actif sur ≤ 9 colonnes) ─── */
+.matrix-table.is-horizontal thead th {
+  height: 78px;
+  min-width: 92px;
+  width: 92px;
+  vertical-align: middle;
+  padding: 6px 4px;
+  text-align: center;
+}
+.matrix-table.is-horizontal thead th:first-child {
+  width: 200px;
+  min-width: 200px;
+  text-align: left;
+  padding: 6px 12px 6px 0;
+}
+.matrix-table.is-horizontal thead th div.rot {
+  writing-mode: horizontal-tb;
+  transform: none;
+  white-space: normal;
+  word-break: normal;
+  hyphens: auto;
+  font-size: 11.5px;
+  line-height: 1.3;
+  text-align: center;
+  padding: 0;
+  display: block;
+}
+.matrix-table.is-horizontal td.cell {
+  width: 92px;
+  min-width: 92px;
+}
 .matrix-table tbody tr:hover {
   background: var(--paper-2);
 }
@@ -1901,7 +1985,7 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
       <span class="eyebrow">Outil CPNEF · Préparation de l'entretien de parcours professionnel</span>
       <h1 id="heroTitle">Atlas des métiers et compétences <em>de la branche</em></h1>
       <p class="hero__lead" id="heroLead">
-        Outil de préparation de l'entretien de parcours professionnel (article L6315-1 modifié, loi du 24 octobre 2025). 25 métiers de la branche, référentiel commun de 16 compétences, dispositifs à présenter au salarié et trames officielles CPNEF.
+        Outil de préparation de l'entretien de parcours professionnel (article L6315-1 modifié, loi du 24 octobre 2025). 25 métiers de la branche, référentiel commun de 33 compétences, dispositifs à présenter au salarié et trames officielles CPNEF.
       </p>
       <div class="hero__chips">
         <span class="chip-fam"><span class="chip-fam__d" style="background:var(--alisfa-orange)"></span>Animation · 6</span>
@@ -2310,9 +2394,10 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
     <div class="matrix">
       <div class="matrix__head">
         <h3>Matrice compétences × métiers</h3>
-        <span class="matrix__hint">L'intensité de chaque cellule indique le niveau attendu (1 base · 3 expert).</span>
+        <span class="matrix__hint">33 compétences réparties en 5 catégories. L'intensité de chaque cellule indique le niveau attendu (1 base · 3 expert).</span>
       </div>
-      <div style="overflow:auto;max-width:100%">
+      <div class="matrix__filters" id="matrixFilters" role="tablist" aria-label="Filtre par catégorie de compétences"></div>
+      <div class="matrix__wrap" id="matrixWrap">
         <table class="matrix-table" id="matrixTable"></table>
       </div>
       <div class="matrix__legend">
@@ -2968,12 +3053,12 @@ function setAudience(a) {
   const lead = document.getElementById('heroLead');
   if (a === 'salarie') {
     h1.innerHTML = "Atlas des métiers et compétences <em>de la branche</em>";
-    lead.textContent = "Outil de préparation de l'entretien de parcours professionnel (L6315-1 modifié, loi du 24 octobre 2025). 25 métiers, référentiel de 16 compétences, dispositifs à présenter et trames CPNEF.";
+    lead.textContent = "Outil de préparation de l'entretien de parcours professionnel (L6315-1 modifié, loi du 24 octobre 2025). 25 métiers, référentiel de 33 compétences, dispositifs à présenter et trames CPNEF.";
   } else if (a === 'employeur') {
     h1.innerHTML = "Préparer l'entretien de <em>parcours professionnel</em>";
     lead.textContent = "Cadre légal réformé, dispositifs à présenter au salarié (VAE, CPF, CEP, bilan de compétences), trames officielles CPNEF, financements de la formation. Application obligatoire au 1er octobre 2026.";
   } else {
-    h1.innerHTML = "Référentiel CPNEF — <em>16 compétences, 25 métiers</em>";
+    h1.innerHTML = "Référentiel CPNEF — <em>33 compétences, 25 métiers</em>";
     lead.textContent = "Référentiel branche commun aux 25 fiches métiers CPNEF. Niveau attendu par compétence, transférabilité inter-métiers, articulation avec l'entretien de parcours professionnel.";
   }
   renderBridge();
@@ -3800,28 +3885,75 @@ function selectAtlasJob(jobId) {
 }
 
 // ====================================================================
-// VIEW 3 — MATRIX
+// VIEW 3 — MATRIX (avec filtre par catégorie)
 // ====================================================================
+
+// 5 grandes catégories utilisateur (regroupent les `cat` du référentiel SKILLS)
+const SKILL_GROUPS = [
+  { key: 'all',  label: 'Toutes',                    cats: null,                                 color: '#1a2a53' },
+  { key: 'rel',  label: 'Relation & accompagnement', cats: ['Relationnel'],                      color: '#E07A4D' },
+  { key: 'ped',  label: 'Pédagogie & animation',     cats: ['Pédagogique'],                      color: '#7E5A99' },
+  { key: 'pe',   label: 'Petite enfance',            cats: ['Petite enfance'],                   color: '#5B7DAA' },
+  { key: 'gest', label: 'Administration & gestion',  cats: ['Administratif', 'Management'],      color: '#1F8D8A' },
+  { key: 'tech', label: 'Technique & sécurité',      cats: ['Technique', 'Sécurité', 'Spécialisée'], color: '#6B8E5C' },
+];
+
+let matrixFilter = 'all';
+
+function skillsForFilter() {
+  const g = SKILL_GROUPS.find(x => x.key === matrixFilter) || SKILL_GROUPS[0];
+  if (!g.cats) return SKILLS;
+  return SKILLS.filter(s => g.cats.includes(s.cat));
+}
+
+function renderMatrixFilters() {
+  const host = document.getElementById('matrixFilters');
+  if (!host) return;
+  host.innerHTML = SKILL_GROUPS.map(g => {
+    const cnt = !g.cats ? SKILLS.length : SKILLS.filter(s => g.cats.includes(s.cat)).length;
+    const pressed = g.key === matrixFilter;
+    return `<button type="button" class="matrix__filter" data-grp="${g.key}" role="tab" aria-pressed="${pressed}">
+      <span class="dot" style="background:${g.color}"></span>
+      <span>${g.label}</span>
+      <span class="count">${cnt}</span>
+    </button>`;
+  }).join('');
+  host.querySelectorAll('.matrix__filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      matrixFilter = btn.dataset.grp;
+      renderMatrix();
+    });
+  });
+}
+
 function renderMatrix() {
+  renderMatrixFilters();
   const t = document.getElementById('matrixTable');
+  if (!t) return;
   t.innerHTML = '';
-  // Header row
+  const skills = skillsForFilter();
+
+  // Mode horizontal si on a peu de colonnes (≤ 9 lisibles à plat)
+  const horizontal = skills.length <= 9;
+  t.classList.toggle('is-horizontal', horizontal);
+
+  // Header
   let hd = '<thead><tr><th>Métier ↓ / Compétence →</th>';
-  SKILLS.forEach(s => {
-    hd += `<th><div class="rot">${s.label}</div></th>`;
+  skills.forEach(s => {
+    hd += `<th><div class="rot" title="${s.label}">${s.label}</div></th>`;
   });
   hd += '</tr></thead>';
   t.innerHTML = hd;
+
   // Body
   let body = '<tbody>';
-  // Group jobs by family with a header row
   Object.entries(FAMILIES).forEach(([famKey, fam]) => {
     const jobs = JOBS.filter(j => j.fam === famKey);
     body += `<tr style="background:${fam.color}10"><td class="row-name" style="color:${fam.color};text-transform:uppercase;letter-spacing:0.06em;font-size:10.5px;padding-top:14px">${fam.name}</td>`;
-    body += '<td colspan="' + SKILLS.length + '" style="background:transparent"></td></tr>';
+    body += '<td colspan="' + skills.length + '" style="background:transparent"></td></tr>';
     jobs.forEach(j => {
       body += '<tr><td class="row-name">' + j.short + '</td>';
-      SKILLS.forEach(s => {
+      skills.forEach(s => {
         const lvl = j.comp[s.id] || 0;
         body += `<td class="cell" title="${j.short} · ${s.label} : ${lvl === 0 ? 'non requis' : 'niveau ' + lvl}">
           <span class="matrix-cell matrix-cell--${lvl}"></span>
