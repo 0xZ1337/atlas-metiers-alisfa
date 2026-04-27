@@ -779,10 +779,12 @@ a { color: var(--alisfa-navy); }
   font-family: 'Nunito', sans-serif; font-weight: 800;
   font-size: 10.5px; color: var(--alisfa-navy);
   text-transform: uppercase; letter-spacing: 0.04em;
-  height: 110px;
+  height: 140px;
   vertical-align: bottom;
-  padding: 6px 4px;
+  padding: 0;
   border-bottom: 2px solid var(--alisfa-navy);
+  width: 32px;
+  min-width: 32px;
 }
 .matrix-table thead th:first-child {
   background: var(--paper);
@@ -790,14 +792,17 @@ a { color: var(--alisfa-navy); }
   vertical-align: bottom;
   padding: 6px 12px 6px 0;
   width: 220px;
+  min-width: 220px;
   font-size: 11px;
 }
 .matrix-table thead th div.rot {
-  display: inline-block;
-  transform: rotate(-65deg);
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-2px) rotate(-58deg);
   transform-origin: left bottom;
   white-space: nowrap;
-  width: 0;
+  pointer-events: none;
 }
 .matrix-table tbody tr:hover {
   background: var(--paper-2);
