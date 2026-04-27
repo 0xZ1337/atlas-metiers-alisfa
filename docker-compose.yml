@@ -1,0 +1,13 @@
+services:
+  atlas:
+    build: .
+    image: atlas-metiers-alisfa:latest
+    container_name: atlas-metiers-alisfa
+    ports:
+      - "8088:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3

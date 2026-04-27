@@ -1,0 +1,4260 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atlas des métiers ALISFA — Préparer l'entretien de parcours professionnel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   IDENTITÉ ALISFA — couleurs officielles du site
+   navy #1a2a53 (theme-color du WordPress ALISFA)
+   ========================================================= */
+:root {
+  --alisfa-navy:    #1a2a53;
+  --alisfa-navy-d:  #0f1d3d;
+  --alisfa-navy-l:  #2a3d6e;
+  --alisfa-orange:  #E07A4D;
+  --alisfa-orange-l:#FBE4D7;
+  --alisfa-teal:    #1F8D8A;
+  --alisfa-teal-l:  #D6EDEC;
+  --alisfa-amber:   #C8923B;
+  --alisfa-amber-l: #F4E4C2;
+  --alisfa-mauve:   #7E5A99;
+  --alisfa-mauve-l: #E5DCEF;
+  --alisfa-sage:    #6B8E5C;
+  --alisfa-sage-l:  #D9E4D1;
+
+  /* Surfaces */
+  --bg:        #F7F8FB;
+  --paper:     #FFFFFF;
+  --paper-2:   #F1F4F9;
+  --border:    #E1E5ED;
+  --border-d:  #C4CCD9;
+  --text:      #1A2A53;
+  --text-2:    #3D4A6B;
+  --muted:     #6B7588;
+  --faint:     #9AA3B5;
+
+  /* Sevs */
+  --green:     #1F8D5C;
+  --green-l:   #DCF1E7;
+  --orange-c:  #C56A2E;
+  --orange-cl: #FBE7D7;
+  --red:       #B6293A;
+  --red-l:     #FAE0E3;
+
+  /* Spacing */
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 24px;
+  --shadow-sm: 0 1px 2px rgba(26,42,83,.06), 0 2px 4px rgba(26,42,83,.04);
+  --shadow-md: 0 4px 14px rgba(26,42,83,.10), 0 1px 3px rgba(26,42,83,.05);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3,h4,h5 {
+  font-family: 'Nunito', system-ui, sans-serif;
+  color: var(--alisfa-navy);
+  letter-spacing: -0.01em;
+  font-weight: 800;
+  margin: 0;
+}
+button { font: inherit; cursor: pointer; }
+a { color: var(--alisfa-navy); }
+
+/* =========================================================
+   TOPBAR — Évoque le header alisfa.fr
+   ========================================================= */
+.topbar {
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 50;
+}
+.topbar__inner {
+  max-width: 1340px; margin: 0 auto;
+  padding: 14px 28px;
+  display: flex; align-items: center; gap: 22px;
+}
+.brand {
+  display: flex; align-items: center; gap: 14px;
+  text-decoration: none;
+}
+.brand__mark {
+  /* Forme inspirée du clipPath logo ALISFA (tablette arrondie) */
+  width: 46px; height: 46px;
+  background: var(--alisfa-navy);
+  border-radius: 12px 30% 12px 30%;
+  display: grid; place-items: center;
+  color: #fff; font-family: 'Nunito', sans-serif;
+  font-weight: 900; font-size: 22px;
+  letter-spacing: -0.04em;
+}
+.brand__t {
+  display: flex; flex-direction: column; line-height: 1.18;
+}
+.brand__t1 {
+  font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 15px;
+  color: var(--alisfa-navy);
+}
+.brand__t2 {
+  font-size: 11px; color: var(--muted); font-weight: 500;
+}
+.crumbs {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12.5px; color: var(--muted);
+}
+.crumbs span:not(.sep) { font-weight: 500; }
+.crumbs .sep { color: var(--faint); }
+.spacer { flex: 1; }
+
+.audience {
+  display: flex; gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--paper);
+  padding: 4px;
+}
+.audience button {
+  border: 0; background: transparent;
+  padding: 9px 16px;
+  font-family: 'Nunito', sans-serif; font-weight: 700;
+  font-size: 13px; color: var(--muted);
+  border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 7px;
+  transition: all .18s;
+}
+.audience button[aria-pressed="true"] {
+  background: var(--alisfa-navy); color: #fff;
+}
+.audience button:hover:not([aria-pressed="true"]) {
+  color: var(--alisfa-navy);
+}
+.audience button svg { width: 14px; height: 14px; }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  background: linear-gradient(180deg, var(--paper) 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+}
+.hero__inner {
+  max-width: 1340px; margin: 0 auto;
+  padding: 48px 28px 28px;
+  display: grid; grid-template-columns: 1.5fr 1fr; gap: 44px;
+  align-items: end;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 12px; border-radius: 999px;
+  background: var(--alisfa-orange-l); color: var(--orange-c);
+  font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.eyebrow::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--alisfa-orange);
+}
+.hero h1 {
+  font-size: clamp(32px, 4.4vw, 50px);
+  line-height: 1.08;
+  margin-bottom: 16px;
+  font-weight: 900;
+}
+.hero h1 em {
+  font-style: italic; color: var(--alisfa-orange); font-weight: 800;
+}
+.hero__lead {
+  font-size: 17px; color: var(--text-2);
+  max-width: 620px; margin: 0;
+}
+.hero__chips {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 18px;
+}
+.chip-fam {
+  padding: 7px 13px; background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 999px; font-size: 12.5px; font-weight: 600;
+  color: var(--alisfa-navy);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.chip-fam__d { width: 8px; height: 8px; border-radius: 50%; }
+
+.kpis {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 14px;
+}
+.kpi {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: 18px 16px;
+  position: relative;
+}
+.kpi__lbl {
+  font-size: 10.5px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;
+}
+.kpi__num {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: 30px; color: var(--alisfa-navy); line-height: 1;
+  margin-top: 8px;
+}
+.kpi__sub {
+  font-size: 12px; color: var(--muted); margin-top: 4px;
+}
+.kpi__trend {
+  position: absolute; top: 14px; right: 14px;
+  background: var(--green-l); color: var(--green);
+  padding: 2px 7px; border-radius: 5px;
+  font-size: 10.5px; font-weight: 800;
+}
+
+/* =========================================================
+   VIEW SWITCHER
+   ========================================================= */
+.workspace {
+  max-width: 1340px; margin: 28px auto 0; padding: 0 28px;
+}
+.view-switcher {
+  display: flex; gap: 6px; padding: 6px;
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 22px;
+  overflow-x: auto;
+}
+.view-switcher button {
+  flex: 1; min-width: 220px;
+  padding: 14px 18px;
+  border: 0; background: transparent;
+  border-radius: var(--r-md);
+  text-align: left;
+  display: flex; gap: 12px; align-items: flex-start;
+  transition: all .15s;
+}
+.view-switcher button[aria-pressed="true"] {
+  background: var(--alisfa-navy); color: #fff;
+}
+.view-switcher button[aria-pressed="true"] .vs-t { color: #fff; }
+.view-switcher button[aria-pressed="true"] .vs-d { color: rgba(255,255,255,0.78); }
+.view-switcher button:hover:not([aria-pressed="true"]) {
+  background: var(--paper-2);
+}
+.vs-ic {
+  width: 36px; height: 36px;
+  border-radius: var(--r-sm);
+  background: var(--alisfa-orange-l); color: var(--orange-c);
+  display: grid; place-items: center; flex-shrink: 0;
+}
+.view-switcher button[aria-pressed="true"] .vs-ic {
+  background: rgba(255,255,255,0.12); color: #fff;
+}
+.vs-t {
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 14px; color: var(--alisfa-navy);
+  display: block; margin-bottom: 2px;
+}
+.vs-d {
+  font-size: 12px; color: var(--muted); line-height: 1.35;
+}
+
+/* =========================================================
+   VIEW PANELS
+   ========================================================= */
+.view-panel { display: none; }
+.view-panel.is-active { display: block; animation: fadeIn .3s; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* ---- VUE 1 — PONT DE COMPÉTENCES ---- */
+.bridge {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: var(--r-xl); padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+.bridge__head {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px;
+  align-items: end;
+  margin-bottom: 24px;
+}
+.bridge__col {
+  background: var(--paper-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 16px 18px;
+}
+.bridge__lbl {
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;
+  margin-bottom: 6px;
+}
+.bridge__select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-d);
+  border-radius: var(--r-md);
+  background: var(--paper);
+  font-family: 'Nunito', sans-serif; font-weight: 700;
+  font-size: 14.5px; color: var(--alisfa-navy);
+  cursor: pointer;
+}
+.bridge__select:focus { outline: 2px solid var(--alisfa-orange); border-color: var(--alisfa-orange); }
+.bridge__arrow {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--alisfa-navy); color: #fff;
+  display: grid; place-items: center;
+  font-size: 22px;
+  align-self: center;
+  margin-bottom: 4px;
+}
+
+.score {
+  display: grid; grid-template-columns: auto 1fr; gap: 18px;
+  align-items: center;
+  padding: 18px 20px;
+  background: linear-gradient(95deg, var(--alisfa-navy) 0%, var(--alisfa-navy-l) 100%);
+  color: #fff;
+  border-radius: var(--r-lg);
+  margin-bottom: 24px;
+}
+.score__num {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: 52px; line-height: 1; color: #fff;
+}
+.score__num small { font-size: 22px; opacity: 0.7; font-weight: 700; }
+.score__txt {
+  font-size: 13.5px; opacity: 0.9; line-height: 1.45;
+}
+.score__txt strong { color: var(--alisfa-orange-l); font-weight: 700; }
+.score__sub {
+  font-size: 11px; color: rgba(255,255,255,0.65);
+  text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;
+  margin-bottom: 4px;
+}
+
+/* Skill bridge visualization */
+.bridge__viz {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.bridge__viz-head {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--border);
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 13px; color: var(--alisfa-navy);
+}
+.bridge__viz-head > div {
+  padding: 12px 18px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  font-size: 11.5px;
+}
+.bridge__viz-head > div:nth-child(2) {
+  text-align: center; color: var(--muted);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  padding-left: 24px; padding-right: 24px;
+}
+.bridge__viz-head > div:nth-child(3) { text-align: right; }
+
+.skill-row {
+  display: grid; grid-template-columns: 1fr 200px 1fr;
+  align-items: center;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.skill-row:last-child { border-bottom: 0; }
+.skill-row:nth-child(even) { background: rgba(247,248,251,0.5); }
+.skill-row__name {
+  font-size: 13.5px; color: var(--alisfa-navy);
+  font-weight: 600;
+}
+.skill-row__name small {
+  display: block; font-size: 10.5px; font-weight: 500;
+  color: var(--muted); text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 1px;
+}
+.skill-bridge {
+  height: 36px;
+  position: relative;
+  display: grid; place-items: center;
+}
+.skill-bridge__pellet {
+  width: 14px; height: 14px; border-radius: 50%;
+  flex-shrink: 0;
+  border: 2px solid var(--paper);
+  box-shadow: 0 0 0 1px var(--border);
+}
+.skill-bridge__line {
+  flex: 1; height: 3px; border-radius: 2px;
+}
+.skill-bridge--keep {
+  display: flex; align-items: center; gap: 0;
+}
+.skill-bridge--keep .skill-bridge__pellet { background: var(--green); box-shadow: 0 0 0 1px var(--green); }
+.skill-bridge--keep .skill-bridge__line { background: var(--green); }
+
+.skill-bridge--gain {
+  display: flex; align-items: center; gap: 0;
+  justify-content: flex-end;
+}
+.skill-bridge--gain .skill-bridge__line {
+  background: repeating-linear-gradient(90deg, var(--alisfa-orange) 0 6px, transparent 6px 10px);
+  height: 3px; flex: 1;
+}
+.skill-bridge--gain .skill-bridge__pellet { background: var(--alisfa-orange); box-shadow: 0 0 0 1px var(--alisfa-orange); }
+
+.skill-bridge--loss {
+  display: flex; align-items: center; gap: 0;
+  justify-content: flex-start;
+}
+.skill-bridge--loss .skill-bridge__line {
+  background: repeating-linear-gradient(90deg, var(--faint) 0 6px, transparent 6px 10px);
+  height: 3px; flex: 1;
+}
+.skill-bridge--loss .skill-bridge__pellet { background: var(--faint); box-shadow: 0 0 0 1px var(--faint); }
+
+.skill-bridge--none {
+  background: transparent;
+}
+
+.skill-row__lvl {
+  display: inline-flex; gap: 2px;
+}
+.skill-row__lvl span {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--border-d);
+}
+.skill-row__lvl span.on { background: var(--alisfa-navy); }
+.skill-row__name.gain { text-align: right; }
+.skill-row__name.gain small { color: var(--orange-c); font-weight: 700; }
+.skill-row__name.gain { color: var(--orange-c); }
+.skill-row__name.loss { color: var(--faint); }
+
+.bridge__legend {
+  display: flex; gap: 24px; flex-wrap: wrap;
+  padding: 14px 18px;
+  background: var(--paper-2);
+  border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--text-2);
+}
+.bridge__legend span {
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.bridge__legend i {
+  width: 10px; height: 10px; border-radius: 50%;
+  display: inline-block;
+}
+
+/* Enrichissement transfert par compétence */
+.skill-row__weight {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  background: var(--paper-2);
+  color: var(--muted);
+  font-size: 10px; font-weight: 700;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+}
+.skill-row__weight--high {
+  background: var(--alisfa-navy); color: #fff;
+}
+.skill-row__weight--mid {
+  background: var(--alisfa-teal-l); color: var(--alisfa-teal);
+}
+
+.tr-bar {
+  position: relative;
+  width: 100%;
+  height: 14px;
+  background: var(--paper-2);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.tr-bar__fill {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  border-radius: 999px;
+  transition: width .3s;
+}
+.tr-bar__pct {
+  position: absolute; right: 6px; top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 9.5px;
+  z-index: 2;
+  letter-spacing: 0.02em;
+}
+
+.skill-bridge--full   .tr-bar__fill { background: var(--green); width: 100%; }
+.skill-bridge--full   .tr-bar__pct  { color: #fff; }
+
+.skill-bridge--high   .tr-bar__fill { background: var(--alisfa-teal); width: 70%; }
+.skill-bridge--high   .tr-bar__pct  { color: var(--alisfa-navy); right: auto; left: 6px; }
+
+.skill-bridge--med    .tr-bar__fill { background: var(--gold, #D4A574); width: 45%; }
+.skill-bridge--med    .tr-bar__pct  { color: var(--alisfa-navy); right: auto; left: 6px; }
+
+.skill-bridge--cross  .tr-bar__fill {
+  background: repeating-linear-gradient(45deg, var(--alisfa-amber) 0 6px, var(--alisfa-amber-l) 6px 10px);
+  width: 25%;
+}
+.skill-bridge--cross  .tr-bar__pct  { color: var(--alisfa-navy); right: auto; left: 6px; }
+
+.skill-bridge--gain   .tr-bar__fill {
+  background: repeating-linear-gradient(45deg, var(--alisfa-orange) 0 6px, var(--alisfa-orange-l) 6px 10px);
+  width: 8%;
+}
+.skill-bridge--gain   .tr-bar__pct  { color: var(--alisfa-orange); right: auto; left: auto; right: 6px; }
+
+.skill-row__detail {
+  font-size: 10.5px; color: var(--muted);
+  margin-top: 2px; line-height: 1.3;
+  font-style: italic;
+}
+.skill-row__detail strong { color: var(--alisfa-navy); font-style: normal; font-weight: 700; }
+.skill-row__detail.cross  { color: var(--alisfa-amber); }
+.skill-row__detail.gain   { color: var(--orange-c); }
+
+.skill-row.is-section-head {
+  display: block;
+  background: var(--paper-2);
+  padding: 8px 18px;
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* Synthesis bar */
+.compat-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 4px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.compat-bar__seg {
+  padding: 8px 10px;
+  font-size: 10.5px; color: rgba(255,255,255,0.85);
+  text-align: center;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.compat-bar__seg + .compat-bar__seg {
+  border-left: 1px solid rgba(255,255,255,0.14);
+}
+.compat-bar__num {
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 16px; color: #fff;
+  line-height: 1;
+}
+.compat-bar__lbl {
+  font-size: 9.5px; letter-spacing: 0.04em; font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Funding strip */
+.funding-strip {
+  margin-top: 24px;
+  padding: 20px 22px;
+  background: var(--paper-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+.funding-strip__hd {
+  display: flex; align-items: baseline; gap: 8px;
+  margin-bottom: 14px;
+}
+.funding-strip__hd h3 {
+  font-size: 17px; font-weight: 800;
+}
+.funding-strip__hd small { color: var(--muted); font-size: 12.5px; }
+.funding-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+}
+.fund-card {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: var(--r-md); padding: 14px;
+  position: relative;
+  transition: all .15s;
+}
+.fund-card.is-eligible {
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px var(--green-l);
+}
+.fund-card.is-eligible::after {
+  content: '✓'; position: absolute; top: 12px; right: 12px;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--green); color: #fff;
+  display: grid; place-items: center;
+  font-size: 12px; font-weight: 700;
+}
+.fund-card__t {
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 14px; color: var(--alisfa-navy);
+  margin-bottom: 4px;
+}
+.fund-card__sub {
+  font-size: 11px; color: var(--muted);
+  letter-spacing: 0.04em; text-transform: uppercase;
+  font-weight: 600; margin-bottom: 10px;
+}
+.fund-card__amt {
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 17px; color: var(--alisfa-navy);
+}
+.fund-card__amt small { font-weight: 600; font-size: 11px; color: var(--muted); }
+.fund-card__d { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+.fund-card.is-not-eligible {
+  opacity: 0.45;
+}
+
+.bridge__cta {
+  margin-top: 22px;
+  display: flex; gap: 12px; flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.btn {
+  border: 0; padding: 12px 22px;
+  border-radius: 999px;
+  font-family: 'Nunito', sans-serif; font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all .15s;
+}
+.btn-primary {
+  background: var(--alisfa-orange); color: #fff;
+}
+.btn-primary:hover { background: var(--orange-c); }
+.btn-secondary {
+  background: var(--paper); color: var(--alisfa-navy);
+  border: 1px solid var(--border-d);
+}
+.btn-secondary:hover { background: var(--paper-2); }
+.btn-dark { background: var(--alisfa-navy); color: #fff; }
+
+/* ---- VUE 2 — ATLAS RELATIONNEL ---- */
+.atlas {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: var(--r-xl); padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;
+}
+.atlas__svg-wrap {
+  background: var(--paper-2);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  position: relative;
+  min-height: 580px;
+  overflow: hidden;
+}
+#atlasSvg { width: 100%; height: 100%; user-select: none; min-height: 580px; }
+.atlas__legend {
+  position: absolute; top: 12px; left: 12px;
+  background: rgba(255,255,255,0.92); backdrop-filter: blur(6px);
+  border: 1px solid var(--border); border-radius: var(--r-md);
+  padding: 10px 12px;
+  font-size: 11.5px; color: var(--muted);
+}
+.atlas__legend-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 3px 0;
+}
+.atlas__legend i {
+  width: 10px; height: 10px; border-radius: 50%;
+}
+.atlas__legend-foot {
+  margin-top: 6px; padding-top: 6px;
+  border-top: 1px solid var(--border);
+  font-style: italic; font-size: 10.5px;
+}
+
+.atlas__side {
+  display: flex; flex-direction: column; gap: 16px;
+}
+.atlas-card {
+  background: var(--paper-2); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: 20px;
+}
+.atlas-card h3 {
+  font-size: 16px; margin-bottom: 4px;
+}
+.atlas-card p {
+  font-size: 13px; color: var(--muted); margin: 0 0 12px;
+}
+.atlas-card__job {
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 19px; color: var(--alisfa-navy);
+}
+.atlas-card__fam {
+  display: inline-block; padding: 3px 9px;
+  border-radius: 5px; font-size: 11px;
+  font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.atlas-related {
+  list-style: none; padding: 0; margin: 0;
+}
+.atlas-related li {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--border);
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+}
+.atlas-related li:last-child { border-bottom: 0; }
+.atlas-related__name {
+  font-weight: 600; color: var(--alisfa-navy); font-size: 13.5px;
+  flex: 1;
+  text-align: left;
+  background: transparent; border: 0; padding: 0; cursor: pointer;
+}
+.atlas-related__name:hover { color: var(--alisfa-orange); }
+.atlas-related__pct {
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 14px;
+}
+.atlas-related__bar {
+  width: 60px; height: 6px;
+  background: var(--border);
+  border-radius: 999px; overflow: hidden;
+}
+.atlas-related__bar i {
+  display: block; height: 100%;
+  background: linear-gradient(90deg, var(--alisfa-teal), var(--alisfa-navy));
+  border-radius: 999px;
+}
+
+/* ---- VUE 3 — MATRICE COMPÉTENCES × MÉTIERS ---- */
+.matrix {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: var(--r-xl); padding: 24px;
+  box-shadow: var(--shadow-sm);
+  overflow: auto;
+}
+.matrix__head {
+  display: flex; align-items: baseline; gap: 12px;
+  margin-bottom: 6px;
+}
+.matrix__head h3 { font-size: 19px; }
+.matrix__hint { color: var(--muted); font-size: 13px; }
+.matrix-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  font-size: 12.5px;
+  margin-top: 18px;
+  min-width: 920px;
+}
+.matrix-table th, .matrix-table td {
+  padding: 0;
+  border-bottom: 1px solid var(--border);
+}
+.matrix-table thead th {
+  position: sticky; top: 0;
+  background: var(--paper);
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 10.5px; color: var(--alisfa-navy);
+  text-transform: uppercase; letter-spacing: 0.04em;
+  height: 110px;
+  vertical-align: bottom;
+  padding: 6px 4px;
+  border-bottom: 2px solid var(--alisfa-navy);
+}
+.matrix-table thead th:first-child {
+  background: var(--paper);
+  text-align: left;
+  vertical-align: bottom;
+  padding: 6px 12px 6px 0;
+  width: 220px;
+  font-size: 11px;
+}
+.matrix-table thead th div.rot {
+  display: inline-block;
+  transform: rotate(-65deg);
+  transform-origin: left bottom;
+  white-space: nowrap;
+  width: 0;
+}
+.matrix-table tbody tr:hover {
+  background: var(--paper-2);
+}
+.matrix-table td.row-name {
+  text-align: left;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700; font-size: 12.5px;
+  color: var(--alisfa-navy);
+  padding: 8px 12px 8px 0;
+  white-space: nowrap;
+  position: sticky; left: 0;
+  background: var(--paper);
+  border-right: 1px solid var(--border);
+}
+.matrix-table tbody tr:hover td.row-name { background: var(--paper-2); }
+.matrix-table td.cell {
+  width: 36px; height: 36px;
+  text-align: center; vertical-align: middle;
+  cursor: pointer;
+}
+.matrix-cell {
+  display: inline-block;
+  width: 26px; height: 26px;
+  border-radius: 5px;
+}
+.matrix-cell--0 { background: var(--paper-2); border: 1px solid var(--border); }
+.matrix-cell--1 { background: var(--alisfa-teal-l); }
+.matrix-cell--2 { background: var(--alisfa-teal); }
+.matrix-cell--3 { background: var(--alisfa-navy); }
+
+.matrix__legend {
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 18px; padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--muted);
+  flex-wrap: wrap;
+}
+.matrix__legend span {
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.matrix__legend i {
+  width: 16px; height: 16px; border-radius: 4px; display: inline-block;
+}
+
+/* =========================================================
+   FUNDING SECTION (after views)
+   ========================================================= */
+.financements {
+  max-width: 1340px; margin: 36px auto 0; padding: 0 28px;
+}
+.financements__head {
+  margin-bottom: 18px;
+}
+.financements__head h2 { font-size: 26px; margin-bottom: 6px; }
+.financements__head p { font-size: 14.5px; color: var(--text-2); margin: 0; max-width: 780px; }
+.financements__grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+}
+.fund-detail {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: var(--r-xl); padding: 24px;
+  position: relative;
+  border-top: 4px solid var(--accent, var(--alisfa-navy));
+  box-shadow: var(--shadow-sm);
+}
+.fund-detail h3 {
+  font-size: 22px; font-weight: 800;
+  margin-bottom: 4px;
+}
+.fund-detail__sub {
+  font-size: 11.5px; color: var(--muted);
+  letter-spacing: 0.04em; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 18px;
+}
+.fund-detail__row {
+  display: flex; justify-content: space-between; gap: 8px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 13px;
+}
+.fund-detail__row:last-of-type { border-bottom: 0; }
+.fund-detail__row .lbl { color: var(--muted); font-weight: 500; }
+.fund-detail__row .val { color: var(--alisfa-navy); font-weight: 700; text-align: right; }
+.fund-detail__pub {
+  margin-top: 14px;
+  font-size: 12px; color: var(--text-2);
+  padding: 12px;
+  background: var(--paper-2);
+  border-radius: var(--r-sm);
+  line-height: 1.5;
+}
+
+/* =========================================================
+   MODALITÉS DE FORMATION
+   ========================================================= */
+.modalites {
+  max-width: 1340px; margin: 36px auto 0; padding: 0 28px;
+}
+.modalites__head {
+  display: flex; align-items: baseline; gap: 12px;
+  margin-bottom: 4px; flex-wrap: wrap;
+}
+.modalites__head h2 { font-size: 26px; }
+.modalites__head .tag-info {
+  background: var(--alisfa-teal-l); color: var(--alisfa-teal);
+  font-size: 10.5px; font-weight: 800;
+  padding: 4px 10px; border-radius: 999px;
+  letter-spacing: 0.06em;
+}
+.modalites__lead {
+  font-size: 14px; color: var(--text-2); max-width: 800px; margin: 0 0 22px;
+}
+
+.mod-section {
+  margin-bottom: 22px;
+}
+.mod-section__t {
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 14px; color: var(--alisfa-navy);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  margin: 0 0 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+.mod-section__t::before {
+  content: ''; display: inline-block;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent, var(--alisfa-orange));
+}
+.mod-section__t small {
+  font-family: 'Roboto', sans-serif; font-weight: 400;
+  font-size: 12px; color: var(--muted);
+  text-transform: none; letter-spacing: normal;
+  margin-left: auto;
+}
+
+.mod-grid {
+  display: grid; gap: 12px;
+}
+.mod-grid--4 { grid-template-columns: repeat(4, 1fr); }
+.mod-grid--3 { grid-template-columns: repeat(3, 1fr); }
+
+.mod-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 18px 18px 16px;
+  display: flex; flex-direction: column;
+  position: relative;
+  transition: border-color .15s, transform .15s;
+}
+.mod-card:hover {
+  border-color: var(--alisfa-orange);
+  transform: translateY(-1px);
+}
+.mod-card__ic {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: var(--accent-light, var(--alisfa-orange-l));
+  color: var(--accent, var(--alisfa-orange));
+  display: grid; place-items: center;
+  margin-bottom: 12px;
+}
+.mod-card h3 {
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 16px; color: var(--alisfa-navy);
+  margin-bottom: 2px;
+}
+.mod-card .mod-card__sub {
+  font-size: 11px; color: var(--muted);
+  letter-spacing: 0.04em; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 10px;
+}
+.mod-card p {
+  font-size: 12.5px; color: var(--text-2);
+  margin: 0 0 10px; line-height: 1.5;
+}
+.mod-card__meta {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  display: flex; gap: 6px; flex-wrap: wrap;
+}
+.mod-card__chip {
+  font-size: 10.5px;
+  padding: 2px 8px;
+  background: var(--paper-2);
+  color: var(--alisfa-navy);
+  border-radius: 5px;
+  font-weight: 600;
+}
+.mod-card__chip--reco {
+  background: var(--green-l); color: var(--green);
+}
+.mod-card__chip--time {
+  background: var(--alisfa-teal-l); color: var(--alisfa-teal);
+}
+
+/* Cohérence : tableau d'articulation */
+.coherence-table-wrap {
+  margin-top: 22px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.coherence-table-wrap h3 {
+  font-size: 17px;
+  padding: 16px 20px 0;
+  margin: 0;
+}
+.coherence-table-wrap p {
+  font-size: 12.5px; color: var(--muted);
+  padding: 4px 20px 14px; margin: 0;
+}
+.coherence-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 12.5px;
+}
+.coherence-table th {
+  background: var(--paper-2);
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  padding: 10px 14px;
+  text-align: left;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.coherence-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.coherence-table tr:last-child td { border-bottom: 0; }
+.coherence-table .level-pill {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 6px;
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+}
+.lvl-full   { background: var(--green-l);    color: var(--green); }
+.lvl-high   { background: var(--alisfa-teal-l); color: var(--alisfa-teal); }
+.lvl-med    { background: var(--alisfa-amber-l); color: var(--alisfa-amber); }
+.lvl-cross  { background: var(--alisfa-orange-l); color: var(--orange-c); }
+.lvl-gain   { background: var(--red-l); color: var(--red); }
+.coherence-table .modalites-cell {
+  color: var(--alisfa-navy);
+  font-weight: 600;
+}
+.coherence-table .modalites-cell strong { color: var(--alisfa-orange); }
+.coherence-table .duree-cell { color: var(--muted); font-size: 12px; }
+
+@media (max-width: 1080px) {
+  .mod-grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .mod-grid--3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .mod-grid--4 { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   AUDIT (compact)
+   ========================================================= */
+.audit-section {
+  max-width: 1340px; margin: 36px auto 0; padding: 0 28px 80px;
+}
+.audit-card {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: var(--r-xl); padding: 24px 28px;
+  box-shadow: var(--shadow-sm);
+}
+.audit-card__head {
+  display: flex; align-items: center; gap: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+.audit-card__head h2 { font-size: 21px; flex: 1; }
+.audit-card__head .badge {
+  background: var(--red); color: #fff;
+  font-size: 10.5px; font-weight: 800; padding: 3px 9px;
+  border-radius: 999px; letter-spacing: 0.06em;
+}
+.audit-card__head .toggle {
+  color: var(--muted); font-size: 13px; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.audit-card__body { margin-top: 18px; display: none; }
+.audit-card.is-open .audit-card__body { display: block; }
+.audit-card.is-open .toggle svg { transform: rotate(180deg); }
+.audit-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 13px;
+}
+.audit-table th, .audit-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  text-align: left;
+}
+.audit-table th {
+  font-size: 11px; font-weight: 800; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  background: var(--paper-2);
+}
+.audit-table td.num {
+  font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 800;
+  color: var(--alisfa-orange); width: 38px;
+}
+.sev {
+  display: inline-block; padding: 3px 8px;
+  border-radius: 999px; font-size: 10.5px; font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.sev-h { background: var(--red-l); color: var(--red); }
+.sev-m { background: var(--alisfa-amber-l); color: var(--alisfa-amber); }
+.sev-l { background: var(--green-l); color: var(--green); }
+
+/* =========================================================
+   ROSACE
+   ========================================================= */
+.rosace {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: var(--r-xl); padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;
+}
+.rosace__head {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.rosace__head h3 { font-size: 19px; }
+.rosace__hint { color: var(--muted); font-size: 13px; }
+.rosace-svg-wrap {
+  position: relative;
+  background: linear-gradient(180deg, var(--paper-2) 0%, var(--paper) 100%);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  display: grid; place-items: center;
+  min-height: 580px;
+  padding: 16px;
+}
+#rosaceSvg { width: 100%; max-width: 580px; aspect-ratio: 1; user-select: none; }
+#rosaceSvg .seg-family,
+#rosaceSvg .seg-job {
+  cursor: pointer;
+  transition: transform .25s cubic-bezier(.2,.8,.2,1.2), filter .2s;
+  transform-origin: 300px 300px;
+}
+#rosaceSvg .seg-family:hover { filter: brightness(1.08); }
+#rosaceSvg .seg-job:hover { transform: scale(1.04); filter: brightness(1.1); }
+#rosaceSvg .seg-job.is-source {
+  filter: drop-shadow(0 4px 12px rgba(26,42,83,.35));
+  transform: scale(1.06);
+  stroke: var(--alisfa-navy); stroke-width: 3;
+}
+#rosaceSvg .label-job {
+  font-size: 9.5px; font-weight: 600; pointer-events: none;
+  font-family: 'Roboto', sans-serif;
+  fill: #fff;
+}
+#rosaceSvg .label-family {
+  font-family: 'Nunito', sans-serif; font-size: 12px;
+  font-weight: 800; pointer-events: none;
+  fill: #fff; letter-spacing: 0.08em;
+}
+#rosaceSvg .center-bg { fill: var(--alisfa-navy); }
+#rosaceSvg .center-t1 { fill: #fff; font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 800; }
+#rosaceSvg .center-t2 { fill: var(--alisfa-orange); font-size: 9px; letter-spacing: 0.12em; font-weight: 700; }
+
+/* Side panel */
+.rosace__side {
+  display: flex; flex-direction: column; gap: 16px;
+}
+.rosace-card {
+  background: var(--paper-2); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: 18px;
+}
+.rosace-card h3 {
+  font-size: 16px; margin-bottom: 4px;
+}
+.rosace-card p {
+  font-size: 13px; color: var(--muted); margin: 0 0 12px;
+}
+.rosace-card__fam {
+  display: inline-block; padding: 3px 10px;
+  border-radius: 6px; font-size: 11px;
+  font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase; color: #fff;
+  margin-bottom: 8px;
+}
+.rosace-card__job {
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 19px; color: var(--alisfa-navy);
+}
+
+/* Compat ranking list */
+.rosace-rank {
+  list-style: none; padding: 0; margin: 0;
+}
+.rosace-rank li {
+  display: grid; grid-template-columns: 1fr 60px auto;
+  align-items: center; gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--border);
+}
+.rosace-rank li:last-child { border-bottom: 0; }
+.rosace-rank__name {
+  background: transparent; border: 0; padding: 0;
+  font-family: 'Nunito', sans-serif; font-weight: 700;
+  font-size: 13px; color: var(--alisfa-navy);
+  text-align: left; cursor: pointer;
+  line-height: 1.3;
+}
+.rosace-rank__name:hover { color: var(--alisfa-orange); }
+.rosace-rank__name small {
+  display: block; font-family: 'Roboto', sans-serif; font-weight: 400;
+  color: var(--muted); font-size: 10.5px; margin-top: 1px;
+}
+.rosace-rank__bar {
+  width: 60px; height: 6px;
+  background: var(--border); border-radius: 999px; overflow: hidden;
+}
+.rosace-rank__bar i {
+  display: block; height: 100%;
+  border-radius: 999px;
+}
+.rosace-rank__pct {
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 13px; min-width: 38px; text-align: right;
+}
+
+/* Mode controls */
+.rosace-modes {
+  display: inline-flex; gap: 4px; padding: 4px;
+  background: var(--paper-2); border: 1px solid var(--border);
+  border-radius: 999px;
+}
+.rosace-modes button {
+  border: 0; padding: 6px 12px; background: transparent;
+  border-radius: 999px; font-size: 12px; font-weight: 700;
+  color: var(--muted);
+}
+.rosace-modes button[aria-pressed="true"] {
+  background: var(--alisfa-navy); color: #fff;
+}
+
+@media (max-width: 1080px) {
+  .rosace { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   ENTRETIEN PRO — Vue dédiée
+   ========================================================= */
+.entretien {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.entretien-card {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: var(--r-xl); padding: 24px 26px;
+  box-shadow: var(--shadow-sm);
+}
+.entretien-card--legal {
+  grid-column: span 2;
+  border-left: 4px solid var(--alisfa-orange);
+  background: linear-gradient(180deg, #FFF8F2 0%, var(--paper) 60%);
+}
+.entretien-card h3 {
+  font-size: 19px; margin-bottom: 6px;
+}
+.entretien-card h4 {
+  font-size: 14px; font-weight: 800;
+  margin: 14px 0 6px;
+  letter-spacing: -0.005em;
+}
+.entretien-card p {
+  font-size: 14px; color: var(--text-2); margin: 0 0 8px;
+  line-height: 1.55;
+}
+.entretien-card ul {
+  margin: 0; padding-left: 20px;
+  font-size: 13.5px; color: var(--text-2);
+}
+.entretien-card ul li { padding: 3px 0; }
+.legal-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 14px; margin-top: 14px;
+}
+.legal-stat {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 14px 16px;
+}
+.legal-stat__num {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: 26px; color: var(--alisfa-navy); line-height: 1;
+}
+.legal-stat__lbl {
+  font-size: 11.5px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700;
+  margin-top: 6px;
+}
+.legal-stat__d {
+  font-size: 12px; color: var(--text-2);
+  margin-top: 6px; line-height: 1.4;
+}
+
+/* Dispositifs à présenter (6 cartes) */
+.disp-section {
+  max-width: 1340px; margin: 36px auto 0; padding: 0 28px;
+}
+.disp-section__head {
+  display: flex; align-items: baseline; gap: 12px;
+  margin-bottom: 4px; flex-wrap: wrap;
+}
+.disp-section__head h2 { font-size: 26px; }
+.disp-section__head .obli {
+  background: var(--alisfa-orange); color: #fff;
+  font-size: 10.5px; font-weight: 800;
+  padding: 4px 10px; border-radius: 999px;
+  letter-spacing: 0.06em;
+}
+.disp-section__lead {
+  font-size: 14px; color: var(--text-2); max-width: 800px; margin: 0 0 18px;
+}
+.disp-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.disp-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent, var(--alisfa-navy));
+  border-radius: var(--r-lg);
+  padding: 20px;
+  display: flex; flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+.disp-card__tag {
+  position: absolute; top: -10px; right: 14px;
+  background: var(--accent, var(--alisfa-navy));
+  color: #fff;
+  font-size: 9.5px; font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+.disp-card h3 {
+  font-size: 17px; margin-bottom: 4px;
+}
+.disp-card .sub {
+  font-size: 11.5px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700;
+  margin-bottom: 12px;
+}
+.disp-card p {
+  font-size: 13px; color: var(--text-2); margin: 0 0 12px;
+  line-height: 1.5;
+}
+.disp-card__lk {
+  margin-top: auto;
+  font-size: 12.5px; font-weight: 700;
+  color: var(--accent, var(--alisfa-navy));
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 0 0;
+  border-top: 1px dashed var(--border);
+}
+.disp-card__lk:hover { text-decoration: underline; }
+
+/* Kit téléchargements — style ALISFA btnDl */
+.kit-section {
+  max-width: 1340px; margin: 36px auto 0; padding: 0 28px;
+}
+.kit-section h2 { font-size: 22px; margin-bottom: 4px; }
+.kit-section__lead {
+  font-size: 13.5px; color: var(--muted); margin: 0 0 16px;
+}
+.kit-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.btnDl {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 14px 16px;
+  display: grid; grid-template-columns: auto 1fr auto; gap: 14px;
+  align-items: center;
+  text-decoration: none;
+  color: var(--alisfa-navy);
+  transition: all .15s;
+}
+.btnDl:hover {
+  border-color: var(--alisfa-orange);
+  box-shadow: var(--shadow-md);
+}
+.btnDl__ic {
+  width: 44px; height: 44px;
+  border-radius: 8px;
+  display: grid; place-items: center;
+  background: var(--alisfa-orange-l); color: var(--orange-c);
+}
+.btnDl__t {
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 14px; line-height: 1.3;
+}
+.btnDl__sub {
+  font-size: 11.5px; color: var(--muted);
+  margin-top: 2px;
+}
+.btnDl__arrow {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+/* =========================================================
+   MODE ÉDITION CPNEF (paritaire)
+   ========================================================= */
+.edit-banner {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px;
+  background: linear-gradient(95deg, var(--alisfa-navy) 0%, var(--alisfa-navy-l) 100%);
+  color: #fff;
+  border-radius: var(--r-lg);
+  margin-bottom: 22px;
+}
+.edit-banner__avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--alisfa-orange);
+  display: grid; place-items: center;
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 16px; color: #fff;
+  flex-shrink: 0;
+}
+.edit-banner__txt { flex: 1; }
+.edit-banner__t1 {
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 15px;
+}
+.edit-banner__t2 {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.78);
+}
+.edit-banner__badge {
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.22);
+  padding: 5px 12px; border-radius: 999px;
+  font-size: 11.5px; font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.edit-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-bottom: 20px;
+}
+.edit-card {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: 20px 22px;
+  box-shadow: var(--shadow-sm);
+}
+.edit-card__head {
+  display: flex; align-items: baseline; gap: 10px;
+  margin-bottom: 12px;
+}
+.edit-card__head h3 { font-size: 16px; flex: 1; }
+.edit-card__count {
+  background: var(--alisfa-orange);
+  color: #fff;
+  font-size: 11px; font-weight: 800;
+  padding: 2px 8px; border-radius: 999px;
+}
+.edit-card__count--muted {
+  background: var(--paper-2); color: var(--muted);
+  border: 1px solid var(--border);
+}
+.edit-card__lead {
+  font-size: 12.5px; color: var(--muted); margin: 0 0 10px;
+}
+
+/* Proposition cards */
+.prop {
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  transition: border-color .15s;
+}
+.prop:hover { border-color: var(--border-d); }
+.prop:last-child { margin-bottom: 0; }
+.prop__head {
+  display: flex; align-items: baseline; gap: 8px;
+  margin-bottom: 8px;
+}
+.prop__type {
+  font-size: 10.5px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  padding: 3px 8px; border-radius: 5px;
+}
+.prop__type--create { background: var(--green-l); color: var(--green); }
+.prop__type--update { background: var(--alisfa-teal-l); color: var(--alisfa-teal); }
+.prop__type--depre  { background: var(--orange-cl); color: var(--orange-c); }
+.prop__id {
+  font-family: 'Courier New', monospace;
+  font-size: 11px; color: var(--faint);
+}
+.prop__title {
+  font-family: 'Nunito', sans-serif; font-weight: 700;
+  font-size: 14px; color: var(--alisfa-navy);
+  margin-bottom: 4px;
+}
+.prop__author {
+  font-size: 11.5px; color: var(--muted);
+  margin-bottom: 8px;
+}
+.prop__author strong { color: var(--text); }
+.prop__diff {
+  font-size: 12px;
+  margin: 8px 0;
+  background: var(--paper-2);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-family: 'Courier New', monospace;
+  line-height: 1.55;
+}
+.prop__diff .add  { color: var(--green); }
+.prop__diff .rem  { color: var(--red); text-decoration: line-through; }
+.prop__diff .ctx  { color: var(--muted); }
+
+.prop__validations {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin: 10px 0 0;
+}
+.val-badge {
+  font-size: 10.5px; font-weight: 700;
+  padding: 4px 9px; border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 5px;
+  letter-spacing: 0.02em;
+}
+.val-badge--ok    { background: var(--green-l); color: var(--green); }
+.val-badge--wait  { background: var(--paper-2); color: var(--muted); border: 1px dashed var(--border-d); }
+.val-badge--ko    { background: var(--red-l); color: var(--red); }
+
+.prop__cta {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+.prop-btn {
+  border: 1px solid var(--border-d);
+  background: var(--paper);
+  padding: 6px 13px;
+  border-radius: 6px;
+  font-family: 'Nunito', sans-serif; font-weight: 700;
+  font-size: 12px;
+  color: var(--alisfa-navy);
+  display: inline-flex; align-items: center; gap: 5px;
+  transition: all .15s;
+}
+.prop-btn:hover { background: var(--paper-2); border-color: var(--alisfa-navy); }
+.prop-btn--primary { background: var(--green); color: #fff; border-color: var(--green); }
+.prop-btn--primary:hover { background: #1a724b; border-color: #1a724b; }
+.prop-btn--danger { background: var(--paper); color: var(--red); border-color: #E5C9CD; }
+.prop-btn--danger:hover { background: var(--red-l); }
+
+/* New proposition button */
+.new-prop {
+  background: var(--alisfa-orange); color: #fff;
+  border: 0;
+  padding: 12px 18px;
+  border-radius: var(--r-md);
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 14px;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background .15s;
+}
+.new-prop:hover { background: var(--orange-c); }
+
+/* Catalogue éditable */
+.cat-section { grid-column: span 2; }
+.cat-tabs {
+  display: flex; gap: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+.cat-tabs button {
+  border: 0; background: transparent;
+  padding: 10px 14px;
+  font-family: 'Nunito', sans-serif; font-weight: 700;
+  font-size: 13px;
+  color: var(--muted);
+  border-bottom: 2px solid transparent;
+}
+.cat-tabs button[aria-selected="true"] {
+  color: var(--alisfa-navy);
+  border-bottom-color: var(--alisfa-orange);
+}
+.cat-list {
+  max-height: 360px; overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+.cat-row {
+  display: grid; grid-template-columns: 1fr auto auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.cat-row:last-child { border-bottom: 0; }
+.cat-row:nth-child(even) { background: var(--paper-2); }
+.cat-row__name {
+  font-family: 'Nunito', sans-serif; font-weight: 700;
+  font-size: 13px; color: var(--alisfa-navy);
+}
+.cat-row__name small {
+  display: block;
+  font-family: 'Roboto', sans-serif; font-weight: 400;
+  font-size: 11px; color: var(--muted);
+  margin-top: 1px;
+}
+.cat-row__meta {
+  font-size: 11.5px; color: var(--muted);
+}
+.cat-row__btn {
+  border: 1px solid var(--border-d);
+  background: var(--paper);
+  width: 28px; height: 28px;
+  border-radius: 6px;
+  display: grid; place-items: center;
+  color: var(--muted);
+  cursor: pointer;
+}
+.cat-row__btn:hover { background: var(--paper-2); color: var(--alisfa-navy); }
+
+/* Historique */
+.hist-list {
+  list-style: none; padding: 0; margin: 0;
+  max-height: 280px; overflow-y: auto;
+}
+.hist-list li {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 12.5px;
+}
+.hist-list li:last-child { border-bottom: 0; }
+.hist-list .when {
+  font-family: 'Courier New', monospace;
+  font-size: 11px; color: var(--muted);
+  display: block; margin-bottom: 2px;
+}
+.hist-list .what { color: var(--alisfa-navy); font-weight: 600; }
+.hist-list .who  { color: var(--muted); }
+
+/* Statistiques */
+.stats-row {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 10px;
+  margin-bottom: 12px;
+}
+.stat-mini {
+  background: var(--paper-2);
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+}
+.stat-mini__num {
+  font-family: 'Nunito', sans-serif; font-weight: 800;
+  font-size: 22px; color: var(--alisfa-navy);
+  line-height: 1;
+}
+.stat-mini__lbl {
+  font-size: 11px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  margin-top: 6px; font-weight: 700;
+}
+
+.top-jobs {
+  list-style: none; padding: 0; margin: 0;
+}
+.top-jobs li {
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; gap: 10px;
+  padding: 6px 0;
+  font-size: 13px;
+}
+.top-jobs__name { color: var(--alisfa-navy); font-weight: 600; }
+.top-jobs__bar {
+  width: 100px; height: 6px;
+  background: var(--border);
+  border-radius: 999px; overflow: hidden;
+}
+.top-jobs__bar i {
+  display: block; height: 100%;
+  background: var(--alisfa-orange);
+}
+.top-jobs__count {
+  font-family: 'Nunito', sans-serif; font-weight: 700;
+  font-size: 12.5px; color: var(--alisfa-navy);
+  min-width: 38px; text-align: right;
+}
+
+/* Modal proposition */
+.modal-bg {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(26,42,83,0.4);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+.modal-bg.is-open { display: flex; }
+.modal {
+  background: var(--paper);
+  border-radius: var(--r-xl);
+  max-width: 620px; width: 100%;
+  max-height: 90vh; overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  animation: modalIn .3s ease-out;
+}
+@keyframes modalIn { from { transform: translateY(20px); opacity: 0; } to { transform: none; opacity: 1; } }
+.modal__head {
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 12px;
+}
+.modal__head h3 { font-size: 18px; flex: 1; }
+.modal__close {
+  background: transparent; border: 0;
+  width: 32px; height: 32px; border-radius: 8px;
+  font-size: 20px; color: var(--muted); cursor: pointer;
+}
+.modal__close:hover { background: var(--paper-2); }
+.modal__body {
+  padding: 22px 24px;
+}
+.modal__field {
+  margin-bottom: 14px;
+}
+.modal__field label {
+  display: block;
+  font-size: 11.5px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  font-weight: 700; margin-bottom: 6px;
+}
+.modal__field input,
+.modal__field select,
+.modal__field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-d);
+  border-radius: var(--r-md);
+  font: inherit;
+  background: var(--paper);
+}
+.modal__field input:focus,
+.modal__field select:focus,
+.modal__field textarea:focus {
+  outline: 2px solid var(--alisfa-orange);
+  border-color: var(--alisfa-orange);
+}
+.modal__hint {
+  font-size: 12px; color: var(--muted);
+  margin-top: 4px;
+}
+.modal__foot {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  background: var(--paper-2);
+  display: flex; justify-content: flex-end; gap: 10px;
+  border-radius: 0 0 var(--r-xl) var(--r-xl);
+}
+.modal__foot .btn-secondary { background: var(--paper); }
+
+/* Mode visibility — onglet édition seulement si négociateur */
+.view-switcher button[data-view="edit"] { display: none; }
+body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: flex; }
+
+@media (max-width: 1080px) {
+  .edit-grid { grid-template-columns: 1fr; }
+  .cat-section { grid-column: span 1; }
+  .stats-row { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   FOOTER (style ALISFA)
+   ========================================================= */
+.footer {
+  background: var(--alisfa-navy);
+  color: rgba(255,255,255,0.85);
+  padding: 36px 28px;
+  margin-top: 60px;
+}
+.footer__row {
+  max-width: 1340px; margin: 0 auto;
+  display: flex; align-items: center; gap: 18px;
+  flex-wrap: wrap;
+}
+.footer__brand {
+  font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 16px;
+  color: #fff;
+}
+.footer__sp { flex: 1; }
+.footer__lk { color: rgba(255,255,255,0.78); font-size: 13px; text-decoration: none; }
+.footer__lk:hover { color: #fff; }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1080px) {
+  .hero__inner { grid-template-columns: 1fr; gap: 24px; align-items: start; }
+  .atlas { grid-template-columns: 1fr; }
+  .funding-grid { grid-template-columns: repeat(2, 1fr); }
+  .financements__grid { grid-template-columns: repeat(2, 1fr); }
+  .bridge__head { grid-template-columns: 1fr; gap: 8px; }
+  .bridge__arrow { transform: rotate(90deg); margin: 0 auto; }
+  .entretien { grid-template-columns: 1fr; }
+  .entretien-card--legal { grid-column: span 1; }
+  .legal-grid { grid-template-columns: 1fr; }
+  .disp-grid { grid-template-columns: repeat(2, 1fr); }
+  .kit-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .topbar__inner { padding: 12px 16px; gap: 10px; flex-wrap: wrap; }
+  .crumbs { display: none; }
+  .audience { font-size: 11px; }
+  .audience button { padding: 7px 11px; font-size: 11.5px; }
+  .audience svg { display: none; }
+  .hero__inner { padding: 28px 16px 18px; }
+  .workspace, .financements, .audit-section { padding: 0 16px; }
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .kpi:nth-child(3) { grid-column: span 2; }
+  .funding-grid { grid-template-columns: 1fr; }
+  .financements__grid { grid-template-columns: 1fr; }
+  .skill-row { grid-template-columns: 1fr 60px 1fr; padding: 10px 12px; }
+  .skill-row__name { font-size: 12.5px; }
+  .skill-row__name small { display: none; }
+  .skill-bridge { height: 24px; }
+  .bridge { padding: 16px; }
+  .view-switcher { padding: 4px; }
+  .view-switcher button { min-width: 180px; padding: 10px; }
+  .vs-d { display: none; }
+  .disp-grid { grid-template-columns: 1fr; }
+  .legal-grid { grid-template-columns: 1fr; }
+  .entretien-card { padding: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================== TOPBAR ============================== -->
+<nav class="topbar">
+  <div class="topbar__inner">
+    <a class="brand" href="#">
+      <div class="brand__mark">A</div>
+      <div class="brand__t">
+        <span class="brand__t1">ALISFA</span>
+        <span class="brand__t2">Branche · CPNEF · Atlas des métiers</span>
+      </div>
+    </a>
+    <div class="crumbs">
+      <span>Accueil</span><span class="sep">›</span>
+      <span>Emploi & formation</span><span class="sep">›</span>
+      <span>Métiers et parcours</span>
+    </div>
+    <div class="spacer"></div>
+    <div class="audience" role="tablist" aria-label="Profil utilisateur">
+      <button data-aud="salarie" aria-pressed="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
+        Salarié·e
+      </button>
+      <button data-aud="employeur" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        Employeur
+      </button>
+      <button data-aud="negociateur" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+        Négociateur CPNEF
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================== HERO ============================== -->
+<header class="hero">
+  <div class="hero__inner">
+    <div>
+      <span class="eyebrow">Outil CPNEF · Préparation de l'entretien de parcours professionnel</span>
+      <h1 id="heroTitle">Atlas des métiers et compétences <em>de la branche</em></h1>
+      <p class="hero__lead" id="heroLead">
+        Outil de préparation de l'entretien de parcours professionnel (article L6315-1 modifié, loi du 24 octobre 2025). 25 métiers de la branche, référentiel commun de 16 compétences, dispositifs à présenter au salarié et trames officielles CPNEF.
+      </p>
+      <div class="hero__chips">
+        <span class="chip-fam"><span class="chip-fam__d" style="background:var(--alisfa-orange)"></span>Animation · 6</span>
+        <span class="chip-fam"><span class="chip-fam__d" style="background:var(--alisfa-mauve)"></span>Petite enfance · 6</span>
+        <span class="chip-fam"><span class="chip-fam__d" style="background:var(--alisfa-navy)"></span>Encadrement · 4</span>
+        <span class="chip-fam"><span class="chip-fam__d" style="background:var(--alisfa-teal)"></span>Administratif · 5</span>
+        <span class="chip-fam"><span class="chip-fam__d" style="background:var(--alisfa-sage)"></span>Services · 4</span>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi">
+        <div class="kpi__trend">+3,2 %</div>
+        <div class="kpi__lbl">Salariés branche</div>
+        <div class="kpi__num">71 800</div>
+        <div class="kpi__sub">Source : Observatoire ALISFA 2025</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__lbl">Référentiel CPNEF</div>
+        <div class="kpi__num">16</div>
+        <div class="kpi__sub">compétences transférables identifiées</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__lbl">Passerelles finançables</div>
+        <div class="kpi__num">93 %</div>
+        <div class="kpi__sub">via OPCO Cohésion · PRO-A · PTP · CPF</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================== WORKSPACE ============================== -->
+<main class="workspace">
+
+  <div class="view-switcher" role="tablist" aria-label="Mode de visualisation">
+    <button data-view="entretien" aria-pressed="true">
+      <span class="vs-ic">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11h6M9 15h4M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+      </span>
+      <span>
+        <span class="vs-t">Préparer l'entretien de parcours professionnel</span>
+        <span class="vs-d">Cadre légal réformé (loi du 24 oct. 2025), dispositifs à présenter, trames CPNEF.</span>
+      </span>
+    </button>
+    <button data-view="rosace" aria-pressed="false">
+      <span class="vs-ic">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/></svg>
+      </span>
+      <span>
+        <span class="vs-t">Rosace des métiers</span>
+        <span class="vs-d">Vue d'ensemble en 5 familles. Cliquer un métier colore les autres selon leur proximité.</span>
+      </span>
+    </button>
+    <button data-view="bridge" aria-pressed="false">
+      <span class="vs-ic">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17h4l2-7 4 14 2-7h6"/></svg>
+      </span>
+      <span>
+        <span class="vs-t">Comparaison de deux métiers</span>
+        <span class="vs-d">Compétences communes, compétences à acquérir, dispositifs applicables.</span>
+      </span>
+    </button>
+    <button data-view="atlas" aria-pressed="false">
+      <span class="vs-ic">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M9 6h6M7.5 8.5l3 7M16.5 8.5l-3 7"/></svg>
+      </span>
+      <span>
+        <span class="vs-t">Cartographie des proximités</span>
+        <span class="vs-d">Représentation des 25 métiers ; les liens indiquent les compétences communes.</span>
+      </span>
+    </button>
+    <button data-view="matrix" aria-pressed="false">
+      <span class="vs-ic">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="6" height="6"/><rect x="11" y="3" width="6" height="6"/><rect x="3" y="11" width="6" height="6"/><rect x="11" y="11" width="6" height="6"/></svg>
+      </span>
+      <span>
+        <span class="vs-t">Matrice métiers × compétences</span>
+        <span class="vs-d">Tableau croisé du référentiel CPNEF, niveau attendu par métier.</span>
+      </span>
+    </button>
+    <button data-view="edit" aria-pressed="false">
+      <span class="vs-ic" style="background:var(--alisfa-navy);color:#fff">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+      </span>
+      <span>
+        <span class="vs-t">Mode édition CPNEF</span>
+        <span class="vs-d">Proposition, validation paritaire, catalogue éditable, historique.</span>
+      </span>
+    </button>
+  </div>
+
+  <!-- VUE 0 : ENTRETIEN PROFESSIONNEL -->
+  <section id="view-entretien" class="view-panel is-active">
+    <div class="entretien">
+
+      <!-- Cadre légal -->
+      <div class="entretien-card entretien-card--legal">
+        <div style="display:inline-block;background:var(--alisfa-orange);color:#fff;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:999px;letter-spacing:0.06em;margin-bottom:10px">RÉFORME · LOI DU 24 OCTOBRE 2025</div>
+        <h3>L'entretien de parcours professionnel</h3>
+        <p>L'article L6315-1 du Code du travail a été réécrit par la loi n° 2025-989 du 24 octobre 2025. L'« entretien professionnel » devient l'« <strong>entretien de parcours professionnel</strong> ». Il est consacré aux compétences, à la situation et au parcours du salarié, à ses besoins de formation et à ses souhaits d'évolution. Il ne porte ni sur l'évaluation de la performance, ni sur la fixation des objectifs, ni sur la fixation du salaire.</p>
+        <div class="legal-grid">
+          <div class="legal-stat">
+            <div class="legal-stat__num">4 ans</div>
+            <div class="legal-stat__lbl">Périodicité (nouvelle)</div>
+            <div class="legal-stat__d">Tous les quatre ans (auparavant tous les deux ans). Premier entretien au cours de la 1re année suivant l'embauche.</div>
+          </div>
+          <div class="legal-stat">
+            <div class="legal-stat__num">6 ans</div>
+            <div class="legal-stat__lbl">État des lieux récapitulatif</div>
+            <div class="legal-stat__d">Bilan tous les six ans : entretiens tenus + au moins une action de formation non obligatoire.</div>
+          </div>
+          <div class="legal-stat">
+            <div class="legal-stat__num">3 000 €</div>
+            <div class="legal-stat__lbl">Abondement correctif CPF</div>
+            <div class="legal-stat__d">Sanction si l'employeur n'a pas rempli ses obligations sur 6 ans (entreprises ≥ 50 salariés).</div>
+          </div>
+        </div>
+        <div style="margin-top:14px;padding:12px 14px;background:var(--paper-2);border-radius:var(--r-md);font-size:13px;color:var(--text-2)">
+          <strong style="color:var(--alisfa-orange)">Date d'application : 1er octobre 2026.</strong> À cette date, la nouvelle rédaction s'applique automatiquement à toutes les entreprises, y compris celles couvertes par un accord. Les accords de branche et d'entreprise doivent être renégociés avant cette échéance pour rester applicables.
+        </div>
+      </div>
+
+      <!-- Différence avec l'entretien annuel -->
+      <div class="entretien-card">
+        <h3>Différence avec l'entretien annuel</h3>
+        <p>Les deux entretiens peuvent se tenir à la même période mais ne se confondent pas. Ils doivent faire l'objet de comptes rendus distincts.</p>
+        <h4>Entretien annuel</h4>
+        <p>Évaluation du travail accompli, fixation des objectifs, échange sur les conditions de travail. Non obligatoire au sens du Code du travail (sauf accord ou usage). Conduit par le manager direct.</p>
+        <h4>Entretien de parcours professionnel</h4>
+        <p>Compétences, situation et parcours du salarié, besoins de formation, souhaits d'évolution. Obligation légale (L6315-1 modifié). Information sur VAE, CPF, CEP, bilan de compétences et acteurs de la formation. Aucune évaluation de la performance, aucun objectif, aucune fixation de salaire.</p>
+      </div>
+
+      <!-- Comment l'outil nourrit l'entretien -->
+      <div class="entretien-card">
+        <h3>Comment cet atlas alimente l'entretien</h3>
+        <p>Les autres vues du présent outil (comparaison de métiers, cartographie, matrice) produisent les éléments à porter dans la trame d'entretien fournie par la CPNEF.</p>
+        <ul>
+          <li><strong>Compétences acquises et transférables</strong> — vue « Comparaison de deux métiers »</li>
+          <li><strong>Métiers cibles envisagés</strong> — vue « Cartographie des proximités »</li>
+          <li><strong>Compétences à développer</strong> — différence Source/Cible dans la comparaison</li>
+          <li><strong>Dispositif de financement pressenti</strong> — section ci-dessous</li>
+        </ul>
+        <p style="margin-top:10px"><a href="#" data-go="bridge" style="color:var(--alisfa-orange);font-weight:700;text-decoration:none">→ Lancer une comparaison de métiers</a></p>
+      </div>
+
+      <!-- Quand le tenir -->
+      <div class="entretien-card">
+        <h3>À quel moment le tenir</h3>
+        <p>Premier entretien au cours de la première année suivant l'embauche, puis tous les quatre ans. Également proposé au salarié au retour de :</p>
+        <ul>
+          <li>congé de maternité, parental, d'adoption, proche aidant</li>
+          <li>arrêt longue maladie</li>
+          <li>congé sabbatique, période de mobilité volontaire sécurisée</li>
+          <li>mandat syndical (à l'issue du mandat)</li>
+        </ul>
+        <h4>Forme</h4>
+        <p>Conduit par l'employeur ou un représentant désigné. Tenu sur le temps de travail, donne lieu à un document écrit dont une copie est remise au salarié.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VUE ROSACE : vue d'ensemble + heat de compatibilité -->
+  <section id="view-rosace" class="view-panel">
+    <div class="rosace">
+      <div>
+        <div class="rosace__head">
+          <h3>Rosace des 25 métiers — 5 familles</h3>
+          <span class="rosace-modes" role="tablist" aria-label="Mode d'affichage">
+            <button data-mode="famille" aria-pressed="true">Familles</button>
+            <button data-mode="compat" aria-pressed="false">Compatibilité</button>
+          </span>
+        </div>
+        <p class="rosace__hint">Cliquez sur un métier au survol pour le sélectionner. Les autres métiers se colorent alors selon leur taux de transfert pondéré (compétences communes).</p>
+        <div class="rosace-svg-wrap">
+          <svg id="rosaceSvg" viewBox="0 0 600 600" role="img" aria-label="Rosace interactive des métiers ALISFA"></svg>
+        </div>
+      </div>
+      <aside class="rosace__side">
+        <div class="rosace-card">
+          <h3>Métier sélectionné</h3>
+          <p>Cliquer sur un secteur de la rosace pour voir ses compatibilités.</p>
+          <div id="rosaceJobInfo">
+            <div class="rosace-card__fam" style="background:var(--alisfa-mauve)">Petite enfance</div>
+            <div class="rosace-card__job">Éducateur·trice de jeunes enfants</div>
+            <p style="margin-top:8px;color:var(--text-2)">Conçoit et garantit le projet pédagogique des 0-6 ans.</p>
+          </div>
+        </div>
+        <div class="rosace-card">
+          <h3>Métiers les plus proches</h3>
+          <p>Classement par vraisemblance pondérée (compétences communes au métier sélectionné).</p>
+          <ul class="rosace-rank" id="rosaceRank"></ul>
+          <p style="margin-top:14px;font-size:12.5px"><a href="#" data-go="bridge" style="color:var(--alisfa-orange);font-weight:700;text-decoration:none">→ Comparer en détail compétence par compétence</a></p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- VUE 1 : BRIDGE -->
+  <section id="view-bridge" class="view-panel">
+    <div class="bridge">
+      <div class="bridge__head">
+        <div class="bridge__col">
+          <div class="bridge__lbl">Métier actuel</div>
+          <select id="srcJob" class="bridge__select"></select>
+        </div>
+        <div class="bridge__arrow" aria-hidden="true">→</div>
+        <div class="bridge__col">
+          <div class="bridge__lbl">Métier visé</div>
+          <select id="tgtJob" class="bridge__select"></select>
+        </div>
+      </div>
+
+      <div class="score" id="scoreBox"></div>
+
+      <div class="bridge__viz" id="bridgeViz"></div>
+
+      <div class="funding-strip">
+        <div class="funding-strip__hd">
+          <h3>Dispositifs de financement applicables</h3>
+          <small>Évaluation indicative, fonction de la durée de formation estimée et du contexte.</small>
+        </div>
+        <div class="funding-grid" id="fundingGrid"></div>
+      </div>
+
+      <div class="bridge__cta">
+        <button class="btn btn-secondary" id="copyBtn">Copier le lien de cette comparaison</button>
+        <button class="btn btn-primary" id="planBtn">Préparer un dossier de formation</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- VUE 2 : ATLAS -->
+  <section id="view-atlas" class="view-panel">
+    <div class="atlas">
+      <div class="atlas__svg-wrap">
+        <svg id="atlasSvg" viewBox="0 0 700 580"></svg>
+        <div class="atlas__legend">
+          <div class="atlas__legend-row"><i style="background:var(--alisfa-orange)"></i>Animation</div>
+          <div class="atlas__legend-row"><i style="background:var(--alisfa-mauve)"></i>Petite enfance</div>
+          <div class="atlas__legend-row"><i style="background:var(--alisfa-navy)"></i>Encadrement</div>
+          <div class="atlas__legend-row"><i style="background:var(--alisfa-teal)"></i>Administratif</div>
+          <div class="atlas__legend-row"><i style="background:var(--alisfa-sage)"></i>Services</div>
+          <div class="atlas__legend-foot">Lignes : ≥&nbsp;3 compétences communes · épaisseur ∝ proximité</div>
+        </div>
+      </div>
+      <div class="atlas__side">
+        <div class="atlas-card">
+          <h3>Métier sélectionné</h3>
+          <p>Cliquer sur un nœud pour afficher les compétences communes.</p>
+          <div id="atlasJobInfo">
+            <div class="atlas-card__fam" style="background:var(--alisfa-mauve)">Petite enfance</div>
+            <div class="atlas-card__job">Éducateur·trice de jeunes enfants</div>
+            <p style="margin-top:8px">Conçoit et garantit le projet pédagogique des 0-6 ans.</p>
+          </div>
+        </div>
+        <div class="atlas-card">
+          <h3>Métiers les plus proches</h3>
+          <p>Classement par taux de compétences communes.</p>
+          <ul class="atlas-related" id="atlasRelated"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VUE 4 : MODE ÉDITION CPNEF -->
+  <section id="view-edit" class="view-panel">
+
+    <!-- Bandeau identité paritaire -->
+    <div class="edit-banner">
+      <div class="edit-banner__avatar">JM</div>
+      <div class="edit-banner__txt">
+        <div class="edit-banner__t1">Jean-Marc Durand · Négociateur·trice salarié·e (CFDT Santé Sociaux)</div>
+        <div class="edit-banner__t2">Connecté·e en mode édition · habilitation CPNEF en vigueur jusqu'au 30 juin 2027</div>
+      </div>
+      <span class="edit-banner__badge">Collège salarié</span>
+      <button class="new-prop" id="newPropBtn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+        Nouvelle proposition
+      </button>
+    </div>
+
+    <div class="edit-grid">
+
+      <!-- À valider par moi -->
+      <div class="edit-card">
+        <div class="edit-card__head">
+          <h3>Propositions à valider par votre collège</h3>
+          <span class="edit-card__count" id="toValidateCount">0</span>
+        </div>
+        <p class="edit-card__lead">Avis attendu de votre part avant fusion paritaire.</p>
+        <div id="toValidateList"></div>
+      </div>
+
+      <!-- Mes propositions -->
+      <div class="edit-card">
+        <div class="edit-card__head">
+          <h3>Vos propositions en cours</h3>
+          <span class="edit-card__count edit-card__count--muted" id="myPropsCount">0</span>
+        </div>
+        <p class="edit-card__lead">Suivi des propositions que vous avez ouvertes.</p>
+        <div id="myPropsList"></div>
+      </div>
+
+      <!-- Catalogue éditable -->
+      <div class="edit-card cat-section">
+        <div class="edit-card__head">
+          <h3>Catalogue paritaire — édition directe</h3>
+          <span style="font-size:12px;color:var(--muted)">Toute modification ouvre une proposition de validation paritaire.</span>
+        </div>
+        <div class="cat-tabs" role="tablist">
+          <button data-cat="metiers" aria-selected="true">Métiers (<span id="metiersCount">25</span>)</button>
+          <button data-cat="competences" aria-selected="false">Compétences (<span id="competencesCount">16</span>)</button>
+          <button data-cat="passerelles" aria-selected="false">Passerelles</button>
+          <button data-cat="grille" aria-selected="false">Grille CCN</button>
+        </div>
+        <div class="cat-list" id="catList"></div>
+      </div>
+
+      <!-- Historique -->
+      <div class="edit-card">
+        <div class="edit-card__head">
+          <h3>Historique des délibérations</h3>
+          <span class="edit-card__count edit-card__count--muted">12 derniers mois</span>
+        </div>
+        <p class="edit-card__lead">Journal d'audit, exportable en compte-rendu CPNEF.</p>
+        <ul class="hist-list">
+          <li>
+            <span class="when">2026-04-22 · 14:32</span>
+            <span class="what">Compétence ajoutée :</span> « Communication numérique » au référentiel.
+            <span class="who">Proposition #2026-031, validée par M. Lefebvre (employeur) et J.-M. Durand (salarié).</span>
+          </li>
+          <li>
+            <span class="when">2026-04-15 · 10:08</span>
+            <span class="what">Coefficient mis à jour :</span> « Auxiliaire de puériculture » 340 → 348 (avenant n°56).
+            <span class="who">Proposition #2026-029, validée par les deux collèges.</span>
+          </li>
+          <li>
+            <span class="when">2026-04-03 · 16:55</span>
+            <span class="what">Passerelle ajoutée :</span> « Animateur·trice → Chargé·e de projet » (parcours alterné PRO-A).
+            <span class="who">Proposition #2026-024, validée par les deux collèges.</span>
+          </li>
+          <li>
+            <span class="when">2026-03-28 · 09:14</span>
+            <span class="what">Métier modifié :</span> « EJE » niveau encadrement passé de 1 à 2.
+            <span class="who">Proposition #2026-021, validée.</span>
+          </li>
+          <li>
+            <span class="when">2026-03-12 · 11:42</span>
+            <span class="what">Proposition rejetée :</span> Suppression de la fiche « Délégué·e fédéral·e ».
+            <span class="who">Refus du collège salarié.</span>
+          </li>
+        </ul>
+        <p style="margin-top:12px"><a href="#" style="color:var(--alisfa-orange);font-weight:700;text-decoration:none;font-size:13px">→ Exporter le compte-rendu de séance (PDF)</a></p>
+      </div>
+
+      <!-- Statistiques -->
+      <div class="edit-card">
+        <div class="edit-card__head">
+          <h3>Statistiques d'usage (anonymisées)</h3>
+          <span class="edit-card__count edit-card__count--muted">30 derniers jours</span>
+        </div>
+        <p class="edit-card__lead">Données agrégées pour préparer la prochaine séance CPNEF.</p>
+        <div class="stats-row">
+          <div class="stat-mini">
+            <div class="stat-mini__num">14 320</div>
+            <div class="stat-mini__lbl">Consultations métier</div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini__num">2 870</div>
+            <div class="stat-mini__lbl">Comparaisons générées</div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini__num">412</div>
+            <div class="stat-mini__lbl">Trames téléchargées</div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini__num">68 %</div>
+            <div class="stat-mini__lbl">Mobile / tablette</div>
+          </div>
+        </div>
+        <h4 style="margin:18px 0 6px;font-size:13px;font-weight:800;font-family:'Nunito',sans-serif">Top 5 des passerelles consultées</h4>
+        <ul class="top-jobs">
+          <li>
+            <span class="top-jobs__name">Auxiliaire de puériculture → EJE</span>
+            <span class="top-jobs__bar"><i style="width:100%"></i></span>
+            <span class="top-jobs__count">418</span>
+          </li>
+          <li>
+            <span class="top-jobs__name">Animateur·trice → Resp. coordinateur·trice</span>
+            <span class="top-jobs__bar"><i style="width:74%"></i></span>
+            <span class="top-jobs__count">312</span>
+          </li>
+          <li>
+            <span class="top-jobs__name">Animateur·trice PE → EJE</span>
+            <span class="top-jobs__bar"><i style="width:62%"></i></span>
+            <span class="top-jobs__count">261</span>
+          </li>
+          <li>
+            <span class="top-jobs__name">Resp. coordinateur·trice → Directeur·trice</span>
+            <span class="top-jobs__bar"><i style="width:51%"></i></span>
+            <span class="top-jobs__count">214</span>
+          </li>
+          <li>
+            <span class="top-jobs__name">Animateur·trice → Chargé·e de projet</span>
+            <span class="top-jobs__bar"><i style="width:42%"></i></span>
+            <span class="top-jobs__count">177</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VUE 3 : MATRIX -->
+  <section id="view-matrix" class="view-panel">
+    <div class="matrix">
+      <div class="matrix__head">
+        <h3>Matrice compétences × métiers</h3>
+        <span class="matrix__hint">L'intensité de chaque cellule indique le niveau attendu (1 base · 3 expert).</span>
+      </div>
+      <div style="overflow:auto;max-width:100%">
+        <table class="matrix-table" id="matrixTable"></table>
+      </div>
+      <div class="matrix__legend">
+        <strong style="color:var(--alisfa-navy);font-family:'Nunito',sans-serif">Niveau attendu :</strong>
+        <span><i class="matrix-cell--0"></i>Non requis</span>
+        <span><i class="matrix-cell--1"></i>Base (1)</span>
+        <span><i class="matrix-cell--2"></i>Confirmé (2)</span>
+        <span><i class="matrix-cell--3"></i>Expert (3)</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================== DISPOSITIFS À PRÉSENTER ============================== -->
+<section class="disp-section">
+  <div class="disp-section__head">
+    <h2>Dispositifs à présenter au salarié</h2>
+    <span class="obli">Obligation L6315-1 modifié (loi 24 oct. 2025)</span>
+  </div>
+  <p class="disp-section__lead">
+    Lors de l'entretien de parcours professionnel, l'employeur informe le salarié de l'existence et des modalités d'accès aux dispositifs ci-dessous. Cette obligation d'information est distincte du financement effectif d'une formation.
+  </p>
+  <div class="disp-grid">
+
+    <article class="disp-card" style="--accent:var(--alisfa-navy)">
+      <span class="disp-card__tag">À présenter</span>
+      <h3>VAE</h3>
+      <div class="sub">Validation des Acquis de l'Expérience</div>
+      <p>Permet d'obtenir tout ou partie d'une certification professionnelle reconnue, sur la base de l'expérience. Ouverte après un an minimum d'activité en lien avec la certification visée.</p>
+      <a class="disp-card__lk" href="https://www.alisfa.fr/wp-content/uploads/2026/02/fiche-1-vae.pdf" target="_blank" rel="noreferrer noopener">
+        Fiche CPNEF 1 — VAE (PDF) →
+      </a>
+    </article>
+
+    <article class="disp-card" style="--accent:var(--alisfa-teal)">
+      <span class="disp-card__tag">À présenter</span>
+      <h3>CPF</h3>
+      <div class="sub">Compte Personnel de Formation</div>
+      <p>Crédit en euros acquis par le salarié, utilisable pour suivre une formation certifiante. Mobilisable à l'initiative du salarié, possible abondement employeur ou OPCO.</p>
+      <a class="disp-card__lk" href="https://www.alisfa.fr/wp-content/uploads/2024/10/fiche-2-cpf.pdf" target="_blank" rel="noreferrer noopener">
+        Fiche CPNEF 2 — CPF (PDF) →
+      </a>
+    </article>
+
+    <article class="disp-card" style="--accent:var(--alisfa-mauve)">
+      <span class="disp-card__tag">À présenter</span>
+      <h3>CEP</h3>
+      <div class="sub">Conseil en Évolution Professionnelle</div>
+      <p>Service gratuit et confidentiel d'accompagnement, assuré par un opérateur habilité. Aide le salarié à formaliser un projet d'évolution ou de reconversion.</p>
+      <a class="disp-card__lk" href="https://www.alisfa.fr/wp-content/uploads/2024/10/fiche-3-cep.pdf" target="_blank" rel="noreferrer noopener">
+        Fiche CPNEF 3 — CEP (PDF) →
+      </a>
+    </article>
+
+    <article class="disp-card" style="--accent:var(--alisfa-amber)">
+      <span class="disp-card__tag">À présenter</span>
+      <h3>Bilan de compétences</h3>
+      <div class="sub">Analyse des compétences et motivations</div>
+      <p>Permet au salarié d'analyser ses compétences professionnelles et personnelles, ses aptitudes et motivations, pour définir un projet professionnel ou de formation. Réalisé par un organisme externe.</p>
+      <a class="disp-card__lk" href="https://www.alisfa.fr/wp-content/uploads/2024/10/fiche-4-bilan-de-competences.pdf" target="_blank" rel="noreferrer noopener">
+        Fiche CPNEF 4 — Bilan (PDF) →
+      </a>
+    </article>
+
+    <article class="disp-card" style="--accent:var(--alisfa-orange)">
+      <span class="disp-card__tag">À présenter</span>
+      <h3>Activation du CPF</h3>
+      <div class="sub">Inscription sur moncompteformation.gouv.fr</div>
+      <p>L'employeur informe le salarié des modalités d'activation et de consultation de son compte personnel. La création du compte est une démarche personnelle.</p>
+      <a class="disp-card__lk" href="https://www.moncompteformation.gouv.fr" target="_blank" rel="noreferrer noopener">
+        moncompteformation.gouv.fr →
+      </a>
+    </article>
+
+    <article class="disp-card" style="--accent:var(--alisfa-sage)">
+      <span class="disp-card__tag">À présenter</span>
+      <h3>Acteurs de la formation</h3>
+      <div class="sub">OPCO Cohésion, Transitions Pro, France Travail…</div>
+      <p>Information sur les différents acteurs susceptibles d'accompagner ou de financer la formation : opérateur de compétences, France Travail, conseil régional, Transitions Pro, organismes paritaires.</p>
+      <a class="disp-card__lk" href="https://www.alisfa.fr/wp-content/uploads/2024/10/fiche-5-les-acteurs-de-la-formation.pdf" target="_blank" rel="noreferrer noopener">
+        Fiche CPNEF 5 — Acteurs (PDF) →
+      </a>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============================== KIT OFFICIEL CPNEF ============================== -->
+<section class="kit-section">
+  <h2>Kit officiel CPNEF — Trames et guide</h2>
+  <p class="kit-section__lead">Documents paritaires de la branche ALISFA. À utiliser tels quels ou à adapter au contexte de la structure. <strong style="color:var(--orange-c)">Note :</strong> les trames actuelles emploient la terminologie « entretien professionnel » et seront mises à jour par la CPNEF avant le 1er octobre 2026 pour intégrer la nouvelle rédaction de l'article L6315-1.</p>
+  <div class="kit-grid">
+    <a class="btnDl" href="https://www.alisfa.fr/wp-content/uploads/2024/10/guide-de-lentretien-professionnel.pdf" target="_blank" rel="noreferrer noopener">
+      <div class="btnDl__ic">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+      </div>
+      <div>
+        <div class="btnDl__t">Guide de l'entretien professionnel</div>
+        <div class="btnDl__sub">Document CPNEF · PDF</div>
+      </div>
+      <div class="btnDl__arrow">↓</div>
+    </a>
+    <a class="btnDl" href="https://www.alisfa.fr/wp-content/uploads/2024/10/formulaire-entretien-professionnel.docx" target="_blank" rel="noreferrer noopener">
+      <div class="btnDl__ic">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11h6M9 15h6M9 7h6M5 5h14a2 2 0 0 1 2 2v14H5z"/></svg>
+      </div>
+      <div>
+        <div class="btnDl__t">Trame entretien professionnel</div>
+        <div class="btnDl__sub">Formulaire à remplir · DOCX</div>
+      </div>
+      <div class="btnDl__arrow">↓</div>
+    </a>
+    <a class="btnDl" href="https://www.alisfa.fr/wp-content/uploads/2024/10/formulaire-entretien-bilan-6-ans.docx" target="_blank" rel="noreferrer noopener">
+      <div class="btnDl__ic">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      </div>
+      <div>
+        <div class="btnDl__t">Trame entretien bilan à 6 ans</div>
+        <div class="btnDl__sub">État récapitulatif · DOCX</div>
+      </div>
+      <div class="btnDl__arrow">↓</div>
+    </a>
+    <a class="btnDl" href="https://www.alisfa.fr/emploi-et-formation/nos-communications-et-outils/nos-outils/" target="_blank" rel="noreferrer noopener">
+      <div class="btnDl__ic">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </div>
+      <div>
+        <div class="btnDl__t">Page complète CPNEF</div>
+        <div class="btnDl__sub">alisfa.fr · accès au kit en ligne</div>
+      </div>
+      <div class="btnDl__arrow">↗</div>
+    </a>
+  </div>
+</section>
+
+<!-- ============================== MODALITÉS DE FORMATION ============================== -->
+<section class="modalites">
+  <div class="modalites__head">
+    <h2>Modalités de formation</h2>
+    <span class="tag-info">Comment apprend-on ?</span>
+  </div>
+  <p class="modalites__lead">
+    Au-delà des dispositifs de financement (qui paie ?), les modalités ci-dessous décrivent <em>comment</em> la formation se déroule concrètement. Le bon dispositif dépend de l'objectif : sensibilisation, consolidation d'un niveau ou acquisition certifiante.
+  </p>
+
+  <!-- Modalités courtes -->
+  <div class="mod-section" style="--accent:var(--alisfa-orange); --accent-light:var(--alisfa-orange-l)">
+    <h3 class="mod-section__t">Modalités courtes — sensibilisation, consolidation
+      <small>quelques heures à quelques semaines · non certifiantes</small>
+    </h3>
+    <div class="mod-grid mod-grid--4">
+
+      <article class="mod-card">
+        <div class="mod-card__ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l3-9 9-9 9 9-9 9-9-3z"/><path d="M9 9l6 6"/></svg>
+        </div>
+        <h3>AFEST</h3>
+        <div class="mod-card__sub">Action de Formation En Situation de Travail</div>
+        <p>Apprentissage encadré directement sur le poste, par un tuteur ou pair formateur. Phases d'analyse réflexive entre les mises en situation. Reconnu depuis 2018 comme modalité de formation à part entière.</p>
+        <div class="mod-card__meta">
+          <span class="mod-card__chip mod-card__chip--time">2 sem. à 6 mois</span>
+          <span class="mod-card__chip">Sur poste</span>
+          <span class="mod-card__chip mod-card__chip--reco">OPCO Cohésion ✓</span>
+        </div>
+      </article>
+
+      <article class="mod-card">
+        <div class="mod-card__ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 11h2a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h2"/><circle cx="12" cy="15" r="6"/></svg>
+        </div>
+        <h3>Colloques & journées d'étude</h3>
+        <div class="mod-card__sub">Veille professionnelle</div>
+        <p>Participation à des journées thématiques, congrès de branche, colloques universitaires. Permet une mise à jour des pratiques et des savoirs-clé. Excellent pour accompagner une évolution réglementaire ou un nouveau public accueilli.</p>
+        <div class="mod-card__meta">
+          <span class="mod-card__chip mod-card__chip--time">1 à 3 jours</span>
+          <span class="mod-card__chip">Inscriptions</span>
+          <span class="mod-card__chip mod-card__chip--reco">Plan de dvlpt cpc.</span>
+        </div>
+      </article>
+
+      <article class="mod-card">
+        <div class="mod-card__ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 22h8M12 18v4"/></svg>
+        </div>
+        <h3>Formation en ligne</h3>
+        <div class="mod-card__sub">MOOC, e-learning, classes virtuelles</div>
+        <p>FUN-MOOC, OpenClassrooms, plateformes de branche. Apprentissage autonome ou tutoré, à son rythme, parfois certifiant (badges, attestations). Compatible CPF si formation certifiée Qualiopi inscrite RS / RNCP.</p>
+        <div class="mod-card__meta">
+          <span class="mod-card__chip mod-card__chip--time">10 à 100 h</span>
+          <span class="mod-card__chip">Asynchrone</span>
+          <span class="mod-card__chip mod-card__chip--reco">CPF (selon)</span>
+        </div>
+      </article>
+
+      <article class="mod-card">
+        <div class="mod-card__ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3>Projet en situation</h3>
+        <div class="mod-card__sub">Apprentissage par la production</div>
+        <p>Mission confiée au salarié, en lien direct avec la compétence à acquérir : pilotage d'une animation transversale, co-conception d'un projet partenarial, prise en charge d'un nouveau public. Reconnaissance possible via portefeuille de compétences.</p>
+        <div class="mod-card__meta">
+          <span class="mod-card__chip mod-card__chip--time">3 à 12 mois</span>
+          <span class="mod-card__chip">En interne</span>
+          <span class="mod-card__chip">VAE possible</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- Organismes nationaux -->
+  <div class="mod-section" style="--accent:var(--alisfa-mauve); --accent-light:var(--alisfa-mauve-l)">
+    <h3 class="mod-section__t">Organismes nationaux — formations qualifiantes
+      <small>quelques mois à plusieurs années · diplôme ou titre RNCP</small>
+    </h3>
+    <div class="mod-grid mod-grid--3">
+
+      <article class="mod-card">
+        <div class="mod-card__ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <h3>CNED</h3>
+        <div class="mod-card__sub">Centre National d'Enseignement à Distance</div>
+        <p>Établissement public de l'Éducation nationale. Formations à distance du collège au master, préparations aux concours, formations professionnelles (CAP AEPE, BTS SAM…). Compatible avec maintien dans l'emploi.</p>
+        <div class="mod-card__meta">
+          <span class="mod-card__chip mod-card__chip--time">1 à 3 ans</span>
+          <span class="mod-card__chip">À distance</span>
+          <span class="mod-card__chip mod-card__chip--reco">Diplôme État</span>
+        </div>
+      </article>
+
+      <article class="mod-card">
+        <div class="mod-card__ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>CNAM</h3>
+        <div class="mod-card__sub">Conservatoire National des Arts et Métiers</div>
+        <p>Réseau public de formation continue universitaire. Cours du soir, hors temps de travail ou en alternance. Licences, masters, titres RNCP en gestion, RH, intervention sociale, management associatif.</p>
+        <div class="mod-card__meta">
+          <span class="mod-card__chip mod-card__chip--time">6 mois à 5 ans</span>
+          <span class="mod-card__chip">Capitalisable (UE)</span>
+          <span class="mod-card__chip mod-card__chip--reco">RNCP / Univ.</span>
+        </div>
+      </article>
+
+      <article class="mod-card">
+        <div class="mod-card__ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>AFPA</h3>
+        <div class="mod-card__sub">Agence nationale Formation Professionnelle des Adultes</div>
+        <p>EPIC référence pour les titres professionnels du Ministère du Travail (RNCP). Formations courtes intensives, présentiel ou hybride, fortement professionnalisantes. Reconnaissance immédiate sur le marché du travail.</p>
+        <div class="mod-card__meta">
+          <span class="mod-card__chip mod-card__chip--time">3 à 18 mois</span>
+          <span class="mod-card__chip">Intensif</span>
+          <span class="mod-card__chip mod-card__chip--reco">Titre RNCP</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- Cohérence : quel dispositif pour quel besoin -->
+  <div class="coherence-table-wrap">
+    <h3>Cohérence — quelle modalité pour quel besoin ?</h3>
+    <p>Articulation avec les modes de transfert calculés dans la vue « Comparaison de deux métiers ».</p>
+    <table class="coherence-table">
+      <thead>
+        <tr>
+          <th>Statut de la compétence</th>
+          <th>Niveau cible</th>
+          <th>Modalités recommandées</th>
+          <th>Durée typique</th>
+          <th>Reconnaissance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="level-pill lvl-full">Acquise</span></td>
+          <td>Tous niveaux</td>
+          <td class="modalites-cell">Aucune action requise · <strong>colloques</strong> en veille</td>
+          <td class="duree-cell">—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="level-pill lvl-high">À consolider (haut)</span></td>
+          <td>1 niveau à monter</td>
+          <td class="modalites-cell"><strong>AFEST</strong>, formation en ligne, projet en situation</td>
+          <td class="duree-cell">2 semaines à 6 mois</td>
+          <td>Attestation, badge, certificat de branche</td>
+        </tr>
+        <tr>
+          <td><span class="level-pill lvl-med">À consolider (médian)</span></td>
+          <td>2 niveaux à monter</td>
+          <td class="modalites-cell"><strong>AFEST</strong> + module CNAM ou stage AFPA modulaire</td>
+          <td class="duree-cell">3 à 9 mois</td>
+          <td>UE capitalisable, attestation RS</td>
+        </tr>
+        <tr>
+          <td><span class="level-pill lvl-cross">Transfert proche</span></td>
+          <td>Compétence voisine à étendre</td>
+          <td class="modalites-cell">Projet en situation + <strong>tutorat</strong> + colloques ciblés</td>
+          <td class="duree-cell">3 à 12 mois</td>
+          <td>Portefeuille de compétences, VAE partielle</td>
+        </tr>
+        <tr>
+          <td><span class="level-pill lvl-gain">À acquérir</span></td>
+          <td>Compétence absente</td>
+          <td class="modalites-cell"><strong>AFPA · CNAM · CNED</strong> · diplôme d'État (DEEJE, DEAS, CAFERUIS, CAFDES…)</td>
+          <td class="duree-cell">9 mois à 3 ans</td>
+          <td>Titre RNCP, diplôme d'État</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================== FUND DETAIL SECTION ============================== -->
+<section class="financements">
+  <div class="financements__head">
+    <h2>Dispositifs de financement de la formation</h2>
+    <p>Distincts des dispositifs d'information ci-dessus. Selon la situation du salarié et le métier visé, un ou plusieurs dispositifs sont mobilisables, isolément ou en combinaison. Éléments à titre indicatif. La branche ALISFA et OPCO Cohésion accompagnent l'instruction des dossiers.</p>
+  </div>
+  <div class="financements__grid">
+    <div class="fund-detail" style="--accent:var(--alisfa-orange)">
+      <h3>OPCO Cohésion</h3>
+      <div class="fund-detail__sub">Plan de développement des compétences · employeur</div>
+      <div class="fund-detail__row"><span class="lbl">Initiative</span><span class="val">Employeur</span></div>
+      <div class="fund-detail__row"><span class="lbl">Plafond</span><span class="val">jusqu'à 100 %</span></div>
+      <div class="fund-detail__row"><span class="lbl">Durée</span><span class="val">Toute durée</span></div>
+      <div class="fund-detail__row"><span class="lbl">Salaire</span><span class="val">Maintenu</span></div>
+      <div class="fund-detail__pub">Demande déposée par l'employeur sur la plateforme OPCO Cohésion. Adapté aux formations courtes et à l'adaptation au poste.</div>
+    </div>
+    <div class="fund-detail" style="--accent:var(--alisfa-teal)">
+      <h3>PRO-A</h3>
+      <div class="fund-detail__sub">Reconversion ou promotion par alternance</div>
+      <div class="fund-detail__row"><span class="lbl">Initiative</span><span class="val">Employeur + salarié</span></div>
+      <div class="fund-detail__row"><span class="lbl">Plafond</span><span class="val">100 % coût pédagogique</span></div>
+      <div class="fund-detail__row"><span class="lbl">Durée</span><span class="val">6 à 36 mois</span></div>
+      <div class="fund-detail__row"><span class="lbl">Salaire</span><span class="val">Maintenu</span></div>
+      <div class="fund-detail__pub">Mobilisable pour une évolution ou une reconversion vers une certification éligible. Liste de diplômes définie par accord de branche ALISFA.</div>
+    </div>
+    <div class="fund-detail" style="--accent:var(--alisfa-mauve)">
+      <h3>PTP — Projet Transition Pro</h3>
+      <div class="fund-detail__sub">Ex-CIF · pour changer de métier</div>
+      <div class="fund-detail__row"><span class="lbl">Initiative</span><span class="val">Salarié</span></div>
+      <div class="fund-detail__row"><span class="lbl">Plafond</span><span class="val">Coût + salaire</span></div>
+      <div class="fund-detail__row"><span class="lbl">Durée</span><span class="val">jusqu'à 24 mois</span></div>
+      <div class="fund-detail__row"><span class="lbl">Salaire</span><span class="val">Maintenu (Transitions Pro)</span></div>
+      <div class="fund-detail__pub">Demande individuelle instruite par Transitions Pro en région. Concerne une reconversion vers un métier distinct du métier exercé.</div>
+    </div>
+    <div class="fund-detail" style="--accent:var(--alisfa-amber)">
+      <h3>CPF</h3>
+      <div class="fund-detail__sub">Compte Personnel de Formation</div>
+      <div class="fund-detail__row"><span class="lbl">Initiative</span><span class="val">Salarié</span></div>
+      <div class="fund-detail__row"><span class="lbl">Plafond</span><span class="val">Selon droits acquis</span></div>
+      <div class="fund-detail__row"><span class="lbl">Durée</span><span class="val">Variable</span></div>
+      <div class="fund-detail__row"><span class="lbl">Salaire</span><span class="val">Hors temps de travail (ou abondement)</span></div>
+      <div class="fund-detail__pub">Mobilisable par le salarié via moncompteformation.gouv.fr. Possible abondement employeur ou OPCO en complément de PRO-A ou PTP.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== AUDIT ============================== -->
+<section class="audit-section">
+  <div class="audit-card" id="auditCard">
+    <div class="audit-card__head" id="auditToggle">
+      <h2>Audit de la page actuelle</h2>
+      <span class="badge">15 points identifiés</span>
+      <span class="toggle">
+        Afficher l'audit
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition:transform .25s"><path d="M6 9l6 6 6-6"/></svg>
+      </span>
+    </div>
+    <div class="audit-card__body">
+      <table class="audit-table">
+        <thead><tr><th>#</th><th>Point faible — page <code>alisfa.fr/emploi-et-formation/gpec/</code></th><th>Impact</th><th>Sévérité</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td><strong>Tout en PDF</strong> — 25 fiches uniquement téléchargeables (≈ 720 Ko chacune).</td><td>Friction mobile, pas indexé Google, pas de lien profond.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">2</td><td><strong>JobMap externe</strong> (jobmap.cognito.fr) en iframe — rupture de marque, pas responsive.</td><td>UX cassée, pas de réutilisation API.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">3</td><td><strong>Pas de référentiel compétences partagé</strong> entre les 25 fiches.</td><td>Impossible de visualiser la transférabilité.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">4</td><td><strong>Pas de moteur de recherche</strong> — il faut scroller la liste.</td><td>Temps perdu, abandon.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">5</td><td><strong>Aucune adaptation par profil</strong> (salarié / employeur / négociateur).</td><td>Tous les publics extraient la même info à la main.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">6</td><td><strong>Salaires absents</strong> — info #1 cherchée, totalement absente.</td><td>Renvoi vers la CCN brute.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">7</td><td><strong>Coefficients & échelons CCN non liés</strong> aux fiches.</td><td>Doublons, erreurs de paie.</td><td><span class="sev sev-m">moyenne</span></td></tr>
+          <tr><td class="num">8</td><td><strong>Aucun lien vers les financements</strong> (OPCO, PRO-A, PTP, CPF).</td><td>L'utilisateur abandonne au passage à l'action.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">9</td><td><strong>Pas de témoignages / vidéos</strong> — la promesse marketing n'est pas tenue.</td><td>Engagement faible.</td><td><span class="sev sev-m">moyenne</span></td></tr>
+          <tr><td class="num">10</td><td><strong>Pas de plan de parcours sauvegardé</strong>, pas de favoris.</td><td>Visite « one-shot ».</td><td><span class="sev sev-m">moyenne</span></td></tr>
+          <tr><td class="num">11</td><td><strong>Friction mobile</strong> — PDF 720 Ko en 4G.</td><td>Abandon élevé.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">12</td><td><strong>Accessibilité PDF non garantie</strong>.</td><td>Public en situation de handicap exclu.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">13</td><td><strong>Pas de données tension recrutement</strong> par métier.</td><td>Pas d'aide à la priorisation branche.</td><td><span class="sev sev-m">moyenne</span></td></tr>
+          <tr><td class="num">14</td><td><strong>Pas de comparateur multi-métiers</strong>.</td><td>Décision RH ralentie.</td><td><span class="sev sev-l">faible</span></td></tr>
+          <tr><td class="num">15</td><td><strong>Pas d'API ouverte</strong> (SIRH structures, OPCO Cohésion, France Travail, partenaires CPNEF).</td><td>Silos d'information.</td><td><span class="sev sev-l">faible</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== MODAL : NOUVELLE PROPOSITION ============================== -->
+<div class="modal-bg" id="newPropModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div class="modal__head">
+      <h3 id="modalTitle">Nouvelle proposition paritaire</h3>
+      <button class="modal__close" data-close-modal aria-label="Fermer">×</button>
+    </div>
+    <div class="modal__body">
+      <div class="modal__field">
+        <label for="propType">Type de modification</label>
+        <select id="propType">
+          <option value="competence_create">Créer une compétence</option>
+          <option value="competence_update">Modifier une compétence existante</option>
+          <option value="metier_create">Créer un métier</option>
+          <option value="metier_update">Modifier un métier (compétences, niveau, description)</option>
+          <option value="passerelle_create">Ajouter une passerelle entre deux métiers</option>
+          <option value="grille_update">Mettre à jour un coefficient CCN</option>
+          <option value="metier_deprecate">Mettre un métier en lecture seule (deprecation)</option>
+        </select>
+      </div>
+      <div class="modal__field">
+        <label for="propTitle">Intitulé court</label>
+        <input id="propTitle" type="text" placeholder="Ex. Ajouter la compétence « Communication numérique » et la rattacher aux fiches Animateur·trice et EJE.">
+      </div>
+      <div class="modal__field">
+        <label for="propRationale">Argumentaire pour la CPNEF</label>
+        <textarea id="propRationale" rows="4" placeholder="Justifier l'évolution proposée, en quelques phrases. L'argumentaire est joint au compte-rendu de séance."></textarea>
+        <div class="modal__hint">Cet argumentaire est public et sera notifié à tous les négociateurs habilités.</div>
+      </div>
+      <div class="modal__field">
+        <label>Diff prévisionnel (auto)</label>
+        <div class="prop__diff" id="propPreviewDiff" style="background:var(--paper-2)">
+          <span class="ctx">// Le diff sera calculé après saisie des champs spécifiques.</span><br>
+          <span class="add">+ Ajout : Communication numérique (catégorie : Pédagogique)</span><br>
+          <span class="add">+ Métier modifié : Animateur·trice — niveau 2 sur la nouvelle compétence</span><br>
+          <span class="add">+ Métier modifié : EJE — niveau 2 sur la nouvelle compétence</span>
+        </div>
+      </div>
+    </div>
+    <div class="modal__foot">
+      <button class="btn btn-secondary" data-close-modal>Annuler</button>
+      <button class="btn btn-primary" id="submitProp">Soumettre à validation paritaire</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer">
+  <div class="footer__row">
+    <span class="footer__brand">Atlas des métiers ALISFA</span>
+    <span style="font-size:13px;color:rgba(255,255,255,0.65)">Prototype d'interface — branche, CPNEF, GPEC.</span>
+    <div class="footer__sp"></div>
+    <a class="footer__lk" href="https://www.alisfa.fr/emploi-et-formation/gpec/" target="_blank">Page actuelle alisfa.fr ↗</a>
+  </div>
+</footer>
+
+<!-- =====================================================
+     SCRIPT
+     ===================================================== -->
+<script>
+// ====================================================================
+// RÉFÉRENTIEL CPNEF — 33 compétences réparties en 8 catégories
+// Calé sur les 25 fiches métiers CPNEF (alisfa.fr/emploi-et-formation/gpec/)
+// ====================================================================
+const SKILLS = [
+  // Relationnel (5)
+  { id: "accueil_pub",     cat: "Relationnel",   label: "Accueil & orientation des publics" },
+  { id: "ecoute",          cat: "Relationnel",   label: "Écoute active & médiation" },
+  { id: "com_parents",     cat: "Relationnel",   label: "Communication avec les familles" },
+  { id: "gestion_conflit", cat: "Relationnel",   label: "Gestion de conflit" },
+  { id: "partenariat",     cat: "Relationnel",   label: "Travail en partenariat" },
+  // Pédagogique (5)
+  { id: "conception_proj", cat: "Pédagogique",   label: "Conception de projet pédagogique" },
+  { id: "anim_grp_enf",    cat: "Pédagogique",   label: "Animation de groupe — enfants" },
+  { id: "anim_grp_ado",    cat: "Pédagogique",   label: "Animation de groupe — ados/adultes" },
+  { id: "eval_peda",       cat: "Pédagogique",   label: "Évaluation pédagogique" },
+  { id: "adaptation_pub",  cat: "Pédagogique",   label: "Adaptation aux publics fragiles" },
+  // Petite enfance (5)
+  { id: "soins_pe",        cat: "Petite enfance", label: "Soins quotidiens du jeune enfant" },
+  { id: "observ_pe",       cat: "Petite enfance", label: "Observation du développement" },
+  { id: "securite_aff",    cat: "Petite enfance", label: "Sécurité physique et affective" },
+  { id: "eveil_moteur",    cat: "Petite enfance", label: "Accompagnement de l'éveil" },
+  { id: "laep_anonymat",   cat: "Petite enfance", label: "Posture LAEP / anonymat" },
+  // Administratif (5)
+  { id: "bureautique",     cat: "Administratif", label: "Bureautique & traitement de texte" },
+  { id: "comptabilite",    cat: "Administratif", label: "Comptabilité de base" },
+  { id: "paie",            cat: "Administratif", label: "Paie & déclarations sociales" },
+  { id: "subventions",     cat: "Administratif", label: "Gestion de dossiers de subvention" },
+  { id: "archivage",       cat: "Administratif", label: "Archivage & classement" },
+  // Management (4)
+  { id: "encadrement",     cat: "Management",    label: "Encadrement d'équipe" },
+  { id: "budget",          cat: "Management",    label: "Pilotage budgétaire" },
+  { id: "gpec",            cat: "Management",    label: "Politique RH & GPEC" },
+  { id: "representation",  cat: "Management",    label: "Représentation institutionnelle" },
+  // Technique (4)
+  { id: "maintenance",     cat: "Technique",     label: "Maintenance bâtiment" },
+  { id: "haccp",           cat: "Technique",     label: "Hygiène alimentaire HACCP" },
+  { id: "cuisine",         cat: "Technique",     label: "Cuisine collective" },
+  { id: "entretien_locaux",cat: "Technique",     label: "Entretien des locaux" },
+  // Sécurité / soins (2)
+  { id: "securite_inc",    cat: "Sécurité",      label: "Sécurité incendie / des locaux" },
+  { id: "soins_param",     cat: "Sécurité",      label: "Soins paramédicaux" },
+  // Spécialisée (3)
+  { id: "expertise",       cat: "Spécialisée",   label: "Expertise thématique" },
+  { id: "com_digitale",    cat: "Spécialisée",   label: "Communication digitale" },
+  { id: "mediation_num",   cat: "Spécialisée",   label: "Médiation numérique" },
+];
+
+// ====================================================================
+// DONNÉES MÉTIERS — 25 métiers réels page alisfa.fr/emploi-et-formation/gpec/
+// avec niveau de chaque compétence (0=non requis, 1=base, 2=conf, 3=exp)
+// ====================================================================
+const FAMILIES = {
+  anim: { name: "Animation",      color: "#E07A4D" },
+  pe:   { name: "Petite enfance", color: "#7E5A99" },
+  enc:  { name: "Encadrement",    color: "#1a2a53" },
+  adm:  { name: "Administratif",  color: "#1F8D8A" },
+  ser:  { name: "Services",       color: "#6B8E5C" },
+};
+
+const JOBS = [
+  // ===== Animation (6) =====
+  { id:"anim_anim",  fam:"anim", name:"Animateur·trice",                            short:"Animateur·trice",
+    one:"Au cœur de l'action sociale et culturelle de proximité.",
+    comp:{ accueil_pub:2, ecoute:2, gestion_conflit:2, partenariat:2,
+           anim_grp_enf:2, anim_grp_ado:3, conception_proj:2, eval_peda:1, adaptation_pub:2 } },
+  { id:"anim_act",   fam:"anim", name:"Animateur·trice d'activités",                short:"Anim. activités",
+    one:"Spécialiste d'une discipline mise au service du collectif.",
+    comp:{ accueil_pub:1, anim_grp_enf:2, anim_grp_ado:2,
+           conception_proj:1, eval_peda:1, adaptation_pub:1, securite_inc:1, expertise:3 } },
+  { id:"anim_proj",  fam:"anim", name:"Chargé·e de projet",                          short:"Ch. projet",
+    one:"Pilote des projets transversaux pour la structure.",
+    comp:{ conception_proj:3, eval_peda:3, partenariat:3, com_parents:1,
+           encadrement:1, budget:2, bureautique:2, gpec:1 } },
+  { id:"anim_int",   fam:"anim", name:"Intervenant·e social·e",                     short:"Interv. social",
+    one:"Accompagne les publics fragiles dans leurs démarches.",
+    comp:{ accueil_pub:2, ecoute:3, gestion_conflit:2, partenariat:2,
+           eval_peda:2, adaptation_pub:3, expertise:2, bureautique:1 } },
+  { id:"anim_int_sp",fam:"anim", name:"Intervenant·e spécialisé·e",                 short:"Interv. spé.",
+    one:"Expertise pointue (FLE, parentalité, médiation…).",
+    comp:{ ecoute:2, anim_grp_ado:2, expertise:3, eval_peda:2, partenariat:2, adaptation_pub:2 } },
+  { id:"anim_ref",   fam:"anim", name:"Référent·e secteur",                         short:"Référent·e",
+    one:"Personne ressource pour une thématique transversale.",
+    comp:{ encadrement:1, eval_peda:2, partenariat:3, expertise:2,
+           anim_grp_ado:2, ecoute:2, gpec:1 } },
+
+  // ===== Petite enfance (6) =====
+  { id:"pe_laep",    fam:"pe",   name:"Accueillant·e LAEP",                          short:"LAEP",
+    one:"Accueille parents et jeunes enfants pour soutenir le lien.",
+    comp:{ accueil_pub:3, ecoute:3, observ_pe:2, com_parents:3,
+           laep_anonymat:3, anim_grp_enf:1, soins_pe:1 } },
+  { id:"pe_anim_pe", fam:"pe",   name:"Animateur·trice petite enfance",              short:"Anim. PE",
+    one:"Animation des temps d'éveil pour les 0-3 ans.",
+    comp:{ accueil_pub:1, anim_grp_enf:2, soins_pe:2, observ_pe:2,
+           securite_aff:2, eveil_moteur:2, com_parents:2, ecoute:1 } },
+  { id:"pe_anim_rpe",fam:"pe",   name:"Animateur·trice relais PE (RPE)",             short:"Anim. RPE",
+    one:"Anime un relais pour assistantes maternelles et parents.",
+    comp:{ accueil_pub:2, ecoute:2, anim_grp_enf:2, partenariat:3,
+           com_parents:3, soins_pe:1, conception_proj:1 } },
+  { id:"pe_amat",    fam:"pe",   name:"Assistant·e maternel·le crèche fam.",         short:"Asst. mat.",
+    one:"Accueille des enfants à domicile au sein d'une crèche familiale.",
+    comp:{ soins_pe:3, observ_pe:2, securite_aff:2, eveil_moteur:2, com_parents:2, ecoute:1 } },
+  { id:"pe_aux",     fam:"pe",   name:"Auxiliaire de puériculture",                  short:"Aux. puér.",
+    one:"Soins et accompagnement éducatif des tout-petits.",
+    comp:{ soins_pe:3, observ_pe:3, securite_aff:3, eveil_moteur:2,
+           anim_grp_enf:1, com_parents:1, soins_param:1 } },
+  { id:"pe_eje",     fam:"pe",   name:"Éducateur·trice de jeunes enfants",           short:"EJE",
+    one:"Conçoit et garantit le projet pédagogique des 0-6 ans.",
+    comp:{ conception_proj:3, observ_pe:3, soins_pe:2, anim_grp_enf:2,
+           eveil_moteur:3, securite_aff:2, com_parents:2,
+           encadrement:2, eval_peda:2, ecoute:2 } },
+
+  // ===== Encadrement (4) =====
+  { id:"enc_del",    fam:"enc",  name:"Délégué·e fédéral·e",                          short:"Délégué·e féd.",
+    one:"Représente une fédération auprès des structures et partenaires.",
+    comp:{ encadrement:2, partenariat:3, eval_peda:2, budget:2,
+           representation:3, expertise:2, gpec:2 } },
+  { id:"enc_dir",    fam:"enc",  name:"Directeur·trice",                              short:"Directeur·trice",
+    one:"Pilote l'ensemble d'une structure : projet, équipe, finances.",
+    comp:{ encadrement:3, budget:3, conception_proj:3, eval_peda:3,
+           partenariat:2, ecoute:2, gpec:2, representation:3,
+           subventions:2, gestion_conflit:2 } },
+  { id:"enc_resp",   fam:"enc",  name:"Responsable, coordinateur·trice",              short:"Resp/Coord.",
+    one:"Pilote une équipe ou un secteur d'activité.",
+    comp:{ encadrement:3, eval_peda:2, conception_proj:2, partenariat:2,
+           budget:1, ecoute:2, gpec:1 } },
+  { id:"enc_dirh",   fam:"enc",  name:"Directeur·trice RH/AF",                        short:"Dir. RH/AF",
+    one:"Pilote les fonctions support transverses.",
+    comp:{ encadrement:3, budget:3, comptabilite:3, paie:3,
+           bureautique:3, gpec:3, expertise:2 } },
+
+  // ===== Administratif (5) =====
+  { id:"adm_dir",    fam:"adm",  name:"Assistant·e de direction",                     short:"Asst. direction",
+    one:"Bras droit de la direction sur l'administratif.",
+    comp:{ bureautique:3, accueil_pub:1, eval_peda:1, ecoute:1, archivage:2, com_parents:1 } },
+  { id:"adm_acc",    fam:"adm",  name:"Chargé·e d'accueil",                           short:"Ch. accueil",
+    one:"Premier visage de la structure auprès du public.",
+    comp:{ accueil_pub:3, ecoute:2, bureautique:1, gestion_conflit:1,
+           com_parents:1, adaptation_pub:1 } },
+  { id:"adm_com",    fam:"adm",  name:"Chargé·e de communication",                    short:"Ch. com.",
+    one:"Donne la voix de la structure en interne et à l'externe.",
+    comp:{ bureautique:2, conception_proj:2, expertise:2, partenariat:2,
+           eval_peda:1, com_digitale:3, mediation_num:1 } },
+  { id:"adm_perso",  fam:"adm",  name:"Personnel administratif/financier",            short:"Pers. admin/fin.",
+    one:"Gestion comptable, paie, administratif courant.",
+    comp:{ comptabilite:3, bureautique:3, paie:2, budget:1, subventions:2, archivage:1 } },
+  { id:"adm_sec",    fam:"adm",  name:"Secrétaire",                                   short:"Secrétaire",
+    one:"Soutien administratif et organisationnel quotidien.",
+    comp:{ bureautique:3, accueil_pub:2, ecoute:1, archivage:2, gestion_conflit:1 } },
+
+  // ===== Services & techniques (4) =====
+  { id:"ser_ent",    fam:"ser",  name:"Agent d'entretien et de service",              short:"Agent entretien",
+    one:"Garantit l'hygiène et la propreté des locaux.",
+    comp:{ entretien_locaux:3, haccp:2, maintenance:1 } },
+  { id:"ser_main",   fam:"ser",  name:"Agent de maintenance",                         short:"Agent maint.",
+    one:"Maintien en état le bâtiment et les équipements.",
+    comp:{ maintenance:3, securite_inc:2, expertise:1 } },
+  { id:"ser_cui",    fam:"ser",  name:"Cuisinier·ère",                                short:"Cuisinier·ère",
+    one:"Élabore des repas adaptés aux publics accueillis.",
+    comp:{ cuisine:3, haccp:3, budget:1 } },
+  { id:"ser_med",    fam:"ser",  name:"Intervenant·e médical·e ou paramédical·e",      short:"Interv. médical",
+    one:"Apporte une expertise santé en EAJE ou structure.",
+    comp:{ soins_param:3, observ_pe:2, soins_pe:2, securite_aff:2,
+           ecoute:2, expertise:3, com_parents:2 } },
+];
+const JOB_MAP = Object.fromEntries(JOBS.map(j => [j.id, j]));
+
+// ====================================================================
+// STATE
+// ====================================================================
+let state = {
+  audience: 'salarie',
+  view: 'entretien',
+  src: 'pe_aux',
+  tgt: 'pe_eje',
+  atlasSelected: 'pe_eje',
+};
+
+// ====================================================================
+// AUDIENCE & VIEW SWITCHERS
+// ====================================================================
+function setAudience(a) {
+  state.audience = a;
+  document.body.setAttribute('data-aud', a);
+  document.querySelectorAll('.audience button').forEach(b => {
+    b.setAttribute('aria-pressed', b.dataset.aud === a);
+  });
+  // Si on quitte le mode négociateur alors qu'on est sur l'onglet édition, retour à entretien
+  if (a !== 'negociateur' && state.view === 'edit') setView('entretien');
+  // Update hero text
+  const h1 = document.getElementById('heroTitle');
+  const lead = document.getElementById('heroLead');
+  if (a === 'salarie') {
+    h1.innerHTML = "Atlas des métiers et compétences <em>de la branche</em>";
+    lead.textContent = "Outil de préparation de l'entretien de parcours professionnel (L6315-1 modifié, loi du 24 octobre 2025). 25 métiers, référentiel de 16 compétences, dispositifs à présenter et trames CPNEF.";
+  } else if (a === 'employeur') {
+    h1.innerHTML = "Préparer l'entretien de <em>parcours professionnel</em>";
+    lead.textContent = "Cadre légal réformé, dispositifs à présenter au salarié (VAE, CPF, CEP, bilan de compétences), trames officielles CPNEF, financements de la formation. Application obligatoire au 1er octobre 2026.";
+  } else {
+    h1.innerHTML = "Référentiel CPNEF — <em>16 compétences, 25 métiers</em>";
+    lead.textContent = "Référentiel branche commun aux 25 fiches métiers CPNEF. Niveau attendu par compétence, transférabilité inter-métiers, articulation avec l'entretien de parcours professionnel.";
+  }
+  renderBridge();
+}
+
+function setView(v) {
+  state.view = v;
+  document.querySelectorAll('.view-switcher button').forEach(b => {
+    b.setAttribute('aria-pressed', b.dataset.view === v);
+  });
+  document.querySelectorAll('.view-panel').forEach(p => {
+    p.classList.toggle('is-active', p.id === 'view-' + v);
+  });
+  if (v === 'atlas') renderAtlas();
+  if (v === 'matrix') renderMatrix();
+  if (v === 'edit')  renderEdit();
+  if (v === 'rosace') renderRosace();
+}
+
+// ====================================================================
+// VIEW 1 — BRIDGE
+// ====================================================================
+function populateSelects() {
+  const src = document.getElementById('srcJob');
+  const tgt = document.getElementById('tgtJob');
+  src.innerHTML = ''; tgt.innerHTML = '';
+  // Group by family
+  Object.entries(FAMILIES).forEach(([famKey, fam]) => {
+    const groupSrc = document.createElement('optgroup');
+    groupSrc.label = fam.name;
+    const groupTgt = document.createElement('optgroup');
+    groupTgt.label = fam.name;
+    JOBS.filter(j => j.fam === famKey).forEach(j => {
+      groupSrc.appendChild(new Option(j.name, j.id));
+      groupTgt.appendChild(new Option(j.name, j.id));
+    });
+    src.appendChild(groupSrc); tgt.appendChild(groupTgt);
+  });
+  src.value = state.src;
+  tgt.value = state.tgt;
+  src.addEventListener('change', () => { state.src = src.value; renderBridge(); });
+  tgt.addEventListener('change', () => { state.tgt = tgt.value; renderBridge(); });
+}
+
+// ===========================================================
+// Vraisemblance compétence par compétence
+// ===========================================================
+//
+// Chaque compétence requise dans le métier cible reçoit un taux
+// de transfert ∈ [0, 1] :
+//   - Direct : la compétence existe aussi dans le source
+//                  taux = min(srcLvl, tgtLvl) / tgtLvl
+//   - Cross-catégorie : compétence absente, mais le source détient
+//     une autre compétence forte de la MÊME catégorie
+//                  taux ≤ 0.30  (transfert partiel par familiarité)
+//   - Sinon : taux = 0 (à acquérir)
+//
+// Le score global est la moyenne pondérée par le niveau exigé
+// dans le métier cible (une compétence experte compte 3× plus
+// qu'une compétence de base), augmenté d'un bonus famille (+8%)
+// si source et cible appartiennent à la même famille.
+// ===========================================================
+
+function categoryOf(skillId) {
+  const s = SKILLS.find(x => x.id === skillId);
+  return s ? s.cat : null;
+}
+function labelOf(skillId) {
+  const s = SKILLS.find(x => x.id === skillId);
+  return s ? s.label : skillId;
+}
+
+function transferRate(srcLvl, tgtLvl) {
+  if (tgtLvl === 0) return null;
+  if (srcLvl === 0) return 0;
+  return Math.min(1, srcLvl / tgtLvl);
+}
+
+// Cherche dans le source la compétence la plus forte qui appartient
+// à la même catégorie que la compétence cible (hors elle-même).
+function bestAdjacent(srcJob, tgtSkillId) {
+  const tgtCat = categoryOf(tgtSkillId);
+  if (!tgtCat) return { skillId: null, level: 0 };
+  let best = { skillId: null, level: 0 };
+  for (const [skillId, level] of Object.entries(srcJob.comp)) {
+    if (skillId === tgtSkillId) continue;
+    if (categoryOf(skillId) === tgtCat && level > best.level) {
+      best = { skillId, level };
+    }
+  }
+  return best;
+}
+
+// Crédit cross-catégorie ∈ [0, 0.35]
+function crossRate(srcJob, tgtSkillId, tgtLvl) {
+  const adj = bestAdjacent(srcJob, tgtSkillId);
+  if (adj.level === 0 || tgtLvl === 0) return { rate: 0, via: null };
+  // 35% de transfert maximum, modulé par : niveau adjacent / 3 et niveau cible
+  const rate = 0.35 * (adj.level / 3) * (1 - (tgtLvl - 1) / 5);
+  return { rate: Math.min(0.35, Math.max(0, rate)), via: adj.skillId };
+}
+
+function computeCompat(srcJob, tgtJob) {
+  const details = [];
+  let weightedScore = 0;
+  let totalWeight  = 0;
+
+  // --- Compétences requises au métier cible ---
+  for (const [skillId, tgtLvl] of Object.entries(tgtJob.comp)) {
+    const srcLvl = srcJob.comp[skillId] || 0;
+    let rate, mode, viaSkill = null;
+
+    if (srcLvl > 0) {
+      rate = transferRate(srcLvl, tgtLvl);
+      mode = rate >= 1 ? 'full' : (rate >= 0.6 ? 'high' : 'med');
+    } else {
+      const cross = crossRate(srcJob, skillId, tgtLvl);
+      if (cross.rate > 0.03) {
+        rate = cross.rate;
+        mode = 'cross';
+        viaSkill = cross.via;
+      } else {
+        rate = 0;
+        mode = 'gain';
+      }
+    }
+
+    const weight = tgtLvl;        // 1, 2 ou 3
+    weightedScore += rate * weight;
+    totalWeight   += weight;
+
+    details.push({ skillId, srcLvl, tgtLvl, rate, mode, weight, viaSkill });
+  }
+
+  // --- Compétences détenues par le source mais hors périmètre cible ---
+  for (const [skillId, srcLvl] of Object.entries(srcJob.comp)) {
+    if (!tgtJob.comp[skillId]) {
+      details.push({ skillId, srcLvl, tgtLvl: 0, rate: null, mode: 'unused', weight: 0 });
+    }
+  }
+
+  // --- Bonus famille modulé ---
+  // +8% si même famille de métiers (familiarité contextuelle).
+  // +12% si même famille ET au moins 2 transferts directs complets
+  // sur des compétences à fort poids — i.e. carrière fortement ancrée.
+  const sameFam = srcJob.fam === tgtJob.fam;
+  const strongFullCount = details.filter(d => d.mode === 'full' && d.weight >= 2).length;
+  let familyBonus = 0;
+  if (sameFam) familyBonus = (strongFullCount >= 2) ? 0.12 : 0.08;
+
+  let pct = totalWeight > 0 ? weightedScore / totalWeight : 0;
+  pct = Math.min(1, pct + familyBonus);
+
+  // Compteurs
+  const counts = {
+    full:   details.filter(d => d.mode === 'full').length,
+    high:   details.filter(d => d.mode === 'high').length,
+    med:    details.filter(d => d.mode === 'med').length,
+    cross:  details.filter(d => d.mode === 'cross').length,
+    gain:   details.filter(d => d.mode === 'gain').length,
+    unused: details.filter(d => d.mode === 'unused').length,
+  };
+  counts.transfered = counts.full + counts.high + counts.med + counts.cross;
+  counts.totalReq   = counts.full + counts.high + counts.med + counts.cross + counts.gain;
+
+  // Tri pour l'affichage : compétences requises par poids DESC, puis taux DESC ; suivies des "unused"
+  details.sort((a, b) => {
+    if (a.mode === 'unused' && b.mode !== 'unused') return 1;
+    if (b.mode === 'unused' && a.mode !== 'unused') return -1;
+    if (a.mode === 'unused' && b.mode === 'unused') return b.srcLvl - a.srcLvl;
+    if (b.weight !== a.weight) return b.weight - a.weight;
+    return (b.rate || 0) - (a.rate || 0);
+  });
+
+  return {
+    pct: Math.round(pct * 100),
+    rawPct: pct,
+    weightedScore,
+    totalWeight,
+    familyBonus,
+    sameFamily: sameFam,
+    details,
+    counts,
+    // Compat d'API avec le code existant
+    kept: counts.full + counts.high + counts.med,
+    gain: counts.gain,
+    total: counts.totalReq,
+  };
+}
+
+// Alias pour la compat avec atlas/related
+function compatibility(srcJob, tgtJob) {
+  return computeCompat(srcJob, tgtJob);
+}
+
+function renderBridge() {
+  const srcJob = JOB_MAP[state.src];
+  const tgtJob = JOB_MAP[state.tgt];
+  const c = computeCompat(srcJob, tgtJob);
+
+  // ---- Score box (avec décomposition pondérée) ----
+  const box = document.getElementById('scoreBox');
+  let level, levelTxt;
+  if (c.pct >= 70) { level = "élevée"; levelTxt = "Majorité des compétences requises déjà détenues, à un niveau adapté."; }
+  else if (c.pct >= 45) { level = "intermédiaire"; levelTxt = "Compétences partiellement transférables, formation ciblée nécessaire."; }
+  else { level = "faible"; levelTxt = "Reconversion : formation longue, plusieurs compétences à acquérir."; }
+
+  const aConsolider = c.counts.high + c.counts.med;
+  const familyTxt = c.sameFamily
+    ? `<span style="opacity:0.85"> · bonus famille +${Math.round(c.familyBonus*100)}%</span>`
+    : '';
+
+  box.innerHTML = `
+    <div>
+      <div class="score__sub">Vraisemblance pondérée</div>
+      <div class="score__num">${c.pct}<small>%</small></div>
+    </div>
+    <div class="score__txt">
+      <strong>${srcJob.short}</strong> → <strong>${tgtJob.short}</strong> · proximité <strong>${level}</strong>. ${levelTxt}${familyTxt}
+      <div class="compat-bar" style="grid-template-columns: repeat(5, 1fr)">
+        <div class="compat-bar__seg">
+          <span class="compat-bar__num">${c.counts.full}</span>
+          <span class="compat-bar__lbl">Acquises</span>
+        </div>
+        <div class="compat-bar__seg">
+          <span class="compat-bar__num">${aConsolider}</span>
+          <span class="compat-bar__lbl">À consolider</span>
+        </div>
+        <div class="compat-bar__seg">
+          <span class="compat-bar__num">${c.counts.cross}</span>
+          <span class="compat-bar__lbl">Transfert proche</span>
+        </div>
+        <div class="compat-bar__seg">
+          <span class="compat-bar__num">${c.counts.gain}</span>
+          <span class="compat-bar__lbl">À acquérir</span>
+        </div>
+        <div class="compat-bar__seg">
+          <span class="compat-bar__num">${c.counts.unused}</span>
+          <span class="compat-bar__lbl">Hors périmètre</span>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // ---- Skill bridge visualization (compétence par compétence) ----
+  const viz = document.getElementById('bridgeViz');
+  viz.innerHTML = `
+    <div class="bridge__viz-head">
+      <div>${srcJob.short} — détenu</div>
+      <div>Taux de transfert · vers chaque compétence requise</div>
+      <div>${tgtJob.short} — requis</div>
+    </div>
+  `;
+
+  // Sépare les compétences requises (avec mode != unused) des "hors périmètre"
+  const required = c.details.filter(d => d.mode !== 'unused');
+  const unused   = c.details.filter(d => d.mode === 'unused');
+
+  required.forEach(d => {
+    const skillLabel = labelOf(d.skillId);
+    const skillCat = categoryOf(d.skillId);
+    const pct = Math.round(d.rate * 100);
+    const weightCls = d.weight === 3 ? 'skill-row__weight--high'
+                    : d.weight === 2 ? 'skill-row__weight--mid'
+                    : '';
+
+    // --- Côté source (gauche) ---
+    let leftHtml = '';
+    if (d.srcLvl > 0) {
+      leftHtml = `
+        <div class="skill-row__name">
+          ${skillLabel}
+          <small>${skillCat} · ${renderLvl(d.srcLvl)}</small>
+        </div>`;
+    } else if (d.mode === 'cross' && d.viaSkill) {
+      const viaLabel = labelOf(d.viaSkill);
+      leftHtml = `
+        <div class="skill-row__name">
+          <span style="color:var(--muted)">—</span>
+          <span class="skill-row__detail cross">via <strong>${viaLabel}</strong> (proche)</span>
+        </div>`;
+    } else {
+      leftHtml = `
+        <div class="skill-row__name" style="color:var(--faint)">
+          —
+          <span class="skill-row__detail gain">non détenue</span>
+        </div>`;
+    }
+
+    // --- Pont (centre) avec barre + % ---
+    const cls = `skill-bridge skill-bridge--${d.mode === 'med' ? 'med' : d.mode}`;
+    const pctTxt = pct + '%';
+    const middle = `
+      <div class="skill-bridge ${d.mode === 'full' ? 'skill-bridge--full'
+                              : d.mode === 'high' ? 'skill-bridge--high'
+                              : d.mode === 'med'  ? 'skill-bridge--med'
+                              : d.mode === 'cross'? 'skill-bridge--cross'
+                              : 'skill-bridge--gain'}">
+        <div class="tr-bar">
+          <div class="tr-bar__fill"></div>
+          <div class="tr-bar__pct">${pctTxt}</div>
+        </div>
+      </div>`;
+
+    // --- Côté cible (droite) ---
+    const isGain = d.mode === 'gain';
+    const isCross = d.mode === 'cross';
+    const tgtSubText = isGain ? ' · à acquérir'
+                     : isCross ? ' · transfert partiel'
+                     : '';
+    const tgtCls = isGain ? 'gain' : '';
+    const rightHtml = `
+      <div class="skill-row__name ${tgtCls}" style="text-align:right">
+        ${skillLabel}
+        <span class="skill-row__weight ${weightCls}">poids ${d.weight}</span>
+        <small>${skillCat} · niv. ${renderLvl(d.tgtLvl)}${tgtSubText}</small>
+      </div>`;
+
+    const row = document.createElement('div');
+    row.className = 'skill-row';
+    row.innerHTML = leftHtml + middle + rightHtml;
+    viz.appendChild(row);
+  });
+
+  // --- Section "Hors périmètre" (compétences sources non utilisées) ---
+  if (unused.length > 0) {
+    const head = document.createElement('div');
+    head.className = 'skill-row is-section-head';
+    head.textContent = `Compétences détenues hors du périmètre du métier cible`;
+    viz.appendChild(head);
+    unused.forEach(d => {
+      const skillLabel = labelOf(d.skillId);
+      const skillCat = categoryOf(d.skillId);
+      const row = document.createElement('div');
+      row.className = 'skill-row';
+      row.innerHTML = `
+        <div class="skill-row__name">
+          ${skillLabel}
+          <small>${skillCat} · ${renderLvl(d.srcLvl)}</small>
+        </div>
+        <div class="skill-bridge">
+          <div class="tr-bar"><div class="tr-bar__fill" style="background:var(--faint);width:0"></div></div>
+        </div>
+        <div class="skill-row__name" style="text-align:right;color:var(--faint)">
+          —
+          <small>non requis dans ${tgtJob.short}</small>
+        </div>
+      `;
+      viz.appendChild(row);
+    });
+  }
+
+  // --- Légende ---
+  const legend = document.createElement('div');
+  legend.className = 'bridge__legend';
+  legend.innerHTML = `
+    <span><i style="background:var(--green)"></i>Direct complet (≥ niveau requis)</span>
+    <span><i style="background:var(--alisfa-teal)"></i>Direct partiel (niveau à monter)</span>
+    <span><i style="background:var(--alisfa-amber)"></i>Transfert proche (compétence voisine)</span>
+    <span><i style="background:var(--alisfa-orange)"></i>À acquérir</span>
+    <span style="margin-left:auto;font-size:11px;font-style:italic">Score = moyenne pondérée par le niveau exigé · bonus famille si applicable.</span>
+  `;
+  viz.appendChild(legend);
+
+  // ---- Funding cards (utilise nombres c.gain et c.pct comme avant) ----
+  renderFunding(c, srcJob, tgtJob);
+}
+
+function renderLvl(n) {
+  if (n === 0) return '—';
+  return n === 1 ? 'base' : n === 2 ? 'confirmé' : 'expert';
+}
+
+function renderFunding(c, srcJob, tgtJob) {
+  // Eligibility logic (simplified, illustrative)
+  const sameFam = srcJob.fam === tgtJob.fam;
+  const longParcours = c.gain >= 4;
+  const isReconv = !sameFam && c.pct < 50;
+  // estimated cost
+  const baseCost = 2400 * c.gain;
+  const longCost = c.gain >= 4 ? 9000 + 1500 * (c.gain - 4) : baseCost;
+  const dispos = [
+    {
+      key: 'opco',
+      title: 'OPCO Cohésion',
+      sub: 'Plan de développement des compétences',
+      eligible: true,
+      amount: longParcours ? '~' + (longCost * 0.7).toLocaleString('fr-FR') + ' €' : '~' + baseCost.toLocaleString('fr-FR') + ' €',
+      d: longParcours ? "Prise en charge partielle pour les formations longues. À combiner avec un autre dispositif."
+                       : "Prise en charge intégrale possible pour les formations courtes (< 6 mois)."
+    },
+    {
+      key: 'proa',
+      title: 'PRO-A',
+      sub: 'Reconversion ou promotion par alternance',
+      eligible: longParcours && c.pct >= 30,
+      amount: longParcours ? '~' + longCost.toLocaleString('fr-FR') + ' €' : '—',
+      d: longParcours ? "Sous réserve d'éligibilité de la certification visée (RNCP). Salaire maintenu, durée 6 à 36 mois." :
+                        "Dispositif réservé aux formations diplômantes longues."
+    },
+    {
+      key: 'ptp',
+      title: 'PTP',
+      sub: 'Projet de Transition Professionnelle (ex-CIF)',
+      eligible: isReconv,
+      amount: isReconv ? '~' + (longCost + 22000).toLocaleString('fr-FR') + ' €' : '—',
+      d: isReconv ? "Métier cible distinct du métier exercé. Instruction par Transitions Pro en région." :
+                    "Réservé aux reconversions hors famille de métiers."
+    },
+    {
+      key: 'cpf',
+      title: 'CPF',
+      sub: 'Compte Personnel de Formation',
+      eligible: c.gain > 0,
+      amount: c.gain > 0 ? 'Selon droits acquis' : '—',
+      d: "Mobilisable par le salarié. Possible abondement employeur ou OPCO en complément."
+    }
+  ];
+  const grid = document.getElementById('fundingGrid');
+  grid.innerHTML = dispos.map(d => `
+    <div class="fund-card ${d.eligible ? 'is-eligible' : 'is-not-eligible'}">
+      <div class="fund-card__t">${d.title}</div>
+      <div class="fund-card__sub">${d.sub}</div>
+      <div class="fund-card__amt">${d.amount}</div>
+      <div class="fund-card__d">${d.d}</div>
+    </div>
+  `).join('');
+}
+
+// ====================================================================
+// VIEW ROSACE — vue d'ensemble + heat de compatibilité
+// ====================================================================
+const ROSACE_NS = 'http://www.w3.org/2000/svg';
+const ROS_CX = 300, ROS_CY = 300;
+const ROS_R_INNER  = 95;
+const ROS_R_FAM_OUT = 175;
+const ROS_R_JOB_IN  = 178;
+const ROS_R_JOB_OUT = 280;
+
+let rosaceSelected = null;
+let rosaceMode = 'famille';   // 'famille' ou 'compat'
+
+function rosArcPath(rIn, rOut, startDeg, endDeg, padDeg = 0.6) {
+  const s = (startDeg - 90 + padDeg) * Math.PI / 180;
+  const e = (endDeg - 90 - padDeg) * Math.PI / 180;
+  const x1 = ROS_CX + rOut * Math.cos(s), y1 = ROS_CY + rOut * Math.sin(s);
+  const x2 = ROS_CX + rOut * Math.cos(e), y2 = ROS_CY + rOut * Math.sin(e);
+  const x3 = ROS_CX + rIn  * Math.cos(e), y3 = ROS_CY + rIn  * Math.sin(e);
+  const x4 = ROS_CX + rIn  * Math.cos(s), y4 = ROS_CY + rIn  * Math.sin(s);
+  const large = (endDeg - startDeg) > 180 ? 1 : 0;
+  return `M ${x1} ${y1} A ${rOut} ${rOut} 0 ${large} 1 ${x2} ${y2}
+          L ${x3} ${y3} A ${rIn} ${rIn} 0 ${large} 0 ${x4} ${y4} Z`;
+}
+function rosPoint(r, deg) {
+  const rad = (deg - 90) * Math.PI / 180;
+  return [ROS_CX + r * Math.cos(rad), ROS_CY + r * Math.sin(rad)];
+}
+function svgEl(tag, attrs={}, children=[]) {
+  const e = document.createElementNS(ROSACE_NS, tag);
+  for (const [k, v] of Object.entries(attrs)) if (v != null) e.setAttribute(k, v);
+  for (const c of [].concat(children)) {
+    if (c == null) continue;
+    if (typeof c === 'string') e.appendChild(document.createTextNode(c));
+    else e.appendChild(c);
+  }
+  return e;
+}
+
+// Mix family color toward neutral grey based on compat (0..1)
+function compatColor(famHex, compat) {
+  // compat ∈ [0..1] : 0 → gris pâle, 1 → couleur famille pleine
+  const r = parseInt(famHex.slice(1,3), 16);
+  const g = parseInt(famHex.slice(3,5), 16);
+  const b = parseInt(famHex.slice(5,7), 16);
+  const greyR = 234, greyG = 230, greyB = 222; // fond cream-ish
+  const t = Math.max(0.10, compat);  // floor visuel à 10% (sinon invisible)
+  const nr = Math.round(greyR + (r - greyR) * t);
+  const ng = Math.round(greyG + (g - greyG) * t);
+  const nb = Math.round(greyB + (b - greyB) * t);
+  return '#' + [nr, ng, nb].map(x => x.toString(16).padStart(2, '0')).join('');
+}
+
+function renderRosace() {
+  const svg = document.getElementById('rosaceSvg');
+  if (!svg) return;
+  svg.innerHTML = '';
+
+  const famKeys = Object.keys(FAMILIES);
+  const famJobs = Object.fromEntries(famKeys.map(k => [k, JOBS.filter(j => j.fam === k)]));
+  const totalJobs = JOBS.length;
+  let cursor = 0;
+  const famAngles = {};
+  famKeys.forEach(k => {
+    const span = (famJobs[k].length / totalJobs) * 360;
+    famAngles[k] = { start: cursor, end: cursor + span };
+    cursor += span;
+  });
+
+  // ---- Anneau familles ----
+  famKeys.forEach(k => {
+    const fam = FAMILIES[k];
+    const { start, end } = famAngles[k];
+    const path = rosArcPath(ROS_R_INNER, ROS_R_FAM_OUT, start, end, 0.8);
+    const seg = svgEl('path', {
+      d: path, fill: fam.color, class: 'seg-family',
+      'data-fam': k, opacity: 0.95,
+    });
+    svg.appendChild(seg);
+    const mid = (start + end) / 2;
+    const [tx, ty] = rosPoint((ROS_R_INNER + ROS_R_FAM_OUT) / 2, mid);
+    let rotate = mid;
+    if (mid > 90 && mid < 270) rotate += 180;
+    svg.appendChild(svgEl('text', {
+      x: tx, y: ty, 'text-anchor': 'middle', 'dominant-baseline': 'middle',
+      transform: `rotate(${rotate - 90}, ${tx}, ${ty})`,
+      class: 'label-family',
+    }, fam.name.toUpperCase()));
+  });
+
+  // ---- Anneau métiers ----
+  const srcJob = rosaceSelected ? JOB_MAP[rosaceSelected] : null;
+
+  famKeys.forEach(k => {
+    const fam = FAMILIES[k];
+    const jobs = famJobs[k];
+    const { start, end } = famAngles[k];
+    const span = (end - start) / jobs.length;
+
+    jobs.forEach((job, i) => {
+      const jStart = start + i * span;
+      const jEnd = jStart + span;
+
+      // Couleur selon mode
+      let fill = fam.color, opacity = 0.85;
+      if (rosaceMode === 'compat' && srcJob && job.id !== srcJob.id) {
+        const c = computeCompat(srcJob, job);
+        fill = compatColor(fam.color, c.rawPct);
+        opacity = 0.92;
+      }
+      if (srcJob && job.id === srcJob.id) {
+        opacity = 1;
+      }
+
+      const path = rosArcPath(ROS_R_JOB_IN, ROS_R_JOB_OUT, jStart, jEnd, 0.7);
+      const seg = svgEl('path', {
+        d: path, fill, class: 'seg-job' + (srcJob && job.id === srcJob.id ? ' is-source' : ''),
+        'data-job': job.id, 'data-fam': k,
+        opacity,
+      });
+      seg.addEventListener('click', () => selectRosaceJob(job.id));
+      svg.appendChild(seg);
+
+      // Label métier
+      const mid = (jStart + jEnd) / 2;
+      const [tx, ty] = rosPoint((ROS_R_JOB_IN + ROS_R_JOB_OUT) / 2 + 4, mid);
+      let rotate = mid - 90;
+      if (mid > 90 && mid < 270) rotate += 180;
+      // Couleur du label : selon contraste de la cellule
+      let labelFill = '#fff';
+      if (rosaceMode === 'compat' && srcJob && job.id !== srcJob.id) {
+        const c = computeCompat(srcJob, job);
+        if (c.rawPct < 0.35) labelFill = '#1A2A53';
+      }
+      svg.appendChild(svgEl('text', {
+        x: tx, y: ty, 'text-anchor': 'middle', 'dominant-baseline': 'middle',
+        transform: `rotate(${rotate}, ${tx}, ${ty})`,
+        class: 'label-job',
+        fill: labelFill,
+      }, job.short));
+    });
+  });
+
+  // ---- Centre ----
+  svg.appendChild(svgEl('circle', { cx: ROS_CX, cy: ROS_CY, r: ROS_R_INNER - 2, class: 'center-bg' }));
+  if (srcJob) {
+    svg.appendChild(svgEl('text', { x: ROS_CX, y: ROS_CY - 22, 'text-anchor': 'middle', class: 'center-t2' }, 'SÉLECTION'));
+    // Wrap label
+    const words = srcJob.short.split(' ');
+    const half = Math.ceil(words.length / 2);
+    const line1 = words.slice(0, half).join(' ');
+    const line2 = words.slice(half).join(' ');
+    svg.appendChild(svgEl('text', { x: ROS_CX, y: ROS_CY, 'text-anchor': 'middle', class: 'center-t1' }, line1));
+    if (line2) svg.appendChild(svgEl('text', { x: ROS_CX, y: ROS_CY + 18, 'text-anchor': 'middle', class: 'center-t1' }, line2));
+    svg.appendChild(svgEl('text', { x: ROS_CX, y: ROS_CY + 42, 'text-anchor': 'middle', class: 'center-t2' }, FAMILIES[srcJob.fam].name.toUpperCase()));
+  } else {
+    svg.appendChild(svgEl('text', { x: ROS_CX, y: ROS_CY - 16, 'text-anchor': 'middle', class: 'center-t2' }, 'ROSACE ALISFA'));
+    svg.appendChild(svgEl('text', { x: ROS_CX, y: ROS_CY + 4, 'text-anchor': 'middle', class: 'center-t1' }, '25 métiers'));
+    svg.appendChild(svgEl('text', { x: ROS_CX, y: ROS_CY + 24, 'text-anchor': 'middle', class: 'center-t1' }, '5 familles'));
+  }
+}
+
+function selectRosaceJob(jobId) {
+  rosaceSelected = jobId;
+  if (rosaceMode === 'famille') rosaceMode = 'compat';
+  renderRosace();
+  renderRosaceSide(jobId);
+  syncRosaceModes();
+}
+
+function renderRosaceSide(jobId) {
+  const job = JOB_MAP[jobId];
+  const fam = FAMILIES[job.fam];
+  const info = document.getElementById('rosaceJobInfo');
+  if (info) {
+    info.innerHTML = `
+      <div class="rosace-card__fam" style="background:${fam.color}">${fam.name}</div>
+      <div class="rosace-card__job">${job.name}</div>
+      <p style="margin-top:8px;color:var(--text-2)">${job.one}</p>
+    `;
+  }
+  // Ranking
+  const others = JOBS.filter(j => j.id !== jobId);
+  const ranked = others.map(j => ({ j, c: computeCompat(job, j) }))
+                       .sort((a, b) => b.c.pct - a.c.pct)
+                       .slice(0, 8);
+  const ul = document.getElementById('rosaceRank');
+  if (!ul) return;
+  ul.innerHTML = ranked.map(({ j, c }) => {
+    const f = FAMILIES[j.fam];
+    const color = c.pct >= 60 ? 'var(--green)' : c.pct >= 40 ? 'var(--alisfa-orange)' : 'var(--muted)';
+    return `
+      <li>
+        <button class="rosace-rank__name" data-pick-rosace="${j.id}">
+          ${j.short}
+          <small>${f.name}</small>
+        </button>
+        <span class="rosace-rank__bar"><i style="width:${c.pct}%;background:${color}"></i></span>
+        <span class="rosace-rank__pct" style="color:${color}">${c.pct} %</span>
+      </li>
+    `;
+  }).join('');
+  ul.querySelectorAll('[data-pick-rosace]').forEach(b => {
+    b.addEventListener('click', () => {
+      const tgtId = b.dataset.pickRosace;
+      // Bascule en bridge avec src=jobId, tgt=tgtId
+      state.src = jobId;
+      state.tgt = tgtId;
+      const sSel = document.getElementById('srcJob');
+      const tSel = document.getElementById('tgtJob');
+      if (sSel) sSel.value = jobId;
+      if (tSel) tSel.value = tgtId;
+      setView('bridge');
+      renderBridge();
+      window.scrollTo({ top: document.querySelector('.workspace').offsetTop - 80, behavior: 'smooth' });
+    });
+  });
+}
+
+function syncRosaceModes() {
+  document.querySelectorAll('.rosace-modes button').forEach(b => {
+    b.setAttribute('aria-pressed', b.dataset.mode === rosaceMode);
+  });
+}
+
+function setupRosaceModes() {
+  document.querySelectorAll('.rosace-modes button').forEach(b => {
+    b.addEventListener('click', () => {
+      rosaceMode = b.dataset.mode;
+      if (rosaceMode === 'famille') rosaceSelected = null;
+      syncRosaceModes();
+      renderRosace();
+      // Reset side panel info if cleared
+      if (!rosaceSelected) {
+        const info = document.getElementById('rosaceJobInfo');
+        if (info) {
+          info.innerHTML = `
+            <p style="font-style:italic;color:var(--muted)">Cliquer sur un secteur de la rosace pour voir ses compatibilités.</p>
+          `;
+        }
+        const ul = document.getElementById('rosaceRank');
+        if (ul) ul.innerHTML = '';
+      }
+    });
+  });
+}
+
+// ====================================================================
+// VIEW 2 — ATLAS RELATIONNEL
+// ====================================================================
+
+// Compute compatibility matrix once
+function buildAtlasGraph() {
+  const positions = {};
+  // Position jobs by family in radial clusters
+  const famKeys = Object.keys(FAMILIES);
+  const W = 700, H = 580, CX = W/2, CY = H/2;
+  const famRadius = 200;
+  famKeys.forEach((fk, fi) => {
+    const famAngle = -Math.PI / 2 + (fi / famKeys.length) * Math.PI * 2;
+    const fcx = CX + famRadius * Math.cos(famAngle);
+    const fcy = CY + famRadius * Math.sin(famAngle);
+    const jobs = JOBS.filter(j => j.fam === fk);
+    jobs.forEach((j, ji) => {
+      const subA = (ji / jobs.length) * Math.PI * 2;
+      const subR = 55;
+      positions[j.id] = {
+        x: fcx + subR * Math.cos(subA + famAngle),
+        y: fcy + subR * Math.sin(subA + famAngle),
+        size: 14 + Math.min(7, Object.keys(j.comp).length),
+      };
+    });
+  });
+  // Compute edges (only strong links to keep readable)
+  const edges = [];
+  for (let i = 0; i < JOBS.length; i++) {
+    for (let j = i + 1; j < JOBS.length; j++) {
+      const ja = JOBS[i], jb = JOBS[j];
+      const aKeys = Object.keys(ja.comp), bKeys = Object.keys(jb.comp);
+      const common = aKeys.filter(k => bKeys.includes(k));
+      if (common.length >= 3) {
+        edges.push({ from: ja.id, to: jb.id, weight: common.length });
+      }
+    }
+  }
+  return { positions, edges };
+}
+
+function renderAtlas() {
+  const { positions, edges } = buildAtlasGraph();
+  const svg = document.getElementById('atlasSvg');
+  svg.innerHTML = '';
+  const NS = 'http://www.w3.org/2000/svg';
+
+  // Edges
+  const eg = document.createElementNS(NS, 'g');
+  eg.setAttribute('opacity', 0.3);
+  edges.forEach(e => {
+    const a = positions[e.from], b = positions[e.to];
+    const line = document.createElementNS(NS, 'line');
+    line.setAttribute('x1', a.x); line.setAttribute('y1', a.y);
+    line.setAttribute('x2', b.x); line.setAttribute('y2', b.y);
+    line.setAttribute('stroke', '#6B7588');
+    line.setAttribute('stroke-width', Math.min(3.5, e.weight * 0.55));
+    line.setAttribute('data-from', e.from);
+    line.setAttribute('data-to', e.to);
+    eg.appendChild(line);
+  });
+  svg.appendChild(eg);
+
+  // Nodes
+  JOBS.forEach(j => {
+    const p = positions[j.id];
+    const g = document.createElementNS(NS, 'g');
+    g.style.cursor = 'pointer';
+    g.setAttribute('data-job', j.id);
+    const circ = document.createElementNS(NS, 'circle');
+    circ.setAttribute('cx', p.x); circ.setAttribute('cy', p.y);
+    circ.setAttribute('r', p.size);
+    circ.setAttribute('fill', FAMILIES[j.fam].color);
+    circ.setAttribute('stroke', '#fff');
+    circ.setAttribute('stroke-width', 2);
+    g.appendChild(circ);
+    // label
+    const lbl = document.createElementNS(NS, 'text');
+    lbl.setAttribute('x', p.x);
+    lbl.setAttribute('y', p.y + p.size + 12);
+    lbl.setAttribute('text-anchor', 'middle');
+    lbl.setAttribute('font-family', 'Nunito, sans-serif');
+    lbl.setAttribute('font-size', '10');
+    lbl.setAttribute('font-weight', '700');
+    lbl.setAttribute('fill', '#1a2a53');
+    lbl.style.pointerEvents = 'none';
+    lbl.textContent = j.short;
+    g.appendChild(lbl);
+    g.addEventListener('click', () => selectAtlasJob(j.id));
+    svg.appendChild(g);
+  });
+
+  selectAtlasJob(state.atlasSelected);
+}
+
+function selectAtlasJob(jobId) {
+  state.atlasSelected = jobId;
+  const job = JOB_MAP[jobId];
+  const fam = FAMILIES[job.fam];
+  // Update info card
+  document.getElementById('atlasJobInfo').innerHTML = `
+    <div class="atlas-card__fam" style="background:${fam.color}">${fam.name}</div>
+    <div class="atlas-card__job">${job.name}</div>
+    <p style="margin-top:8px">${job.one}</p>
+    <p style="margin-top:6px;font-size:12px"><strong>Compétences clés :</strong>
+      ${Object.keys(job.comp).map(k => SKILLS.find(s => s.id === k).label).join(' · ')}
+    </p>
+  `;
+
+  // Compute neighbors with compat
+  const others = JOBS.filter(j => j.id !== jobId);
+  const ranked = others.map(j => ({ j, c: compatibility(job, j) })).sort((a, b) => b.c.pct - a.c.pct).slice(0, 6);
+  const ul = document.getElementById('atlasRelated');
+  ul.innerHTML = ranked.map(({ j, c }) => `
+    <li>
+      <button class="atlas-related__name" data-pick="${j.id}">${j.short}</button>
+      <span class="atlas-related__bar"><i style="width:${c.pct}%"></i></span>
+      <span class="atlas-related__pct" style="color:${c.pct >= 50 ? 'var(--green)' : c.pct >= 30 ? 'var(--orange-c)' : 'var(--muted)'}">${c.pct} %</span>
+    </li>
+  `).join('');
+  ul.querySelectorAll('[data-pick]').forEach(b => {
+    b.addEventListener('click', () => {
+      // Open bridge view with this as target
+      state.src = jobId;
+      state.tgt = b.dataset.pick;
+      setView('bridge');
+      document.getElementById('srcJob').value = state.src;
+      document.getElementById('tgtJob').value = state.tgt;
+      renderBridge();
+    });
+  });
+
+  // Highlight selected node + edges
+  document.querySelectorAll('#atlasSvg [data-job] circle').forEach(c => {
+    c.setAttribute('stroke-width', 2);
+    c.setAttribute('stroke', '#fff');
+  });
+  const sel = document.querySelector('#atlasSvg [data-job="' + jobId + '"] circle');
+  if (sel) {
+    sel.setAttribute('stroke-width', 4);
+    sel.setAttribute('stroke', '#1a2a53');
+  }
+  document.querySelectorAll('#atlasSvg line').forEach(l => {
+    const isCon = l.getAttribute('data-from') === jobId || l.getAttribute('data-to') === jobId;
+    l.setAttribute('stroke', isCon ? '#E07A4D' : '#C4CCD9');
+    l.setAttribute('opacity', isCon ? 0.85 : 0.18);
+  });
+}
+
+// ====================================================================
+// VIEW 3 — MATRIX
+// ====================================================================
+function renderMatrix() {
+  const t = document.getElementById('matrixTable');
+  t.innerHTML = '';
+  // Header row
+  let hd = '<thead><tr><th>Métier ↓ / Compétence →</th>';
+  SKILLS.forEach(s => {
+    hd += `<th><div class="rot">${s.label}</div></th>`;
+  });
+  hd += '</tr></thead>';
+  t.innerHTML = hd;
+  // Body
+  let body = '<tbody>';
+  // Group jobs by family with a header row
+  Object.entries(FAMILIES).forEach(([famKey, fam]) => {
+    const jobs = JOBS.filter(j => j.fam === famKey);
+    body += `<tr style="background:${fam.color}10"><td class="row-name" style="color:${fam.color};text-transform:uppercase;letter-spacing:0.06em;font-size:10.5px;padding-top:14px">${fam.name}</td>`;
+    body += '<td colspan="' + SKILLS.length + '" style="background:transparent"></td></tr>';
+    jobs.forEach(j => {
+      body += '<tr><td class="row-name">' + j.short + '</td>';
+      SKILLS.forEach(s => {
+        const lvl = j.comp[s.id] || 0;
+        body += `<td class="cell" title="${j.short} · ${s.label} : ${lvl === 0 ? 'non requis' : 'niveau ' + lvl}">
+          <span class="matrix-cell matrix-cell--${lvl}"></span>
+        </td>`;
+      });
+      body += '</tr>';
+    });
+  });
+  body += '</tbody>';
+  t.innerHTML += body;
+}
+
+// ====================================================================
+// AUDIT TOGGLE
+// ====================================================================
+function setupAudit() {
+  document.getElementById('auditToggle').addEventListener('click', () => {
+    document.getElementById('auditCard').classList.toggle('is-open');
+  });
+}
+
+// ====================================================================
+// CTA actions
+// ====================================================================
+function setupCTAs() {
+  document.getElementById('planBtn').addEventListener('click', () => {
+    const src = JOB_MAP[state.src], tgt = JOB_MAP[state.tgt];
+    alert(`Préparation d'un dossier de formation : ${src.short} → ${tgt.short}\n\n` +
+          `Cette action transmet le détail de la passerelle au formulaire OPCO Cohésion ` +
+          `et génère un modèle de courrier employeur. (Prototype : pas d'envoi réel.)`);
+  });
+  document.getElementById('copyBtn').addEventListener('click', () => {
+    const link = location.href + '#' + state.src + '-' + state.tgt;
+    navigator.clipboard?.writeText(link);
+    const btn = document.getElementById('copyBtn');
+    const orig = btn.textContent;
+    btn.textContent = '✓ Lien copié';
+    setTimeout(() => btn.textContent = orig, 1800);
+  });
+}
+
+// ====================================================================
+// MODE ÉDITION CPNEF (paritaire)
+// ====================================================================
+
+// Identité simulée du négociateur connecté
+const ME = {
+  id: 'u-jm-durand',
+  nom: 'Jean-Marc Durand',
+  initiales: 'JM',
+  collegue: 'salarie',           // 'salarie' ou 'employeur'
+  organisation: 'CFDT Santé Sociaux',
+};
+
+// État simulé : propositions
+let propositions = [
+  {
+    id: '#2026-034',
+    type: 'competence_create',
+    typeLabel: 'Création',
+    titre: 'Ajouter la compétence « Communication numérique »',
+    auteurNom: 'Marie Lefebvre',
+    auteurCollegue: 'employeur',
+    auteurOrg: 'ELISFA',
+    rationale: "Les outils numériques (visio, plateformes parents, communication aux familles) deviennent structurants. Compétence absente du référentiel actuel.",
+    diff: [
+      { kind: 'add', txt: '+ Création : Communication numérique (cat. Pédagogique)' },
+      { kind: 'add', txt: '+ Animateur·trice : niveau 2 sur la nouvelle compétence' },
+      { kind: 'add', txt: '+ EJE : niveau 2 sur la nouvelle compétence' },
+      { kind: 'add', txt: '+ Chargé·e de communication : niveau 3' },
+    ],
+    validations: [
+      { collegue: 'employeur', verdict: 'accord', valideur: 'M. Lefebvre', date: '2026-04-22' },
+    ],
+  },
+  {
+    id: '#2026-035',
+    type: 'grille_update',
+    typeLabel: 'Mise à jour CCN',
+    titre: 'Avenant n°57 — revalorisation coefficient EJE de 415 à 425',
+    auteurNom: 'Sophie Martin',
+    auteurCollegue: 'employeur',
+    auteurOrg: 'ELISFA',
+    rationale: "Application de l'avenant n°57 du 18 mars 2026 signé par les partenaires sociaux. Effet rétroactif au 1er avril 2026.",
+    diff: [
+      { kind: 'rem', txt: '- EJE coefficient embauche : 415' },
+      { kind: 'add', txt: '+ EJE coefficient embauche : 425' },
+      { kind: 'ctx', txt: '// valeur du point inchangée à 6,89 €' },
+    ],
+    validations: [
+      { collegue: 'employeur', verdict: 'accord', valideur: 'S. Martin', date: '2026-04-23' },
+    ],
+  },
+  {
+    id: '#2026-036',
+    type: 'metier_update',
+    typeLabel: 'Mise à jour métier',
+    titre: 'Mettre à jour la fiche « Animateur·trice » — ajout volet médiation numérique',
+    auteurNom: 'Jean-Marc Durand',
+    auteurCollegue: 'salarie',
+    auteurOrg: 'CFDT Santé Sociaux',
+    rationale: "Le métier d'animateur·trice intègre désormais la médiation numérique en milieu social (inclusion, lutte contre la fracture). À refléter dans la fiche officielle.",
+    diff: [
+      { kind: 'ctx', txt: '// Description Animateur·trice' },
+      { kind: 'add', txt: '+ Médiation numérique auprès des publics (inclusion, accès aux droits)' },
+      { kind: 'add', txt: '+ Niveau 1 sur la nouvelle compétence Communication numérique' },
+    ],
+    validations: [
+      { collegue: 'salarie', verdict: 'accord', valideur: 'J.-M. Durand', date: '2026-04-26' },
+    ],
+  },
+];
+
+const oppositeCollegue = c => c === 'employeur' ? 'salarie' : 'employeur';
+const collegueLabel = c => c === 'employeur' ? 'employeur' : 'salarié';
+
+function isAlreadyValidatedBy(p, collegue) {
+  return p.validations.some(v => v.collegue === collegue);
+}
+function needsMyValidation(p) {
+  // À valider par moi si mon collège n'a pas encore validé ET je ne suis pas l'auteur
+  return !isAlreadyValidatedBy(p, ME.collegue) && p.auteurCollegue !== ME.collegue;
+}
+function isMine(p) {
+  return p.auteurCollegue === ME.collegue;
+}
+
+function renderEdit() {
+  // Liste « à valider »
+  const tv = document.getElementById('toValidateList');
+  const myList = document.getElementById('myPropsList');
+  if (!tv || !myList) return;
+
+  const toValidate = propositions.filter(p => needsMyValidation(p));
+  const mine = propositions.filter(p => isMine(p));
+
+  document.getElementById('toValidateCount').textContent = toValidate.length;
+  document.getElementById('myPropsCount').textContent = mine.length;
+
+  tv.innerHTML = toValidate.length === 0
+    ? '<p style="color:var(--muted);font-size:13px;padding:14px 0">Rien à valider pour le moment.</p>'
+    : toValidate.map(propCard).join('');
+  myList.innerHTML = mine.length === 0
+    ? '<p style="color:var(--muted);font-size:13px;padding:14px 0">Aucune proposition en cours.</p>'
+    : mine.map(propCard).join('');
+
+  // Bind validation buttons
+  document.querySelectorAll('[data-validate]').forEach(b => {
+    b.addEventListener('click', () => {
+      const id = b.dataset.validate;
+      const verdict = b.dataset.verdict;
+      handleValidation(id, verdict);
+    });
+  });
+  document.querySelectorAll('[data-withdraw]').forEach(b => {
+    b.addEventListener('click', () => {
+      const id = b.dataset.withdraw;
+      if (confirm('Retirer cette proposition ? Elle ne sera plus soumise à validation.')) {
+        propositions = propositions.filter(p => p.id !== id);
+        renderEdit();
+      }
+    });
+  });
+
+  renderCatalog();
+}
+
+function propCard(p) {
+  const validE = p.validations.find(v => v.collegue === 'employeur');
+  const validS = p.validations.find(v => v.collegue === 'salarie');
+  const badgeE = validE
+    ? (validE.verdict === 'accord'
+        ? `<span class="val-badge val-badge--ok">✓ Validé employeur</span>`
+        : `<span class="val-badge val-badge--ko">✗ Refus employeur</span>`)
+    : `<span class="val-badge val-badge--wait">⏳ En attente employeur</span>`;
+  const badgeS = validS
+    ? (validS.verdict === 'accord'
+        ? `<span class="val-badge val-badge--ok">✓ Validé salarié</span>`
+        : `<span class="val-badge val-badge--ko">✗ Refus salarié</span>`)
+    : `<span class="val-badge val-badge--wait">⏳ En attente salarié</span>`;
+
+  // Type pill class
+  let typeCls = 'prop__type--update';
+  if (p.type.includes('create')) typeCls = 'prop__type--create';
+  if (p.type.includes('deprec')) typeCls = 'prop__type--depre';
+
+  // CTA blocks
+  let cta = '';
+  if (needsMyValidation(p)) {
+    cta = `
+      <div class="prop__cta">
+        <button class="prop-btn prop-btn--primary" data-validate="${p.id}" data-verdict="accord">Valider côté ${collegueLabel(ME.collegue)}</button>
+        <button class="prop-btn prop-btn--danger" data-validate="${p.id}" data-verdict="refus">Refuser</button>
+        <button class="prop-btn" data-validate="${p.id}" data-verdict="reserve">Émettre une réserve</button>
+      </div>`;
+  } else if (isMine(p)) {
+    cta = `
+      <div class="prop__cta">
+        <button class="prop-btn">Modifier l'argumentaire</button>
+        <button class="prop-btn prop-btn--danger" data-withdraw="${p.id}">Retirer la proposition</button>
+      </div>`;
+  }
+
+  return `
+    <div class="prop">
+      <div class="prop__head">
+        <span class="prop__type ${typeCls}">${p.typeLabel}</span>
+        <span class="prop__id">${p.id}</span>
+      </div>
+      <div class="prop__title">${p.titre}</div>
+      <div class="prop__author">Proposée par <strong>${p.auteurNom}</strong> (${p.auteurOrg}, collège ${collegueLabel(p.auteurCollegue)})</div>
+      <div class="prop__diff">
+        ${p.diff.map(d => `<span class="${d.kind}">${d.txt}</span>`).join('<br>')}
+      </div>
+      <p style="font-size:12.5px;color:var(--text-2);margin:10px 0 0;font-style:italic">« ${p.rationale} »</p>
+      <div class="prop__validations">${badgeE}${badgeS}</div>
+      ${cta}
+    </div>
+  `;
+}
+
+function handleValidation(propId, verdict) {
+  const p = propositions.find(x => x.id === propId);
+  if (!p) return;
+  // Ajoute la validation
+  p.validations.push({
+    collegue: ME.collegue,
+    verdict,
+    valideur: ME.nom,
+    date: new Date().toISOString().slice(0, 10),
+  });
+  // Si dual-validation accord → marquage "fusionné"
+  const okE = p.validations.find(v => v.collegue === 'employeur' && v.verdict === 'accord');
+  const okS = p.validations.find(v => v.collegue === 'salarie' && v.verdict === 'accord');
+  if (okE && okS) {
+    // Notifier
+    setTimeout(() => alert(
+      'Proposition ' + p.id + ' fusionnée.\n\n' +
+      'Le référentiel est mis à jour, les caches invalidés et les webhooks partenaires (OPCO Cohésion, France Travail) déclenchés.\n\n' +
+      "Une entrée correspondante est ajoutée à l'historique des délibérations."
+    ), 200);
+    propositions = propositions.filter(x => x.id !== p.id);
+  } else if (verdict === 'refus') {
+    setTimeout(() => alert(
+      'Proposition ' + p.id + ' refusée par le collège ' + collegueLabel(ME.collegue) + '.\n\n' +
+      "L'auteur·trice est notifié·e. La proposition reste consultable dans l'historique."
+    ), 200);
+    propositions = propositions.filter(x => x.id !== p.id);
+  }
+  renderEdit();
+}
+
+// Catalogue éditable
+let catTab = 'metiers';
+function renderCatalog() {
+  const list = document.getElementById('catList');
+  if (!list) return;
+  let rows = '';
+  if (catTab === 'metiers') {
+    rows = JOBS.map(j => {
+      const fam = FAMILIES[j.fam];
+      const skillCount = Object.keys(j.comp).length;
+      return `
+        <div class="cat-row">
+          <div class="cat-row__name">${j.name}<small style="color:${fam.color};font-weight:700;text-transform:uppercase;letter-spacing:0.06em">${fam.name}</small></div>
+          <span class="cat-row__meta">${skillCount} compétences</span>
+          <button class="cat-row__btn" title="Modifier">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+          </button>
+          <button class="cat-row__btn" title="Mettre en lecture seule">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M5 5l14 14"/></svg>
+          </button>
+        </div>
+      `;
+    }).join('');
+  } else if (catTab === 'competences') {
+    rows = SKILLS.map(s => {
+      const usedBy = JOBS.filter(j => j.comp[s.id]).length;
+      return `
+        <div class="cat-row">
+          <div class="cat-row__name">${s.label}<small>${s.cat}</small></div>
+          <span class="cat-row__meta">utilisée par ${usedBy} métier${usedBy>1?'s':''}</span>
+          <button class="cat-row__btn" title="Modifier">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+          </button>
+          <button class="cat-row__btn" title="Renommer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6M3 6h18M3 18h18"/></svg>
+          </button>
+        </div>
+      `;
+    }).join('');
+  } else if (catTab === 'passerelles') {
+    rows = `<div class="cat-row" style="color:var(--muted);font-size:13px;padding:24px;display:block;text-align:center">
+      Passerelles dérivées automatiquement des compétences communes (≥ 3 partagées).<br>
+      Une passerelle <em>officielle</em> peut être ajoutée pour signaler un parcours validé par la branche, avec note paritaire et durée estimée.
+      <br><br>
+      <button class="new-prop" style="font-size:12.5px;padding:8px 14px" data-open-modal>+ Ajouter une passerelle officielle</button>
+    </div>`;
+  } else if (catTab === 'grille') {
+    rows = JOBS.slice(0, 8).map(j => {
+      // Approx coef from skill count
+      const coef = 250 + Object.values(j.comp).reduce((a, b) => a + b, 0) * 12;
+      return `
+        <div class="cat-row">
+          <div class="cat-row__name">${j.short}<small>Coefficient embauche · valeur point 6,89 €</small></div>
+          <span class="cat-row__meta">${coef}</span>
+          <button class="cat-row__btn" title="Mettre à jour (avenant)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+          </button>
+          <button class="cat-row__btn" title="Voir l'historique">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </button>
+        </div>
+      `;
+    }).join('') + `<div class="cat-row" style="display:block;text-align:center;font-size:12px;color:var(--muted);padding:14px">Affichage simplifié — la grille complète couvre 25 métiers et l'historique des avenants.</div>`;
+  }
+  list.innerHTML = rows;
+  // Bind cat-row buttons → ouvre modal
+  list.querySelectorAll('.cat-row__btn').forEach(b => {
+    b.addEventListener('click', openNewProp);
+  });
+  list.querySelectorAll('[data-open-modal]').forEach(b => {
+    b.addEventListener('click', openNewProp);
+  });
+}
+
+function setupEditMode() {
+  // Tabs catalogue
+  document.querySelectorAll('.cat-tabs button').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.cat-tabs button').forEach(x => x.setAttribute('aria-selected', false));
+      b.setAttribute('aria-selected', true);
+      catTab = b.dataset.cat;
+      renderCatalog();
+    });
+  });
+  // New proposition button
+  const np = document.getElementById('newPropBtn');
+  if (np) np.addEventListener('click', openNewProp);
+  // Modal close
+  document.querySelectorAll('[data-close-modal]').forEach(b => {
+    b.addEventListener('click', closeNewProp);
+  });
+  // Click outside modal
+  const bg = document.getElementById('newPropModal');
+  if (bg) bg.addEventListener('click', (e) => {
+    if (e.target === bg) closeNewProp();
+  });
+  // Submit
+  const submit = document.getElementById('submitProp');
+  if (submit) submit.addEventListener('click', submitProp);
+}
+
+function openNewProp() {
+  document.getElementById('newPropModal').classList.add('is-open');
+}
+function closeNewProp() {
+  document.getElementById('newPropModal').classList.remove('is-open');
+}
+function submitProp() {
+  const type = document.getElementById('propType').value;
+  const titre = document.getElementById('propTitle').value.trim() || 'Proposition sans titre';
+  const rationale = document.getElementById('propRationale').value.trim() || '(argumentaire à compléter)';
+  // Generate next id
+  const ids = propositions.map(p => parseInt(p.id.replace(/\D/g, ''), 10)).filter(n => !isNaN(n));
+  const next = (ids.length ? Math.max(...ids) : 36) + 1;
+  const newProp = {
+    id: '#2026-' + String(next).padStart(3, '0'),
+    type,
+    typeLabel: typeToLabel(type),
+    titre,
+    auteurNom: ME.nom,
+    auteurCollegue: ME.collegue,
+    auteurOrg: ME.organisation,
+    rationale,
+    diff: [{ kind: 'ctx', txt: '// diff structuré généré automatiquement à partir de la modification.' }],
+    validations: [{ collegue: ME.collegue, verdict: 'accord', valideur: ME.nom, date: new Date().toISOString().slice(0,10) }],
+  };
+  propositions.unshift(newProp);
+  closeNewProp();
+  renderEdit();
+  // Reset modal
+  document.getElementById('propTitle').value = '';
+  document.getElementById('propRationale').value = '';
+  setTimeout(() => alert(
+    'Proposition ' + newProp.id + ' créée.\n\n' +
+    'Notification envoyée aux négociateurs du collège ' + collegueLabel(oppositeCollegue(ME.collegue)) + ' pour validation paritaire.'
+  ), 200);
+}
+function typeToLabel(t) {
+  return {
+    'competence_create':  'Création',
+    'competence_update':  'Modification compétence',
+    'metier_create':      'Création métier',
+    'metier_update':      'Modification métier',
+    'passerelle_create':  'Nouvelle passerelle',
+    'grille_update':      'Mise à jour CCN',
+    'metier_deprecate':   'Lecture seule',
+  }[t] || 'Modification';
+}
+
+// ====================================================================
+// INIT
+// ====================================================================
+function init() {
+  populateSelects();
+  renderBridge();
+  document.body.setAttribute('data-aud', state.audience);
+  document.querySelectorAll('.audience button').forEach(b => {
+    b.addEventListener('click', () => setAudience(b.dataset.aud));
+  });
+  document.querySelectorAll('.view-switcher button').forEach(b => {
+    b.addEventListener('click', () => setView(b.dataset.view));
+  });
+  // "Aller à la vue X" liens dans la vue entretien
+  document.querySelectorAll('[data-go]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      setView(a.dataset.go);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+  setupAudit();
+  setupCTAs();
+  setupEditMode();
+  setupRosaceModes();
+  renderEdit();
+  renderRosace();
+}
+init();
+</script>
+</body>
+</html>
