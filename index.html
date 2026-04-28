@@ -141,6 +141,7 @@ a { color: var(--alisfa-navy); }
   color: var(--alisfa-navy);
 }
 .audience button svg { width: 14px; height: 14px; }
+.audience button .lbl-short { display: none; }
 
 /* =========================================================
    HERO
@@ -1258,6 +1259,113 @@ a { color: var(--alisfa-navy); }
   fill: #fff; letter-spacing: 0.06em;
 }
 
+/* ─── Simulateur reste à charge ─── */
+.sim-form { display: flex; flex-direction: column; gap: 14px; margin: 12px 0 18px; }
+.sim-field {
+  border: 1px solid var(--border);
+  background: var(--paper-2);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin: 0;
+}
+.sim-field legend {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 11.5px;
+  color: var(--alisfa-navy);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0 6px;
+}
+.sim-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+.sim-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.sim-pill {
+  cursor: pointer;
+  padding: 6px 12px;
+  border: 1.5px solid var(--border);
+  background: var(--paper);
+  border-radius: 999px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--alisfa-navy);
+  transition: all .15s;
+}
+.sim-pill:hover { border-color: var(--alisfa-navy); }
+.sim-pill input { display: none; }
+.sim-pill:has(input:checked) { background: var(--alisfa-navy); color: #fff; border-color: var(--alisfa-navy); }
+.sim-pill--star:has(input:checked) { background: var(--alisfa-orange); border-color: var(--alisfa-orange); }
+.sim-pill--star::before { content: '⭐ '; opacity: .8; font-size: 10px; }
+.sim-field input[type="number"] {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px 10px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--alisfa-navy);
+}
+.sim-input { display: flex; flex-direction: column; gap: 4px; font-size: 11.5px; color: var(--muted); }
+.sim-input span { font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: 10.5px; }
+.sim-result {
+  background: linear-gradient(135deg, var(--alisfa-navy) 0%, #2d4373 100%);
+  color: #fff;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-top: 16px;
+}
+.sim-result__heading { font-size: 12px; opacity: .8; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+.sim-result__big { font-family: 'Nunito', sans-serif; font-size: 32px; font-weight: 800; margin: 4px 0 14px; }
+.sim-result__big.--ok { color: #6ED6A4; }
+.sim-result__big.--warn { color: var(--alisfa-orange); }
+.sim-breakdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 13px;
+}
+.sim-breakdown__item { display: flex; justify-content: space-between; gap: 8px; }
+.sim-breakdown__lbl { opacity: .8; }
+.sim-breakdown__val { font-weight: 800; font-family: 'Nunito', sans-serif; }
+.sim-result__hint { margin-top: 12px; font-size: 12.5px; opacity: .85; line-height: 1.55; font-style: italic; }
+.sim-nudges { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+.sim-nudge {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: #FEF3E2;
+  border: 1px solid #F2C58C;
+  border-left: 4px solid var(--alisfa-orange);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  color: #5D3B1B;
+  line-height: 1.5;
+}
+.sim-nudge--info {
+  background: #E6F0F5;
+  border-color: #9BC0D2;
+  border-left-color: var(--alisfa-teal, #1F8D8A);
+  color: #143C4F;
+}
+.sim-nudge__icon { font-size: 18px; flex: none; }
+.sim-nudge strong { color: var(--alisfa-orange); }
+.sim-nudge--info strong { color: var(--alisfa-teal, #1F8D8A); }
+.sim-nudge__cta {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--alisfa-orange);
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+.sim-nudge--info .sim-nudge__cta { color: var(--alisfa-teal, #1F8D8A); }
+
 /* ─── Pastille « Aide au financement » ─── */
 .aide-pill {
   display: inline-flex;
@@ -2197,21 +2305,94 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
   .kit-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 760px) {
-  .topbar__inner { padding: 12px 16px; gap: 10px; flex-wrap: wrap; }
+  .topbar__inner { padding: 10px 14px; gap: 8px; flex-wrap: nowrap; align-items: center; }
   .crumbs { display: none; }
-  .audience { font-size: 11px; }
-  .audience button { padding: 7px 11px; font-size: 11.5px; }
+
+  /* Sélecteur de rôle ultra-discret en pills légères */
+  .audience {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    gap: 4px;
+    border-radius: 0;
+  }
+  .audience button {
+    padding: 5px 9px;
+    font-size: 10.5px;
+    border-radius: 999px;
+    background: var(--paper-2);
+    color: var(--muted);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .audience button[aria-pressed="true"] {
+    background: var(--alisfa-navy);
+    color: #fff;
+  }
   .audience svg { display: none; }
-  .hero__inner { padding: 28px 16px 18px; }
-  .workspace, .financements, .audit-section { padding: 0 16px; }
-  .kpis { grid-template-columns: 1fr 1fr; }
-  .kpi:nth-child(3) { grid-column: span 2; }
+  /* abréviations sur mobile */
+  .audience button .lbl-long { display: none; }
+  .audience button .lbl-short { display: inline; }
+
+  .hero__inner { padding: 22px 14px 14px; }
+  .hero__title { font-size: 28px !important; line-height: 1.05; }
+  .workspace, .financements, .audit-section { padding: 0 14px; }
+  .rules-section { margin: 24px auto; padding: 0 14px; }
+  .kpis { grid-template-columns: 1fr; }
+  .kpi:nth-child(3) { grid-column: auto; }
   .funding-grid { grid-template-columns: 1fr; }
   .financements__grid { grid-template-columns: 1fr; }
   .skill-row { grid-template-columns: 1fr 60px 1fr; padding: 10px 12px; }
   .skill-row__name { font-size: 12.5px; }
   .skill-row__name small { display: none; }
   .skill-bridge { height: 24px; }
+
+  /* Modalités header : pastille sous le titre, pas à droite */
+  .modalites__head { flex-wrap: wrap; gap: 8px; }
+  .aide-pill { margin-left: 0; font-size: 11px; padding: 4px 10px; }
+
+  /* View-switcher : scroll horizontal pour ne pas wrap */
+  .view-switcher { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+  .view-switcher button { min-width: max-content; flex: none; }
+
+  /* Encart règles : tabs scroll-x, padding réduit */
+  .rules-card__head { padding: 16px 14px; }
+  .rules-card__head h2 { font-size: 17px; }
+  .rules-card__head .sub { font-size: 12.5px; }
+  .rules-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  .rules-tab {
+    flex: none;
+    padding: 10px 14px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .rules-panel { padding: 16px 14px; }
+  .rules-grid { grid-template-columns: 1fr; gap: 10px; }
+  .rules-block { padding: 12px 14px; }
+  .rules-block ul { font-size: 12px; }
+
+  /* Tableaux règles : scroll horizontal pour conserver toute l'info */
+  .rules-table { display: block; overflow-x: auto; white-space: nowrap; }
+  .rules-table tbody tr { white-space: normal; }
+
+  /* Simulateur compact */
+  .sim-row { grid-template-columns: 1fr 1fr; }
+  .sim-pill { font-size: 11.5px; padding: 5px 10px; }
+  .sim-result { padding: 14px 16px; }
+  .sim-result__big { font-size: 26px; }
+  .sim-breakdown { grid-template-columns: 1fr; }
+
+  /* Légende rosace : compact sur mobile */
+  .rosace-legend { gap: 4px; padding: 8px; }
+  .rosace-legend__item { padding: 4px 9px; font-size: 11.5px; gap: 5px; }
+  .rosace-legend__dot { width: 10px; height: 10px; }
+  .rosace-legend__count { font-size: 10px; }
   .bridge { padding: 16px; }
   .view-switcher { padding: 4px; }
   .view-switcher button { min-width: 180px; padding: 10px; }
@@ -2243,15 +2424,15 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
     <div class="audience" role="tablist" aria-label="Profil utilisateur">
       <button data-aud="salarie" aria-pressed="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
-        Salarié·e
+        <span class="lbl-long">Salarié·e</span><span class="lbl-short">Salarié</span>
       </button>
       <button data-aud="employeur" aria-pressed="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-        Employeur
+        <span class="lbl-long">Employeur</span><span class="lbl-short">Employ.</span>
       </button>
       <button data-aud="negociateur" aria-pressed="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
-        Négociateur CPNEF
+        <span class="lbl-long">Négociateur CPNEF</span><span class="lbl-short">CPNEF</span>
       </button>
     </div>
   </div>
@@ -3126,6 +3307,7 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
       <button class="rules-tab" role="tab" aria-selected="false" data-rt="r4"><span class="num">4</span>CPNEF 0,2 %</button>
       <button class="rules-tab" role="tab" aria-selected="false" data-rt="r5"><span class="num">⌗</span>Barèmes & frais annexes</button>
       <button class="rules-tab" role="tab" aria-selected="false" data-rt="r6"><span class="num">📜</span>Niveaux PEC diplômes</button>
+      <button class="rules-tab" role="tab" aria-selected="false" data-rt="r8"><span class="num">🧮</span>Simulateur reste à charge</button>
       <button class="rules-tab" role="tab" aria-selected="false" data-rt="r7"><span class="num">📖</span>Glossaire</button>
     </div>
 
@@ -3424,6 +3606,76 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
       </table>
 
       <p class="footnote">Pour les certifications non listées : se référer au référentiel France compétences (francecompetences.fr/referentiels-et-bases-de-donnees/) ou solliciter Uniformation. Pour les apprentis travailleurs handicapés : majoration selon arrêté du 7 décembre 2020. DROM : forfait additionnel de 150 €/mois pour l'accompagnement social et professionnel des apprentis (CFA).</p>
+    </div>
+
+    <!-- ─── 8. SIMULATEUR RESTE À CHARGE ─── -->
+    <div class="rules-panel" id="r8" role="tabpanel">
+      <h3>Simulateur de reste à charge</h3>
+      <p class="lead">Estimation du reste à charge avant arbitrage. Ne remplace pas l'instruction par Uniformation. Chiffres indicatifs basés sur le tableau ALISFA 2026.</p>
+
+      <div class="sim-nudges" id="simNudges" aria-live="polite"></div>
+
+      <form class="sim-form" id="simForm" autocomplete="off">
+        <fieldset class="sim-field">
+          <legend>Qui paie ?</legend>
+          <div class="sim-pills" role="radiogroup" aria-label="Profil">
+            <label class="sim-pill"><input type="radio" name="profil" value="employeur" checked><span>👔 Employeur</span></label>
+            <label class="sim-pill"><input type="radio" name="profil" value="salarie"><span>👤 Salarié·e</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sim-field">
+          <legend>Type de formation</legend>
+          <div class="sim-pills" role="radiogroup" aria-label="Type de formation">
+            <label class="sim-pill"><input type="radio" name="type" value="daf_courte" checked><span>📅 Courte ≤ 105 h</span></label>
+            <label class="sim-pill"><input type="radio" name="type" value="daf_longue"><span>📆 Longue &gt; 105 h</span></label>
+            <label class="sim-pill sim-pill--star"><input type="radio" name="type" value="certifiante"><span>🎓 Certifiante (RNCP/RS/CQP)</span></label>
+            <label class="sim-pill sim-pill--star"><input type="radio" name="type" value="apprentissage"><span>👷 Apprentissage</span></label>
+            <label class="sim-pill sim-pill--star"><input type="radio" name="type" value="pro"><span>🤝 Contrat de professionnalisation</span></label>
+            <label class="sim-pill sim-pill--star"><input type="radio" name="type" value="prec"><span>🔄 PREC (ex Pro-A)</span></label>
+            <label class="sim-pill"><input type="radio" name="type" value="vae_simple"><span>🪪 VAE simple</span></label>
+            <label class="sim-pill"><input type="radio" name="type" value="vae_mixte"><span>📋 VAE mixte</span></label>
+            <label class="sim-pill"><input type="radio" name="type" value="catalogue"><span>📚 Catalogue Uniformation</span></label>
+          </div>
+        </fieldset>
+
+        <div class="sim-row">
+          <fieldset class="sim-field" id="simFx-effectif">
+            <legend>Effectif structure (EMA)</legend>
+            <div class="sim-pills" role="radiogroup">
+              <label class="sim-pill"><input type="radio" name="effectif" value="0_10" checked><span>&lt; 11 sal.</span></label>
+              <label class="sim-pill"><input type="radio" name="effectif" value="11_49"><span>11-49 sal.</span></label>
+              <label class="sim-pill"><input type="radio" name="effectif" value="50_plus"><span>≥ 50 sal.</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="sim-field" id="simFx-stagiaires">
+            <legend>Stagiaires</legend>
+            <input type="number" name="stagiaires" min="1" value="3" />
+          </fieldset>
+
+          <fieldset class="sim-field" id="simFx-duree">
+            <legend>Durée (h)</legend>
+            <input type="number" name="duree" min="1" value="35" />
+          </fieldset>
+
+          <fieldset class="sim-field" id="simFx-cout">
+            <legend>Coût pédagogique total (€)</legend>
+            <input type="number" name="cout" min="0" value="2275" />
+          </fieldset>
+        </div>
+
+        <fieldset class="sim-field" id="simFx-frais">
+          <legend>Frais annexes (estimés)</legend>
+          <div class="sim-row">
+            <label class="sim-input"><span>Repas (€/stag.)</span><input type="number" name="repas" min="0" value="0" /></label>
+            <label class="sim-input"><span>Hébergement (€/stag.)</span><input type="number" name="hebergement" min="0" value="0" /></label>
+            <label class="sim-input"><span>Transport (€/stag.)</span><input type="number" name="transport" min="0" value="0" /></label>
+          </div>
+        </fieldset>
+      </form>
+
+      <div class="sim-result" id="simResult"></div>
     </div>
 
     <!-- ─── 7. GLOSSAIRE ─── -->
@@ -5099,8 +5351,202 @@ function init() {
   setupEditMode();
   setupRosaceModes();
   setupRulesTabs();
+  setupSimulator();
   renderEdit();
   renderRosace();
+}
+
+// ====================================================================
+// SIMULATEUR RESTE À CHARGE
+// ====================================================================
+function setupSimulator() {
+  const form = document.getElementById('simForm');
+  if (!form) return;
+  function readForm() {
+    const fd = new FormData(form);
+    return {
+      profil: fd.get('profil'),
+      type: fd.get('type'),
+      effectif: fd.get('effectif'),
+      stagiaires: parseInt(fd.get('stagiaires')) || 1,
+      duree: parseInt(fd.get('duree')) || 0,
+      cout: parseFloat(fd.get('cout')) || 0,
+      repas: parseFloat(fd.get('repas')) || 0,
+      hebergement: parseFloat(fd.get('hebergement')) || 0,
+      transport: parseFloat(fd.get('transport')) || 0,
+    };
+  }
+
+  function pec(d) {
+    // Calcul PEC (prise en charge) selon dispositif. Renvoie {pec, plafond, hint}
+    const t = d.type;
+    if (t === 'daf_courte' || t === 'daf_longue') {
+      let pedaPEC = 0;
+      const tarifH = (t === 'daf_courte' ? 65 : 15);
+      const dafType = d.stagiaires >= 5 ? 'collectif' : 'individuel';
+      if (dafType === 'individuel') {
+        pedaPEC = Math.min(d.cout, tarifH * d.duree * d.stagiaires, 5000);
+      } else {
+        // 1800€/jour : convertit heures en jours (~7h/j)
+        const jours = Math.ceil(d.duree / 7);
+        pedaPEC = Math.min(d.cout, 1800 * jours, 5000);
+      }
+      return { pedaPEC, plafond: 5000, source: 'DAF Uniformation', maxRem: d.effectif === '0_10' ? 13 * d.duree * d.stagiaires : 0 };
+    }
+    if (t === 'certifiante') {
+      // DAF certifiante : 15 €/h max
+      const pedaPEC = Math.min(d.cout, 15 * d.duree * d.stagiaires);
+      return { pedaPEC, plafond: null, source: 'DAF certifiante (fonds conventionnels)', maxRem: 0 };
+    }
+    if (t === 'apprentissage') {
+      // Coût-contrat RNCP — moyenne ALISFA ≈ 7 800 €
+      return { pedaPEC: d.cout, plafond: null, source: 'Coût-contrat RNCP (Uniformation)', maxRem: 0 };
+    }
+    if (t === 'pro') {
+      // 18 €/h coût-péda, sans plafond
+      const pedaPEC = Math.min(d.cout, 18 * d.duree * d.stagiaires);
+      return { pedaPEC, plafond: null, source: 'Forfait 18 €/h (alternance + conventionnel)', maxRem: 0 };
+    }
+    if (t === 'prec') {
+      return { pedaPEC: 0, plafond: null, source: 'PREC — modalités CPNEF en cours d\'élaboration', maxRem: 0, prec: true };
+    }
+    if (t === 'vae_simple') {
+      return { pedaPEC: Math.min(d.cout, 3000), plafond: 3000, source: 'VAE simple', maxRem: 0 };
+    }
+    if (t === 'vae_mixte') {
+      return { pedaPEC: Math.min(d.cout, 5000), plafond: 5000, source: 'VAE mixte', maxRem: 0 };
+    }
+    if (t === 'catalogue') {
+      return { pedaPEC: d.cout, plafond: null, source: 'Catalogue Uniformation (hors plafond DAF)', maxRem: 0 };
+    }
+    return { pedaPEC: 0, plafond: null, source: '—', maxRem: 0 };
+  }
+
+  function pecFraisAnnexes(d) {
+    // Plafonds OPCO : repas 30 €, hébergement 200/150 €
+    const repasPEC = Math.min(d.repas, 30) * d.stagiaires;
+    const hebPEC = Math.min(d.hebergement, 200) * d.stagiaires;
+    const transPEC = d.transport * d.stagiaires; // au réel
+    const fraisTotal = (d.repas + d.hebergement + d.transport) * d.stagiaires;
+    const fraisPEC = repasPEC + hebPEC + transPEC;
+    return { fraisPEC, fraisTotal };
+  }
+
+  function buildNudges(d) {
+    const nudges = [];
+    // Avant validation : nudges éducatifs sur les options certifiantes
+    if (d.type === 'daf_courte' || d.type === 'daf_longue' || d.type === 'catalogue') {
+      nudges.push({
+        type: 'info',
+        icon: '🎓',
+        body: `<strong>Cette formation prépare-t-elle à une certification ?</strong> Si oui (RNCP, RS, CQP), basculez sur <em>Certifiante</em> : <strong>fonds conventionnels</strong> dédiés, plafond horaire spécifique de 15 €/h, dossier dès 70 h.`,
+        cta: { tab: 'r3', label: 'Voir DAF certifiante' },
+      });
+    }
+    if (d.type === 'daf_longue' || d.type === 'certifiante') {
+      nudges.push({
+        type: 'warn',
+        icon: '🔄',
+        body: `<strong>Reconversion ou évolution professionnelle ?</strong> La <strong>PREC</strong> remplace la Pro-A au 1ᵉʳ janvier 2026. Mobilisez l'<strong>alternance</strong> hors plafond DAF avant de présenter à votre employeur — financement 18 €/h sur fonds branche, tutorat pris en charge.`,
+        cta: { tab: 'r2', label: 'Règles alternance' },
+      });
+    }
+    if (d.profil === 'salarie' && (d.type === 'daf_courte' || d.type === 'daf_longue' || d.type === 'certifiante')) {
+      nudges.push({
+        type: 'info',
+        icon: '💡',
+        body: `<strong>Avant de présenter à votre employeur</strong> : vérifiez votre éligibilité au <strong>CPF</strong> (mobilisable seul·e via moncompteformation.gouv.fr) ou au <strong>PTP — Projet Transition Pro</strong> si vous changez de métier (couvre coût + salaire).`,
+      });
+    }
+    if (d.type === 'apprentissage' || d.type === 'pro') {
+      nudges.push({
+        type: 'info',
+        icon: '✨',
+        body: `<strong>Hors plafond annuel de DAF</strong> — l'alternance ne consomme pas votre quota. Pensez à la <strong>prime tuteur</strong> (50 € brut/mois, max 100 €) et à <strong>l'aide tutorale réinstaurée 1ᵉʳ janv. 2026</strong> : 230 €/mois pendant 6 mois (1 380 €).`,
+        cta: { tab: 'r2', label: 'Voir tutorat' },
+      });
+    }
+    if (d.type === 'prec') {
+      nudges.push({
+        type: 'warn',
+        icon: '⏳',
+        body: `<strong>PREC — modalités en cours d'élaboration par la CPNEF</strong>. Déploiement opérationnel progressif au cours de 2026. Sollicitez votre conseiller·e Uniformation pour l'avancement.`,
+        cta: { tab: 'r2', label: 'Voir alternance' },
+      });
+    }
+    if (d.profil === 'employeur' && d.effectif === '50_plus' && (d.type === 'daf_courte' || d.type === 'daf_longue')) {
+      nudges.push({
+        type: 'info',
+        icon: '🏛️',
+        body: `<strong>Structure ≥ 50 sal. : pas d'accès aux fonds légaux</strong> du plan de développement (loi 2018). Les DAF sont sur les <strong>fonds conventionnels</strong> ALISFA (cotisation conventionnelle obligatoire). 25 DAF/an maximum.`,
+        cta: { tab: 'r3', label: 'Fonds conventionnels' },
+      });
+    }
+    return nudges;
+  }
+
+  function renderNudges(nudges) {
+    const host = document.getElementById('simNudges');
+    if (!nudges.length) { host.innerHTML = ''; return; }
+    host.innerHTML = nudges.map(n => `
+      <div class="sim-nudge ${n.type === 'info' ? 'sim-nudge--info' : ''}">
+        <span class="sim-nudge__icon">${n.icon}</span>
+        <div>${n.body}${n.cta ? `<br><a href="#" class="sim-nudge__cta" data-rule-tab="${n.cta.tab}">→ ${n.cta.label}</a>` : ''}</div>
+      </div>
+    `).join('');
+    // Re-bind data-rule-tab links
+    host.querySelectorAll('[data-rule-tab]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = el.dataset.ruleTab;
+        document.querySelectorAll('.rules-tab').forEach(x => x.setAttribute('aria-selected', x.dataset.rt === target ? 'true' : 'false'));
+        document.querySelectorAll('.rules-panel').forEach(p => p.classList.toggle('is-active', p.id === target));
+        document.querySelector('.rules-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
+  function fmtEUR(n) { return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Math.round(n || 0)); }
+
+  function compute() {
+    const d = readForm();
+    renderNudges(buildNudges(d));
+    const r = pec(d);
+    const fa = pecFraisAnnexes(d);
+    const totalCout = d.cout + (d.repas + d.hebergement + d.transport) * d.stagiaires;
+    const totalPEC = r.pedaPEC + fa.fraisPEC;
+    const reste = Math.max(0, totalCout - totalPEC);
+    const restePct = totalCout > 0 ? Math.round((reste / totalCout) * 100) : 0;
+    const okClass = reste === 0 ? '--ok' : (restePct < 30 ? '' : '--warn');
+
+    const remTxt = (d.profil === 'employeur' && r.maxRem > 0)
+      ? `<div class="sim-breakdown__item"><span class="sim-breakdown__lbl">Compensation rémunération &lt; 11 sal.</span><span class="sim-breakdown__val">+ ${fmtEUR(r.maxRem)}</span></div>`
+      : '';
+
+    document.getElementById('simResult').innerHTML = `
+      <div class="sim-result__heading">Reste à charge estimé</div>
+      <div class="sim-result__big ${okClass}">${fmtEUR(Math.max(0, reste - r.maxRem))} <span style="font-size:14px;font-weight:600;opacity:.85">soit ~${restePct} % du coût total</span></div>
+      <div class="sim-breakdown">
+        <div class="sim-breakdown__item"><span class="sim-breakdown__lbl">Coût total</span><span class="sim-breakdown__val">${fmtEUR(totalCout)}</span></div>
+        <div class="sim-breakdown__item"><span class="sim-breakdown__lbl">Prise en charge pédagogique</span><span class="sim-breakdown__val">${fmtEUR(r.pedaPEC)}</span></div>
+        <div class="sim-breakdown__item"><span class="sim-breakdown__lbl">Prise en charge frais annexes</span><span class="sim-breakdown__val">${fmtEUR(fa.fraisPEC)}</span></div>
+        ${remTxt}
+      </div>
+      <div class="sim-result__hint">Source de financement : <strong>${r.source}</strong>${r.plafond ? ` · plafond ${fmtEUR(r.plafond)}` : ''}. Estimation indicative — l'instruction définitive est faite par Uniformation. ${r.prec ? '<br>⚠️ PREC : modalités définitives à venir, montants estimés à 0 par défaut.' : ''}</div>
+    `;
+  }
+
+  // Toggle visibilité du champ effectif si profil = salarié
+  function toggleVisibility() {
+    const d = readForm();
+    const effField = document.getElementById('simFx-effectif');
+    if (effField) effField.style.display = (d.profil === 'employeur') ? '' : 'none';
+  }
+
+  form.addEventListener('input', () => { toggleVisibility(); compute(); });
+  form.addEventListener('change', () => { toggleVisibility(); compute(); });
+  toggleVisibility();
+  compute();
 }
 
 function setupRulesTabs() {
