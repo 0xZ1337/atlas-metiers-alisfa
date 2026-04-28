@@ -974,6 +974,170 @@ a { color: var(--alisfa-navy); }
 .fund-detail__row:last-of-type { border-bottom: 0; }
 .fund-detail__row .lbl { color: var(--muted); font-weight: 500; }
 .fund-detail__row .val { color: var(--alisfa-navy); font-weight: 700; text-align: right; }
+/* Adaptation du texte par rôle (data-aud) */
+[data-aud-salarie], [data-aud-employeur], [data-aud-negociateur] { display: none; }
+body[data-aud="salarie"] [data-aud-salarie],
+body[data-aud="employeur"] [data-aud-employeur],
+body[data-aud="negociateur"] [data-aud-negociateur] { display: block; }
+
+/* 4 dispositifs toujours visibles : grille adaptative */
+.financements__grid--4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.fund-detail--always {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.fund-detail__amount {
+  font-family: 'Nunito', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--accent, var(--alisfa-navy));
+  margin: 6px 0 2px;
+  line-height: 1;
+}
+.fund-detail__amount--alt {
+  color: var(--muted);
+  font-size: 22px;
+  font-style: italic;
+}
+.fund-detail__amount--variable {
+  font-size: 18px;
+  letter-spacing: 0.01em;
+}
+.fund-detail__amount-lbl {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Voies de formation satellites (universités, écoles) */
+.financements__satellites {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--border);
+}
+.financements__satellites-lead {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.financements__sat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+}
+.fund-sat {
+  background: var(--paper-2);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent, var(--alisfa-navy));
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.fund-sat__head {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--alisfa-navy);
+  margin-bottom: 6px;
+}
+.fund-sat p { font-size: 12.5px; color: var(--text); margin: 0 0 8px; line-height: 1.55; }
+.fund-sat__link {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--accent, var(--alisfa-navy));
+  text-decoration: none;
+}
+.fund-sat__link:hover { text-decoration: underline; }
+
+/* ─── Ticker RSS / Ligne de bourse ─── */
+.ticker {
+  position: relative;
+  background: linear-gradient(90deg, var(--alisfa-navy) 0%, #2d4373 100%);
+  color: #fff;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 30;
+}
+.ticker__label {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--alisfa-orange);
+  color: #fff;
+  height: 100%;
+  padding: 0 14px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 2;
+}
+.ticker__label .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #fff;
+  animation: tickerPulse 1.6s ease-in-out infinite;
+}
+@keyframes tickerPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .5; transform: scale(.7); }
+}
+.ticker__track {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+  animation: tickerScroll 90s linear infinite;
+}
+.ticker:hover .ticker__track { animation-play-state: paused; }
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ticker__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 22px;
+  font-size: 12.5px;
+  letter-spacing: 0.01em;
+  color: rgba(255,255,255,0.92);
+  text-decoration: none;
+  border-right: 1px solid rgba(255,255,255,0.18);
+}
+.ticker__item:hover { color: #fff; background: rgba(255,255,255,0.06); }
+.ticker__src {
+  font-family: 'Nunito', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.ticker__date {
+  font-size: 10.5px;
+  color: rgba(255,255,255,0.55);
+  font-variant-numeric: tabular-nums;
+}
+
 .fund-detail__pub {
   margin-top: 14px;
   font-size: 12px; color: var(--text-2);
@@ -2487,6 +2651,22 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
   .rosace-legend__item { padding: 4px 9px; font-size: 11.5px; gap: 5px; }
   .rosace-legend__dot { width: 10px; height: 10px; }
   .rosace-legend__count { font-size: 10px; }
+
+  /* Ticker RSS : plus compact */
+  .ticker { height: 30px; }
+  .ticker__label { padding: 0 10px; font-size: 9.5px; }
+  .ticker__label .dot { width: 5px; height: 5px; }
+  .ticker__item { padding: 0 14px; font-size: 11.5px; gap: 6px; }
+  .ticker__src { font-size: 9px; padding: 2px 5px; }
+  .ticker__date { display: none; }
+
+  /* 4 cards toujours visibles : 1 colonne */
+  .financements__grid--4 { grid-template-columns: 1fr; gap: 12px; }
+  .fund-detail--always { padding: 14px; }
+  .fund-detail__amount { font-size: 22px; }
+
+  /* Voies satellites en colonne */
+  .financements__sat-grid { grid-template-columns: 1fr; }
   .bridge { padding: 16px; }
   .view-switcher { padding: 4px; }
   .view-switcher button { min-width: 180px; padding: 10px; }
@@ -2498,6 +2678,22 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
 </style>
 </head>
 <body>
+
+<!-- ============================== TICKER RSS ============================== -->
+<aside class="ticker" role="region" aria-label="Actualités emploi-formation ESS">
+  <div class="ticker__label" title="Mis à jour automatiquement toutes les 15 minutes">
+    <span class="dot"></span>LIVE
+  </div>
+  <div class="ticker__track" id="tickerTrack">
+    <!-- contenu chargé depuis feed.json — fallback statique -->
+    <a class="ticker__item" href="https://www.alisfa.fr" target="_blank" rel="noopener"><span class="ticker__src">ALISFA</span><span>Tableau des règles de financement 2026 — version 13 mars 2026</span></a>
+    <a class="ticker__item" href="https://www.uniformation.fr" target="_blank" rel="noopener"><span class="ticker__src">Uniformation</span><span>Réinstauration de la prime tutorale 230 €/mois × 6 mois — 1ᵉʳ janv. 2026</span></a>
+    <a class="ticker__item" href="https://www.legifrance.gouv.fr" target="_blank" rel="noopener"><span class="ticker__src">Légifrance</span><span>Loi nº 2025-989 — entretien de parcours professionnel, périodicité 4 ans</span></a>
+    <a class="ticker__item" href="https://www.francecompetences.fr" target="_blank" rel="noopener"><span class="ticker__src">France compétences</span><span>Coût-contrat apprentissage : ALISFA mis à jour 4 sept. 2025</span></a>
+    <a class="ticker__item" href="https://www.avise.org" target="_blank" rel="noopener"><span class="ticker__src">Avise</span><span>Mesure de l'impact social — nouveau guide ESS 2026</span></a>
+    <a class="ticker__item" href="https://www.info-dla.fr" target="_blank" rel="noopener"><span class="ticker__src">DLA</span><span>Accompagnement gratuit des structures employeuses ESS</span></a>
+  </div>
+</aside>
 
 <!-- ============================== TOPBAR ============================== -->
 <nav class="topbar">
@@ -3279,69 +3475,89 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
 <!-- ============================== FUND DETAIL SECTION ============================== -->
 <section class="financements" id="dispositifs-financement">
   <div class="financements__head">
-    <h2>Dispositifs &amp; voies de formation</h2>
-    <p>Selon la situation du salarié et le métier visé, plusieurs dispositifs sont mobilisables — isolément ou en combinaison. Cadre détaillé dans <a href="#" class="link-rule" data-rule-tab="r1">les règles de financement ALISFA 2026</a>.</p>
+    <h2>Les 4 voies de financement à votre disposition</h2>
+    <p>Toutes les pistes sont conservées : un dispositif peut être mobilisé seul ou combiné. Le texte de chaque carte s'adapte à votre rôle (sélecteur en haut). Cadre détaillé dans <a href="#" class="link-rule" data-rule-tab="r1">les règles de financement ALISFA 2026</a>.</p>
   </div>
-  <div class="financements__grid">
-    <div class="fund-detail" style="--accent:var(--alisfa-orange)">
+  <div class="financements__grid financements__grid--4">
+    <!-- ─── 1. OPCO Cohésion ─── -->
+    <div class="fund-detail fund-detail--always" style="--accent:var(--alisfa-orange)">
       <h3>OPCO Cohésion</h3>
-      <div class="fund-detail__sub">Plan de développement des compétences · employeur</div>
+      <div class="fund-detail__sub">Plan de développement des compétences</div>
+      <div class="fund-detail__amount">~2 400 €</div>
+      <div class="fund-detail__amount-lbl">Coût péda moyen pris en charge (35 h)</div>
       <div class="fund-detail__row"><span class="lbl">Initiative</span><span class="val">Employeur</span></div>
       <div class="fund-detail__row"><span class="lbl">Plafond</span><span class="val">5 000 € / DAF</span></div>
       <div class="fund-detail__row"><span class="lbl">Durée</span><span class="val">Toute durée</span></div>
-      <div class="fund-detail__row"><span class="lbl">Salaire</span><span class="val">Maintenu</span></div>
-      <div class="fund-detail__pub">Demande déposée par l'employeur. Adapté aux formations courtes et à l'adaptation au poste. Quota DAF/an selon EMA.</div>
-      <a href="#" class="fund-detail__link" data-rule-tab="r1">→ Règles plan de dév. fonds légaux</a>
+      <div class="fund-detail__row"><span class="lbl">Salaire</span><span class="val">Maintenu (forfait 13 €/h si &lt; 11 sal.)</span></div>
+      <div class="fund-detail__pub" data-aud-salarie>Si vous êtes intéressé·e par une formation courte (&lt; 6 mois), demandez à votre employeur de saisir une <strong>DAF</strong> sur l'espace Uniformation : prise en charge intégrale possible. Plafond 65 €/h pour ≤ 105 h.</div>
+      <div class="fund-detail__pub" data-aud-employeur>Demande déposée par l'employeur sur Uniformation (espace adhérent). Prise en charge intégrale possible pour les formations courtes (&lt; 6 mois). Quota DAF/an : 7 (-11 sal.) · 10 (11-49) · 25 (≥50).</div>
+      <div class="fund-detail__pub" data-aud-negociateur>Plan de développement des compétences (fonds légaux &lt; 50 sal., conventionnels ≥ 50 sal.). Volume DAF par taille codifié dans la part conventionnelle. Pivot des fonds : <strong>EMA URSSAF</strong>.</div>
+      <a href="#" class="fund-detail__link" data-rule-tab="r1">→ Règles plan de développement</a>
     </div>
-    <div class="fund-detail" style="--accent:var(--alisfa-teal)">
-      <h3>Alternance</h3>
-      <div class="fund-detail__sub">Apprentissage · Pro · PREC</div>
+
+    <!-- ─── 2. PRO-A / Alternance ─── -->
+    <div class="fund-detail fund-detail--always" style="--accent:var(--alisfa-teal)">
+      <h3>PRO-A → PREC</h3>
+      <div class="fund-detail__sub">Reconversion ou promotion par alternance</div>
+      <div class="fund-detail__amount fund-detail__amount--alt">—</div>
+      <div class="fund-detail__amount-lbl">Coût-contrat RNCP intégral · hors plafond DAF</div>
       <div class="fund-detail__row"><span class="lbl">Initiative</span><span class="val">Employeur + salarié</span></div>
-      <div class="fund-detail__row"><span class="lbl">Plafond</span><span class="val">Coût-contrat RNCP</span></div>
+      <div class="fund-detail__row"><span class="lbl">Plafond</span><span class="val">Cout-contrat RNCP</span></div>
       <div class="fund-detail__row"><span class="lbl">Durée</span><span class="val">6 à 36 mois</span></div>
-      <div class="fund-detail__row"><span class="lbl">Salaire</span><span class="val">Maintenu</span></div>
-      <div class="fund-detail__pub">Apprentissage 16-29 ans (35 ans en suite, sans limite handicap), contrat de pro 18 €/h, PREC à venir au 1ᵉʳ janvier 2026.</div>
+      <div class="fund-detail__row"><span class="lbl">Salaire</span><span class="val">Maintenu pendant la formation</span></div>
+      <div class="fund-detail__pub" data-aud-salarie>Pour <strong>évoluer dans la branche</strong> (ex. CAP AEPE → DE EJE) sans changer d'employeur. Réservé aux formations diplômantes longues. <strong>PREC</strong> remplace Pro-A au 1ᵉʳ janvier 2026 — modalités à confirmer.</div>
+      <div class="fund-detail__pub" data-aud-employeur>Dispositif réservé aux formations diplômantes longues (RNCP). Coût-contrat pris en charge à 100 % par Uniformation. Tutorat obligatoire (prime 50 €/mois). <strong>Aide tutorale réinstaurée 1ᵉʳ janv. 2026 : 230 €/mois × 6 mois.</strong></div>
+      <div class="fund-detail__pub" data-aud-negociateur>PREC remplace Pro-A à compter du 1ᵉʳ janv. 2026 (loi 2025-989). Modalités CPNEF en cours d'élaboration. Liste de certifications éligibles à arbitrer en CPNEF avant déploiement opérationnel.</div>
       <a href="#" class="fund-detail__link" data-rule-tab="r2">→ Règles alternance</a>
     </div>
-    <div class="fund-detail" style="--accent:var(--alisfa-mauve)">
-      <h3>PTP — Projet Transition Pro</h3>
-      <div class="fund-detail__sub">Ex-CIF · pour changer de métier</div>
+
+    <!-- ─── 3. PTP ─── -->
+    <div class="fund-detail fund-detail--always" style="--accent:var(--alisfa-mauve)">
+      <h3>PTP</h3>
+      <div class="fund-detail__sub">Projet de Transition Professionnelle <em>(ex-CIF)</em></div>
+      <div class="fund-detail__amount fund-detail__amount--alt">—</div>
+      <div class="fund-detail__amount-lbl">Coût pédagogique + salaire maintenu</div>
       <div class="fund-detail__row"><span class="lbl">Initiative</span><span class="val">Salarié</span></div>
       <div class="fund-detail__row"><span class="lbl">Plafond</span><span class="val">Coût + salaire</span></div>
       <div class="fund-detail__row"><span class="lbl">Durée</span><span class="val">jusqu'à 24 mois</span></div>
-      <div class="fund-detail__row"><span class="lbl">Salaire</span><span class="val">Maintenu (Transitions Pro)</span></div>
-      <div class="fund-detail__pub">Demande individuelle instruite par Transitions Pro en région. Concerne une reconversion vers un métier distinct du métier exercé.</div>
+      <div class="fund-detail__row"><span class="lbl">Salaire</span><span class="val">Maintenu via Transitions Pro</span></div>
+      <div class="fund-detail__pub" data-aud-salarie>Pour <strong>changer de métier</strong> (hors famille de métiers actuelle). Demande personnelle à Transitions Pro de votre région. Salaire maintenu pendant la formation. Plus exigeant que le CPF — projet construit.</div>
+      <div class="fund-detail__pub" data-aud-employeur>Réservé aux reconversions hors famille de métiers : votre salarié·e en bénéficie en autonomie auprès de Transitions Pro. Acceptez la demande de congé formation lorsqu'elle est instruite.</div>
+      <div class="fund-detail__pub" data-aud-negociateur>Dispositif d'État (CPIR / Transitions Pro), hors compétence directe ALISFA. Pivot avec l'OPCO Cohésion via co-financements ponctuels (PIC IAE, projets régionaux).</div>
       <a href="#" class="fund-detail__link" data-rule-tab="r3">→ Règles fonds conventionnels</a>
     </div>
-    <div class="fund-detail" style="--accent:var(--alisfa-amber)">
+
+    <!-- ─── 4. CPF ─── -->
+    <div class="fund-detail fund-detail--always" style="--accent:var(--alisfa-amber)">
       <h3>CPF</h3>
       <div class="fund-detail__sub">Compte Personnel de Formation</div>
+      <div class="fund-detail__amount fund-detail__amount--variable">Selon droits acquis</div>
+      <div class="fund-detail__amount-lbl">5 000 € max alimentés sur 10 ans (TPL 8 000 € handicap)</div>
       <div class="fund-detail__row"><span class="lbl">Initiative</span><span class="val">Salarié</span></div>
-      <div class="fund-detail__row"><span class="lbl">Plafond</span><span class="val">Selon droits acquis</span></div>
+      <div class="fund-detail__row"><span class="lbl">Plafond</span><span class="val">Solde du compte</span></div>
       <div class="fund-detail__row"><span class="lbl">Durée</span><span class="val">Variable</span></div>
       <div class="fund-detail__row"><span class="lbl">Salaire</span><span class="val">Hors temps de travail (ou abondement)</span></div>
-      <div class="fund-detail__pub">Mobilisable par le salarié via moncompteformation.gouv.fr. Possible abondement employeur ou OPCO en complément.</div>
-      <a href="#" class="fund-detail__link" data-rule-tab="r5">→ Règles barèmes &amp; frais annexes</a>
+      <div class="fund-detail__pub" data-aud-salarie>Mobilisable seul·e sur <a href="https://www.moncompteformation.gouv.fr" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">moncompteformation.gouv.fr</a>. Possible <strong>abondement</strong> de votre employeur ou de l'OPCO en complément. Vérifiez votre solde avant arbitrage.</div>
+      <div class="fund-detail__pub" data-aud-employeur>Mobilisable par le salarié. Vous pouvez <strong>abonder le CPF</strong> en complément (optimisation fiscale + valorisation RH). L'OPCO Cohésion peut aussi abonder dans le cadre de Pro-A / PREC.</div>
+      <div class="fund-detail__pub" data-aud-negociateur>Compte individuel, mobilisable sans accord employeur. Possible co-financement OPCO sur priorités de branche (illettrisme/CléA, transitions, santé mentale, RPS).</div>
+      <a href="#" class="fund-detail__link" data-rule-tab="r5">→ Barèmes &amp; frais annexes</a>
     </div>
-    <div class="fund-detail" style="--accent:#5B7DAA">
-      <h3>Universités</h3>
-      <div class="fund-detail__sub">Formations diplômantes BAC+3 à BAC+8</div>
-      <div class="fund-detail__row"><span class="lbl">Niveaux</span><span class="val">Licence · Master · Doctorat</span></div>
-      <div class="fund-detail__row"><span class="lbl">Modalités</span><span class="val">Initiale · continue · alternance</span></div>
-      <div class="fund-detail__row"><span class="lbl">Financement</span><span class="val">CPF · alternance · PTP · employeur</span></div>
-      <div class="fund-detail__row"><span class="lbl">Exemples ALISFA</span><span class="val">Sciences de l'éducation, sociologie, gestion ESS</span></div>
-      <div class="fund-detail__pub">Universités proposant des cursus pertinents pour le secteur (CNAM, Paris-Cité, Lyon 2, Bordeaux, Aix-Marseille…). Reconnaissance VAE possible. Cumul fréquent avec dispositifs ALISFA.</div>
-      <a href="#" class="fund-detail__link" data-rule-tab="r6">→ Niveaux PEC diplômes</a>
-    </div>
-    <div class="fund-detail" style="--accent:#6B8E5C">
-      <h3>Écoles spécialisées ESS</h3>
-      <div class="fund-detail__sub">IRTS · IUT · EJE · IFEN · CREPS</div>
-      <div class="fund-detail__row"><span class="lbl">Public</span><span class="val">Petite enfance · animation · social</span></div>
-      <div class="fund-detail__row"><span class="lbl">Diplômes</span><span class="val">DE EJE · DEME · DEES · BPJEPS · DEJEPS</span></div>
-      <div class="fund-detail__row"><span class="lbl">Modalités</span><span class="val">Initiale · alternance · VAE</span></div>
-      <div class="fund-detail__row"><span class="lbl">Financement</span><span class="val">Apprentissage · contrat de pro · CPF · DAF certifiante</span></div>
-      <div class="fund-detail__pub">IRTS régionaux (Île-de-France, Hauts-de-France, Aquitaine…), IUT Carrières sociales, écoles d'éducateur·rices de jeunes enfants, CREPS pour BPJEPS/DEJEPS. Conventionnement OPCO Cohésion fréquent.</div>
-      <a href="#" class="fund-detail__link" data-rule-tab="r6">→ Niveaux PEC diplômes</a>
+  </div>
+
+  <!-- Voies de formation (universités, écoles) — éléments complémentaires -->
+  <div class="financements__satellites">
+    <p class="financements__satellites-lead">Voies de formation complémentaires (où peut-on apprendre ?)</p>
+    <div class="financements__sat-grid">
+      <div class="fund-sat" style="--accent:#5B7DAA">
+        <div class="fund-sat__head">🎓 Universités</div>
+        <p>Formations diplômantes BAC+3 à BAC+8 — Licence, Master, Doctorat. CNAM, Paris-Cité, Lyon 2, Bordeaux, Aix-Marseille. Sciences de l'éducation, sociologie, gestion ESS. Modalités initiale, continue, alternance.</p>
+        <a href="#" class="fund-sat__link" data-rule-tab="r6">→ Niveaux PEC diplômes</a>
+      </div>
+      <div class="fund-sat" style="--accent:#6B8E5C">
+        <div class="fund-sat__head">🏫 Écoles spécialisées ESS</div>
+        <p>IRTS, IUT Carrières sociales, écoles EJE, CREPS, IFEN. Diplômes DE EJE, DEME, DEES, BPJEPS, DEJEPS. Conventionnement OPCO Cohésion fréquent. Apprentissage, contrat de pro, CPF, DAF certifiante.</p>
+        <a href="#" class="fund-sat__link" data-rule-tab="r6">→ Niveaux PEC diplômes</a>
+      </div>
     </div>
   </div>
 </section>
@@ -5440,6 +5656,7 @@ function init() {
   setupRosaceModes();
   setupRulesTabs();
   setupSimulator();
+  setupTicker();
   renderEdit();
   renderRosace();
 }
@@ -5635,6 +5852,43 @@ function setupSimulator() {
   form.addEventListener('change', () => { toggleVisibility(); compute(); });
   toggleVisibility();
   compute();
+}
+
+// ====================================================================
+// TICKER RSS / Ligne de bourse
+// ====================================================================
+async function setupTicker() {
+  const track = document.getElementById('tickerTrack');
+  if (!track) return;
+  const fmtDate = (iso) => {
+    if (!iso) return '';
+    try {
+      const d = new Date(iso);
+      const now = new Date();
+      const diffH = Math.round((now - d) / 36e5);
+      if (diffH < 24) return diffH <= 0 ? 'à l\'instant' : `il y a ${diffH} h`;
+      const days = Math.round(diffH / 24);
+      if (days < 7) return `il y a ${days} j`;
+      return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' });
+    } catch { return ''; }
+  };
+  try {
+    const res = await fetch('feed.json?ts=' + Date.now());
+    if (!res.ok) return;
+    const data = await res.json();
+    if (!data.items || data.items.length === 0) return;
+    const html = data.items.map(it => `
+      <a class="ticker__item" href="${it.link}" target="_blank" rel="noopener">
+        <span class="ticker__src">${it.source}</span>
+        <span>${it.title}</span>
+        ${it.date ? `<span class="ticker__date">${fmtDate(it.date)}</span>` : ''}
+      </a>
+    `).join('');
+    track.innerHTML = html + html; // dédoublé pour scroll continu
+  } catch (e) {
+    // Fallback : conserver le contenu statique inline + dédoublement
+    track.innerHTML = track.innerHTML + track.innerHTML;
+  }
 }
 
 function setupRulesTabs() {

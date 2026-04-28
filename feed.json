@@ -1,0 +1,55 @@
+{
+  "generated": "2026-04-28T00:00:00Z",
+  "source_count": 0,
+  "note": "Bootstrap initial — sera écrasé par .github/workflows/feed.yml toutes les 15 minutes",
+  "items": [
+    {
+      "source": "ALISFA",
+      "title": "Tableau des règles de financement 2026 — version 13 mars 2026",
+      "link": "https://www.alisfa.fr/emploi-et-formation/",
+      "date": "2026-03-13T00:00:00Z"
+    },
+    {
+      "source": "Uniformation",
+      "title": "Réinstauration de la prime tutorale : 230 €/mois × 6 mois — entrée en vigueur 1ᵉʳ janv. 2026",
+      "link": "https://www.uniformation.fr",
+      "date": "2026-01-01T00:00:00Z"
+    },
+    {
+      "source": "Légifrance",
+      "title": "Loi nº 2025-989 du 24 octobre 2025 — entretien de parcours professionnel, périodicité 4 ans",
+      "link": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000052407123",
+      "date": "2025-10-24T00:00:00Z"
+    },
+    {
+      "source": "France compétences",
+      "title": "Niveaux de prise en charge contrats d'apprentissage — branche ALISFA mis à jour 4 sept. 2025",
+      "link": "https://www.francecompetences.fr/referentiels-et-bases-de-donnees/",
+      "date": "2025-09-04T00:00:00Z"
+    },
+    {
+      "source": "Avise",
+      "title": "Mesure de l'impact social — nouveau guide pour les structures de l'ESS 2026",
+      "link": "https://www.avise.org",
+      "date": "2026-02-15T00:00:00Z"
+    },
+    {
+      "source": "Service-public",
+      "title": "Période de reconversion (PREC) : remplace la Pro-A à compter du 1ᵉʳ janvier 2026",
+      "link": "https://www.service-public.fr/particuliers/vosdroits",
+      "date": "2026-01-01T00:00:00Z"
+    },
+    {
+      "source": "DLA",
+      "title": "Accompagnement gratuit des structures employeuses ESS — annuaire 2026",
+      "link": "https://www.info-dla.fr",
+      "date": "2026-01-15T00:00:00Z"
+    },
+    {
+      "source": "Vie publique",
+      "title": "Réforme de la VAE — plateforme France VAE étendue à toutes les certifications 2026",
+      "link": "https://www.vie-publique.fr",
+      "date": "2026-02-01T00:00:00Z"
+    }
+  ]
+}

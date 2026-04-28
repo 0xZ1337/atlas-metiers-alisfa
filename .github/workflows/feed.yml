@@ -1,0 +1,52 @@
+name: Mettre à jour feed.json (agrégation RSS)
+
+# Robot d'agrégation : exécute le scraper toutes les 15 minutes
+# et committe feed.json mis à jour si changé.
+#
+# Sources : flux RSS/Atom publics (Service-public, Vie publique,
+# Travail-emploi, Localtis, Avise, ESS France, France compétences).
+# Aucune information privée n'est aspirée.
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'   # toutes les 15 minutes (UTC)
+  workflow_dispatch:           # déclenchement manuel possible
+  push:
+    paths:
+      - 'scripts/fetch-feed.mjs'
+      - '.github/workflows/feed.yml'
+
+permissions:
+  contents: write              # nécessaire pour commit du feed
+
+concurrency:
+  group: feed-update
+  cancel-in-progress: false
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run aggregator
+        run: node scripts/fetch-feed.mjs
+
+      - name: Commit if changed
+        run: |
+          if [ -n "$(git status --porcelain feed.json)" ]; then
+            git config user.name "Atlas Feed Bot"
+            git config user.email "feed-bot@atlas-alisfa.local"
+            git add feed.json
+            git commit -m "feed: mise à jour automatique $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          else
+            echo "Aucun changement dans feed.json"
+          fi
