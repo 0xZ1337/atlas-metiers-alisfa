@@ -2288,6 +2288,100 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
 .footer__lk { color: rgba(255,255,255,0.78); font-size: 13px; text-decoration: none; }
 .footer__lk:hover { color: #fff; }
 
+/* Audit déplacé dans le footer (details/summary) */
+.footer-audit {
+  max-width: 1340px;
+  margin: 18px auto 0;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 16px;
+}
+.footer-audit > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.88);
+  padding: 6px 0;
+  user-select: none;
+}
+.footer-audit > summary::-webkit-details-marker { display: none; }
+.footer-audit > summary::marker { content: ''; }
+.footer-audit > summary:hover { color: #fff; }
+.footer-audit__title { letter-spacing: 0.02em; }
+.footer-audit__badge {
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.footer-audit__chev {
+  transition: transform .25s;
+  opacity: .8;
+}
+.footer-audit[open] .footer-audit__chev { transform: rotate(180deg); }
+.footer-audit__body {
+  margin-top: 14px;
+  padding: 14px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  overflow-x: auto;
+}
+.footer-audit__body .audit-table {
+  width: 100%;
+  font-size: 12px;
+  color: rgba(255,255,255,0.92);
+  border-collapse: collapse;
+}
+.footer-audit__body .audit-table th {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 8px 10px;
+  text-align: left;
+}
+.footer-audit__body .audit-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  vertical-align: top;
+}
+.footer-audit__body .audit-table td.num {
+  color: rgba(255,255,255,0.55);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  width: 24px;
+}
+.footer-audit__body .audit-table strong { color: #fff; }
+.footer-audit__body .audit-table code {
+  background: rgba(255,255,255,0.12);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+.footer-audit__body .sev {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.footer-audit__body .sev-h { background: rgba(224, 122, 77, 0.25); color: #FFC9A8; }
+.footer-audit__body .sev-m { background: rgba(245, 215, 110, 0.20); color: #FCE39B; }
+.footer-audit__body .sev-l { background: rgba(155, 192, 210, 0.20); color: #C1DFEC; }
+
 /* =========================================================
    RESPONSIVE
    ========================================================= */
@@ -3252,41 +3346,6 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
   </div>
 </section>
 
-<!-- ============================== AUDIT ============================== -->
-<section class="audit-section">
-  <div class="audit-card" id="auditCard">
-    <div class="audit-card__head" id="auditToggle">
-      <h2>Audit de la page actuelle</h2>
-      <span class="badge">15 points identifiés</span>
-      <span class="toggle">
-        Afficher l'audit
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition:transform .25s"><path d="M6 9l6 6 6-6"/></svg>
-      </span>
-    </div>
-    <div class="audit-card__body">
-      <table class="audit-table">
-        <thead><tr><th>#</th><th>Point faible — page <code>alisfa.fr/emploi-et-formation/gpec/</code></th><th>Impact</th><th>Sévérité</th></tr></thead>
-        <tbody>
-          <tr><td class="num">1</td><td><strong>Tout en PDF</strong> — 25 fiches uniquement téléchargeables (≈ 720 Ko chacune).</td><td>Friction mobile, pas indexé Google, pas de lien profond.</td><td><span class="sev sev-h">élevée</span></td></tr>
-          <tr><td class="num">2</td><td><strong>JobMap externe</strong> (jobmap.cognito.fr) en iframe — rupture de marque, pas responsive.</td><td>UX cassée, pas de réutilisation API.</td><td><span class="sev sev-h">élevée</span></td></tr>
-          <tr><td class="num">3</td><td><strong>Pas de référentiel compétences partagé</strong> entre les 25 fiches.</td><td>Impossible de visualiser la transférabilité.</td><td><span class="sev sev-h">élevée</span></td></tr>
-          <tr><td class="num">4</td><td><strong>Pas de moteur de recherche</strong> — il faut scroller la liste.</td><td>Temps perdu, abandon.</td><td><span class="sev sev-h">élevée</span></td></tr>
-          <tr><td class="num">5</td><td><strong>Aucune adaptation par profil</strong> (salarié / employeur / négociateur).</td><td>Tous les publics extraient la même info à la main.</td><td><span class="sev sev-h">élevée</span></td></tr>
-          <tr><td class="num">6</td><td><strong>Salaires absents</strong> — info #1 cherchée, totalement absente.</td><td>Renvoi vers la CCN brute.</td><td><span class="sev sev-h">élevée</span></td></tr>
-          <tr><td class="num">7</td><td><strong>Coefficients & échelons CCN non liés</strong> aux fiches.</td><td>Doublons, erreurs de paie.</td><td><span class="sev sev-m">moyenne</span></td></tr>
-          <tr><td class="num">8</td><td><strong>Aucun lien vers les financements</strong> (OPCO, PRO-A, PTP, CPF).</td><td>L'utilisateur abandonne au passage à l'action.</td><td><span class="sev sev-h">élevée</span></td></tr>
-          <tr><td class="num">9</td><td><strong>Pas de témoignages / vidéos</strong> — la promesse marketing n'est pas tenue.</td><td>Engagement faible.</td><td><span class="sev sev-m">moyenne</span></td></tr>
-          <tr><td class="num">10</td><td><strong>Pas de plan de parcours sauvegardé</strong>, pas de favoris.</td><td>Visite « one-shot ».</td><td><span class="sev sev-m">moyenne</span></td></tr>
-          <tr><td class="num">11</td><td><strong>Friction mobile</strong> — PDF 720 Ko en 4G.</td><td>Abandon élevé.</td><td><span class="sev sev-h">élevée</span></td></tr>
-          <tr><td class="num">12</td><td><strong>Accessibilité PDF non garantie</strong>.</td><td>Public en situation de handicap exclu.</td><td><span class="sev sev-h">élevée</span></td></tr>
-          <tr><td class="num">13</td><td><strong>Pas de données tension recrutement</strong> par métier.</td><td>Pas d'aide à la priorisation branche.</td><td><span class="sev sev-m">moyenne</span></td></tr>
-          <tr><td class="num">14</td><td><strong>Pas de comparateur multi-métiers</strong>.</td><td>Décision RH ralentie.</td><td><span class="sev sev-l">faible</span></td></tr>
-          <tr><td class="num">15</td><td><strong>Pas d'API ouverte</strong> (SIRH structures, OPCO Cohésion, France Travail, partenaires CPNEF).</td><td>Silos d'information.</td><td><span class="sev sev-l">faible</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
 
 <!-- ============================== RÈGLES DE FINANCEMENT ALISFA 2026 ============================== -->
 <section class="rules-section" aria-label="Règles de financement de la formation ALISFA 2026">
@@ -3768,6 +3827,36 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
     <div class="footer__sp"></div>
     <a class="footer__lk" href="https://www.alisfa.fr/emploi-et-formation/gpec/" target="_blank">Page actuelle alisfa.fr ↗</a>
   </div>
+
+  <details class="footer-audit">
+    <summary>
+      <span class="footer-audit__title">Audit de la page actuelle</span>
+      <span class="footer-audit__badge">15 points</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="footer-audit__chev"><path d="M6 9l6 6 6-6"/></svg>
+    </summary>
+    <div class="footer-audit__body">
+      <table class="audit-table">
+        <thead><tr><th>#</th><th>Point faible — page <code>alisfa.fr/emploi-et-formation/gpec/</code></th><th>Impact</th><th>Sévérité</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td><strong>Tout en PDF</strong> — 25 fiches uniquement téléchargeables (≈ 720 Ko chacune).</td><td>Friction mobile, pas indexé Google, pas de lien profond.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">2</td><td><strong>JobMap externe</strong> (jobmap.cognito.fr) en iframe — rupture de marque, pas responsive.</td><td>UX cassée, pas de réutilisation API.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">3</td><td><strong>Pas de référentiel compétences partagé</strong> entre les 25 fiches.</td><td>Impossible de visualiser la transférabilité.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">4</td><td><strong>Pas de moteur de recherche</strong> — il faut scroller la liste.</td><td>Temps perdu, abandon.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">5</td><td><strong>Aucune adaptation par profil</strong> (salarié / employeur / négociateur).</td><td>Tous les publics extraient la même info à la main.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">6</td><td><strong>Salaires absents</strong> — info #1 cherchée, totalement absente.</td><td>Renvoi vers la CCN brute.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">7</td><td><strong>Coefficients & échelons CCN non liés</strong> aux fiches.</td><td>Doublons, erreurs de paie.</td><td><span class="sev sev-m">moyenne</span></td></tr>
+          <tr><td class="num">8</td><td><strong>Aucun lien vers les financements</strong> (OPCO, PRO-A, PTP, CPF).</td><td>L'utilisateur abandonne au passage à l'action.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">9</td><td><strong>Pas de témoignages / vidéos</strong> — la promesse marketing n'est pas tenue.</td><td>Engagement faible.</td><td><span class="sev sev-m">moyenne</span></td></tr>
+          <tr><td class="num">10</td><td><strong>Pas de plan de parcours sauvegardé</strong>, pas de favoris.</td><td>Visite « one-shot ».</td><td><span class="sev sev-m">moyenne</span></td></tr>
+          <tr><td class="num">11</td><td><strong>Friction mobile</strong> — PDF 720 Ko en 4G.</td><td>Abandon élevé.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">12</td><td><strong>Accessibilité PDF non garantie</strong>.</td><td>Public en situation de handicap exclu.</td><td><span class="sev sev-h">élevée</span></td></tr>
+          <tr><td class="num">13</td><td><strong>Pas de données tension recrutement</strong> par métier.</td><td>Pas d'aide à la priorisation branche.</td><td><span class="sev sev-m">moyenne</span></td></tr>
+          <tr><td class="num">14</td><td><strong>Pas de comparateur multi-métiers</strong>.</td><td>Décision RH ralentie.</td><td><span class="sev sev-l">faible</span></td></tr>
+          <tr><td class="num">15</td><td><strong>Pas d'API ouverte</strong> (SIRH structures, OPCO Cohésion, France Travail, partenaires CPNEF).</td><td>Silos d'information.</td><td><span class="sev sev-l">faible</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
 </footer>
 
 <!-- =====================================================
@@ -4940,9 +5029,8 @@ function renderMatrix() {
 // AUDIT TOGGLE
 // ====================================================================
 function setupAudit() {
-  document.getElementById('auditToggle').addEventListener('click', () => {
-    document.getElementById('auditCard').classList.toggle('is-open');
-  });
+  // Audit déplacé dans le footer en <details> natif — pas de JS nécessaire.
+  // Fonction conservée comme no-op pour compatibilité avec init().
 }
 
 // ====================================================================
