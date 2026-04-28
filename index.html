@@ -1258,6 +1258,53 @@ a { color: var(--alisfa-navy); }
   fill: #fff; letter-spacing: 0.06em;
 }
 
+/* ─── Pastille « Aide au financement » ─── */
+.aide-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--alisfa-orange);
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  box-shadow: 0 1px 2px rgba(224, 122, 77, .35);
+  transition: transform .15s, box-shadow .15s;
+  margin-left: auto;
+}
+.aide-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(224, 122, 77, .45);
+}
+.aide-pill svg { flex: none; }
+
+/* ─── Lien footer dans les fund-detail (vers règles ALISFA) ─── */
+.fund-detail__link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 0 0;
+  border-top: 1px dashed var(--border);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--accent, var(--alisfa-orange));
+  text-decoration: none;
+  font-family: 'Nunito', sans-serif;
+}
+.fund-detail__link:hover { text-decoration: underline; }
+
+/* ─── Lien inline ─── */
+.link-rule {
+  color: var(--alisfa-orange);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+.link-rule:hover { color: var(--alisfa-navy); }
+
 /* ─── Encart Règles de financement ALISFA ─── */
 .rules-section {
   max-width: 1200px;
@@ -2772,6 +2819,10 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
   <div class="modalites__head">
     <h2>Modalités de formation</h2>
     <span class="tag-info">Comment apprend-on ?</span>
+    <a href="#" class="aide-pill" data-rule-tab="r1" title="Voir les règles de financement détaillées ALISFA 2026">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.5 2.5 0 1 1 4.07 1.94c-.51.43-1.07.78-1.07 1.56V13"/><circle cx="12" cy="17" r="0.6" fill="currentColor"/></svg>
+      <span>Aide au financement</span>
+    </a>
   </div>
   <p class="modalites__lead">
     Au-delà des dispositifs de financement (qui paie ?), les modalités ci-dessous décrivent <em>comment</em> la formation se déroule concrètement. Le bon dispositif dépend de l'objectif : sensibilisation, consolidation d'un niveau ou acquisition certifiante.
@@ -2951,29 +3002,31 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
 </section>
 
 <!-- ============================== FUND DETAIL SECTION ============================== -->
-<section class="financements">
+<section class="financements" id="dispositifs-financement">
   <div class="financements__head">
-    <h2>Dispositifs de financement de la formation</h2>
-    <p>Distincts des dispositifs d'information ci-dessus. Selon la situation du salarié et le métier visé, un ou plusieurs dispositifs sont mobilisables, isolément ou en combinaison. Éléments à titre indicatif. La branche ALISFA et OPCO Cohésion accompagnent l'instruction des dossiers.</p>
+    <h2>Dispositifs &amp; voies de formation</h2>
+    <p>Selon la situation du salarié et le métier visé, plusieurs dispositifs sont mobilisables — isolément ou en combinaison. Cadre détaillé dans <a href="#" class="link-rule" data-rule-tab="r1">les règles de financement ALISFA 2026</a>.</p>
   </div>
   <div class="financements__grid">
     <div class="fund-detail" style="--accent:var(--alisfa-orange)">
       <h3>OPCO Cohésion</h3>
       <div class="fund-detail__sub">Plan de développement des compétences · employeur</div>
       <div class="fund-detail__row"><span class="lbl">Initiative</span><span class="val">Employeur</span></div>
-      <div class="fund-detail__row"><span class="lbl">Plafond</span><span class="val">jusqu'à 100 %</span></div>
+      <div class="fund-detail__row"><span class="lbl">Plafond</span><span class="val">5 000 € / DAF</span></div>
       <div class="fund-detail__row"><span class="lbl">Durée</span><span class="val">Toute durée</span></div>
       <div class="fund-detail__row"><span class="lbl">Salaire</span><span class="val">Maintenu</span></div>
-      <div class="fund-detail__pub">Demande déposée par l'employeur sur la plateforme OPCO Cohésion. Adapté aux formations courtes et à l'adaptation au poste.</div>
+      <div class="fund-detail__pub">Demande déposée par l'employeur. Adapté aux formations courtes et à l'adaptation au poste. Quota DAF/an selon EMA.</div>
+      <a href="#" class="fund-detail__link" data-rule-tab="r1">→ Règles plan de dév. fonds légaux</a>
     </div>
     <div class="fund-detail" style="--accent:var(--alisfa-teal)">
-      <h3>PRO-A</h3>
-      <div class="fund-detail__sub">Reconversion ou promotion par alternance</div>
+      <h3>Alternance</h3>
+      <div class="fund-detail__sub">Apprentissage · Pro · PREC</div>
       <div class="fund-detail__row"><span class="lbl">Initiative</span><span class="val">Employeur + salarié</span></div>
-      <div class="fund-detail__row"><span class="lbl">Plafond</span><span class="val">100 % coût pédagogique</span></div>
+      <div class="fund-detail__row"><span class="lbl">Plafond</span><span class="val">Coût-contrat RNCP</span></div>
       <div class="fund-detail__row"><span class="lbl">Durée</span><span class="val">6 à 36 mois</span></div>
       <div class="fund-detail__row"><span class="lbl">Salaire</span><span class="val">Maintenu</span></div>
-      <div class="fund-detail__pub">Mobilisable pour une évolution ou une reconversion vers une certification éligible. Liste de diplômes définie par accord de branche ALISFA.</div>
+      <div class="fund-detail__pub">Apprentissage 16-29 ans (35 ans en suite, sans limite handicap), contrat de pro 18 €/h, PREC à venir au 1ᵉʳ janvier 2026.</div>
+      <a href="#" class="fund-detail__link" data-rule-tab="r2">→ Règles alternance</a>
     </div>
     <div class="fund-detail" style="--accent:var(--alisfa-mauve)">
       <h3>PTP — Projet Transition Pro</h3>
@@ -2983,6 +3036,7 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
       <div class="fund-detail__row"><span class="lbl">Durée</span><span class="val">jusqu'à 24 mois</span></div>
       <div class="fund-detail__row"><span class="lbl">Salaire</span><span class="val">Maintenu (Transitions Pro)</span></div>
       <div class="fund-detail__pub">Demande individuelle instruite par Transitions Pro en région. Concerne une reconversion vers un métier distinct du métier exercé.</div>
+      <a href="#" class="fund-detail__link" data-rule-tab="r3">→ Règles fonds conventionnels</a>
     </div>
     <div class="fund-detail" style="--accent:var(--alisfa-amber)">
       <h3>CPF</h3>
@@ -2991,7 +3045,28 @@ body[data-aud="negociateur"] .view-switcher button[data-view="edit"] { display: 
       <div class="fund-detail__row"><span class="lbl">Plafond</span><span class="val">Selon droits acquis</span></div>
       <div class="fund-detail__row"><span class="lbl">Durée</span><span class="val">Variable</span></div>
       <div class="fund-detail__row"><span class="lbl">Salaire</span><span class="val">Hors temps de travail (ou abondement)</span></div>
-      <div class="fund-detail__pub">Mobilisable par le salarié via moncompteformation.gouv.fr. Possible abondement employeur ou OPCO en complément de PRO-A ou PTP.</div>
+      <div class="fund-detail__pub">Mobilisable par le salarié via moncompteformation.gouv.fr. Possible abondement employeur ou OPCO en complément.</div>
+      <a href="#" class="fund-detail__link" data-rule-tab="r5">→ Règles barèmes &amp; frais annexes</a>
+    </div>
+    <div class="fund-detail" style="--accent:#5B7DAA">
+      <h3>Universités</h3>
+      <div class="fund-detail__sub">Formations diplômantes BAC+3 à BAC+8</div>
+      <div class="fund-detail__row"><span class="lbl">Niveaux</span><span class="val">Licence · Master · Doctorat</span></div>
+      <div class="fund-detail__row"><span class="lbl">Modalités</span><span class="val">Initiale · continue · alternance</span></div>
+      <div class="fund-detail__row"><span class="lbl">Financement</span><span class="val">CPF · alternance · PTP · employeur</span></div>
+      <div class="fund-detail__row"><span class="lbl">Exemples ALISFA</span><span class="val">Sciences de l'éducation, sociologie, gestion ESS</span></div>
+      <div class="fund-detail__pub">Universités proposant des cursus pertinents pour le secteur (CNAM, Paris-Cité, Lyon 2, Bordeaux, Aix-Marseille…). Reconnaissance VAE possible. Cumul fréquent avec dispositifs ALISFA.</div>
+      <a href="#" class="fund-detail__link" data-rule-tab="r6">→ Niveaux PEC diplômes</a>
+    </div>
+    <div class="fund-detail" style="--accent:#6B8E5C">
+      <h3>Écoles spécialisées ESS</h3>
+      <div class="fund-detail__sub">IRTS · IUT · EJE · IFEN · CREPS</div>
+      <div class="fund-detail__row"><span class="lbl">Public</span><span class="val">Petite enfance · animation · social</span></div>
+      <div class="fund-detail__row"><span class="lbl">Diplômes</span><span class="val">DE EJE · DEME · DEES · BPJEPS · DEJEPS</span></div>
+      <div class="fund-detail__row"><span class="lbl">Modalités</span><span class="val">Initiale · alternance · VAE</span></div>
+      <div class="fund-detail__row"><span class="lbl">Financement</span><span class="val">Apprentissage · contrat de pro · CPF · DAF certifiante</span></div>
+      <div class="fund-detail__pub">IRTS régionaux (Île-de-France, Hauts-de-France, Aquitaine…), IUT Carrières sociales, écoles d'éducateur·rices de jeunes enfants, CREPS pour BPJEPS/DEJEPS. Conventionnement OPCO Cohésion fréquent.</div>
+      <a href="#" class="fund-detail__link" data-rule-tab="r6">→ Niveaux PEC diplômes</a>
     </div>
   </div>
 </section>
@@ -5031,11 +5106,20 @@ function init() {
 function setupRulesTabs() {
   const tabs = document.querySelectorAll('.rules-tab');
   const panels = document.querySelectorAll('.rules-panel');
-  tabs.forEach(t => {
-    t.addEventListener('click', () => {
-      const target = t.dataset.rt;
-      tabs.forEach(x => x.setAttribute('aria-selected', x === t ? 'true' : 'false'));
-      panels.forEach(p => p.classList.toggle('is-active', p.id === target));
+  function activate(target) {
+    tabs.forEach(x => x.setAttribute('aria-selected', x.dataset.rt === target ? 'true' : 'false'));
+    panels.forEach(p => p.classList.toggle('is-active', p.id === target));
+  }
+  tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.rt)));
+  // Liens externes (pastille « Aide au financement », fund-detail__link, link-rule)
+  // pointant vers un onglet via data-rule-tab="rX" : scroll + activation.
+  document.querySelectorAll('[data-rule-tab]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = el.dataset.ruleTab;
+      activate(target);
+      const card = document.querySelector('.rules-card');
+      if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 }
