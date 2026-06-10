@@ -1,9 +1,15 @@
 {
-  "generated": "2026-06-10T08:58:18.460Z",
+  "generated": "2026-06-10T12:32:30.893Z",
   "source_count": 7,
   "item_count": 5,
   "note": "Agrégation automatique — sources : flux RSS/Atom publics. Aucune information privée.",
   "items": [
+    {
+      "source": "Avise",
+      "title": "Rapport d'activité 2025 de l'Avise : une année marquée par un déploiement renforcé de l'innovation sociale !",
+      "link": "https://www.avise.org/actualites/le-rapport-dactivite-2025-de-lavise",
+      "date": "2026-06-10T12:11:11.000Z"
+    },
     {
       "source": "Avise",
       "title": "Le rapport d'activité 2024 de l'Avise fait la part belle aux projets accompagnés",
@@ -27,12 +33,6 @@
       "title": "Cofinancer les actions des PTCE avec des fonds européens, comment ça fonctionne ?",
       "link": "https://www.avise.org/actualites/cofinancer-les-actions-des-ptce-avec-des-fonds-europeens-comment-ca-fonctionne",
       "date": "2023-08-25T13:52:23.000Z"
-    },
-    {
-      "source": "Avise",
-      "title": "FSE+ : 3 millions d’euros pour financer les projets d’essaimage en France !",
-      "link": "https://www.avise.org/actualites/fse-3-millions-deuros-pour-financer-les-projets-dessaimage-en-france",
-      "date": "2023-07-27T10:27:56.000Z"
     }
   ]
 }
