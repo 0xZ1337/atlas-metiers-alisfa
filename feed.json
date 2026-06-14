@@ -1,7 +1,38 @@
 {
-  "generated": "2026-06-14T22:13:59.319Z",
+  "generated": "2026-06-14T23:38:52.922Z",
   "source_count": 7,
-  "item_count": 0,
+  "item_count": 5,
   "note": "Agrégation automatique — sources : flux RSS/Atom publics. Aucune information privée.",
-  "items": []
+  "items": [
+    {
+      "source": "Avise",
+      "title": "Rapport d'activité 2025 de l'Avise : une année marquée par un déploiement renforcé de l'innovation sociale !",
+      "link": "https://www.avise.org/actualites/le-rapport-dactivite-2025-de-lavise",
+      "date": "2026-06-10T12:11:11.000Z"
+    },
+    {
+      "source": "Avise",
+      "title": "Le rapport d'activité 2024 de l'Avise fait la part belle aux projets accompagnés",
+      "link": "https://www.avise.org/actualites/decouvrez-notre-rapport-dactivite-2024",
+      "date": "2025-06-05T09:56:13.000Z"
+    },
+    {
+      "source": "Avise",
+      "title": "Découvrez notre rapport d'activité 2023 !",
+      "link": "https://www.avise.org/actualites/decouvrez-notre-rapport-dactivite-2023",
+      "date": "2024-06-11T13:36:27.000Z"
+    },
+    {
+      "source": "Avise",
+      "title": "Éducation populaire et ESS",
+      "link": "https://www.avise.org/education-populaire-et-ess-0",
+      "date": "2024-04-30T14:18:14.000Z"
+    },
+    {
+      "source": "Avise",
+      "title": "Cofinancer les actions des PTCE avec des fonds européens, comment ça fonctionne ?",
+      "link": "https://www.avise.org/actualites/cofinancer-les-actions-des-ptce-avec-des-fonds-europeens-comment-ca-fonctionne",
+      "date": "2023-08-25T13:52:23.000Z"
+    }
+  ]
 }
